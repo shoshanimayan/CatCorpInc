@@ -46,7 +46,7 @@ namespace Player
 
         public bool PlayerFired()
         {
-            return _playerControls.Player.Fire.triggered;
+            return _playerControls.Player.Fire.IsPressed();
         }
 
         public bool PlayerInteracted()

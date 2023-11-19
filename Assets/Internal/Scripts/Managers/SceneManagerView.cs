@@ -3,6 +3,8 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
+using Player;
+using UnityEngine.InputSystem.XR;
 
 namespace Managers
 {
@@ -15,7 +17,7 @@ namespace Managers
         ///  PRIVATE VARIABLES         ///
         private SceneManagerMediator _mediator;
         ///  PRIVATE METHODS           ///
-
+       
         ///  PUBLIC API                ///
 
         public void Init(SceneManagerMediator mediator)

@@ -9,7 +9,7 @@ namespace Managers
 	{
 
 		private bool _headBob=true;
-
+		private bool _canShoot = true;
 
 
 		private void SetHeadBob(bool CanHeadBob = true)
@@ -20,6 +20,13 @@ namespace Managers
 		public bool CanHeadBob() {
 			return _headBob;
 		}
+
+		private void SetCanShoot(bool canShot)
+		{		
+			_canShoot= canShot;
+		}
+
+		public bool GetCanShoot() { return _canShoot; }
 
 	}
 }

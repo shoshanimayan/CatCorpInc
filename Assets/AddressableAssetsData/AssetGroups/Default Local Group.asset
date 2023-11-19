@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: Test
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 6b8caf17edb3b574e88a98c72d96e509
+    m_Address: Assets/Internal/Prefabs/Coffee.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8e5f28bc3eff4b542b2ad9456a17a8fa, type: 2}
   m_SchemaSet:

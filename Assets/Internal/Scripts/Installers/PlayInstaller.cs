@@ -11,6 +11,7 @@ public class PlayInstaller : MonoInstaller
     {
         Container.BindMediatorView<PlayerControllerMediator, PlayerControllerView>();
         Container.BindMediatorView<HeadBobMediator, HeadBobView>();
+        Container.BindMediatorView<ShooterMediator, ShooterView>();
 
 
         Container.DeclareSignal<WalkStateChangedSignal>();
