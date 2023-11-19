@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Managers;
 
-public class MainSignals : MonoBehaviour
+namespace Signals.Core
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public class StateChangeSignal
     {
-        
+        public State ToState;
     }
 
-    // Update is called once per frame
-    void Update()
+    public class StateChangedSignal
     {
-        
+        public State ToState;
+    }
+
+    public class LoadSceneSignal
+    {
+        public State StateToLoad;
+    }
+
+    public class AudioEffectSignal
+    {
+        public string AudioEffectName;
+    }
+
+    public class StartGameSignal
+    {
+
+    }
+
+    public class EndedGameSignal
+    {
+
+    }
+
+    public class EndingGameSignal
+    {
+
     }
 }
