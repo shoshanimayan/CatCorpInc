@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
 using Managers;
+using Signals.Game;
 
 namespace Player
 {
@@ -37,7 +38,10 @@ namespace Player
 			}
 		}
 		///  PUBLIC API                ///
-
+		public void ChangeWalkState(WalkState state)
+		{
+			_signalBus.Fire(new WalkStateChangedSignal() { ToState = state });
+		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -48,6 +52,7 @@ namespace Player
 
 		public void Initialize()
 		{
+			_view.Init(this);
             _signalBus.GetStream<StateChangedSignal>()
                            .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
         }

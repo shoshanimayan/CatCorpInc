@@ -2,8 +2,12 @@ using UnityEngine;
 using Core;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
 namespace Player
 {
+    public enum WalkState {None,Walk,Run }
+
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(InputReciever))]
 
@@ -21,7 +25,10 @@ namespace Player
         private bool _groundedPlayer;
         private InputReciever _inputReciever;
         private Transform _cameraTransform;
-        
+        private PlayerControllerMediator _mediator;
+        private bool _sprinting;
+
+        private WalkState _walkState=WalkState.None;
        
 
         private void Awake()
@@ -36,8 +43,18 @@ namespace Player
 
         }
 
-        void Update()
+        private void UpdateWalkState(WalkState state) {
+            if (state != _walkState)
+            { 
+                _walkState = state;
+                _mediator.ChangeWalkState(_walkState);
+            }
+        
+        }
+
+        private void Update()
         {
+            _sprinting = _inputReciever.PlayerSprinting();
             _groundedPlayer = _controller.isGrounded;
             if (_groundedPlayer && _playerVelocity.y < 0)
             {
@@ -48,7 +65,7 @@ namespace Player
             Vector3 move= new Vector3(movement.x,0f, movement.y);
             move=_cameraTransform.forward*move.z+_cameraTransform.right*movement.x;
             move.y = 0f;
-            _controller.Move(move * Time.deltaTime * (_playerSpeed+(_inputReciever.PlayerSprinting()?_SprintSpeedBonus:0)));
+            _controller.Move(move * Time.deltaTime * (_playerSpeed+(_sprinting?_SprintSpeedBonus:0)));
 
             
 
@@ -60,6 +77,24 @@ namespace Player
 
             _playerVelocity.y += _gravityValue * Time.deltaTime;
             _controller.Move(_playerVelocity * Time.deltaTime);
+            var state = WalkState.None;
+            if (move.magnitude > 0) {
+                if (_sprinting) {
+                    state = WalkState.Run;
+                }
+                else 
+                {
+                    state = WalkState.Walk; 
+                }
+            }
+            UpdateWalkState(state);
+
+            
+        }
+
+        public void Init( PlayerControllerMediator mediator)
+        {
+            _mediator = mediator;
         }
 
     }

@@ -68,6 +68,8 @@ namespace Player
            return  _playerControls.Player.Sprint.IsPressed();
         }
 
+        
+
         ///  IMPLEMENTATION            ///
 
     }
