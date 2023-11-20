@@ -9,4 +9,9 @@ namespace Signals.Game
     {
         public WalkState ToState;
     }
+
+    public class HoveringSignal
+    {
+        public string Hovering;
+    }
 }

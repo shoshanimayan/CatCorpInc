@@ -4,24 +4,31 @@ using System.Collections;
 using System.Collections.Generic;
 namespace Gameplay
 {
-    public class InteractableView : MonoBehaviour, IView, Interactable
+    public class CollectableView : MonoBehaviour, IView, Interactable
     {
 
         ///  INSPECTOR VARIABLES       ///
 
         ///  PRIVATE VARIABLES         ///
-
+        private CollectableMediator _mediator;
+       
         ///  PRIVATE METHODS           ///
 
         ///  PUBLIC API                ///
         public void DoInteraction()
         {
-            throw new System.NotImplementedException();
+            _mediator.CollectObject();
+            gameObject.SetActive(false);
         }
 
         public void HoverOn()
         {
-            throw new System.NotImplementedException();
         }
+
+        public void Init(CollectableMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
     }
 }

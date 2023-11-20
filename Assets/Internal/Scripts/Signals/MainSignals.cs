@@ -40,4 +40,18 @@ namespace Signals.Core
     {
 
     }
+
+    public class ObjectiveCompleteSignal 
+    {
+        public int Objective;
+    }
+
+    public class ObjectiveCompletedSignal
+    {
+        public int Objective;
+    }
+
+    public class GotCollectableSignal
+    {
+    }
 }

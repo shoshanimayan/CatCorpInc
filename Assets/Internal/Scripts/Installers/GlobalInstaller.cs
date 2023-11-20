@@ -1,6 +1,8 @@
 using Managers;
 using Player;
 using Signals.Core;
+using Signals.Game;
+
 using UnityEngine;
 using Utility;
 using Zenject;
@@ -19,7 +21,9 @@ public class GlobalInstaller : MonoInstaller
         Container.DeclareSignal<StartGameSignal>();
         Container.DeclareSignal<EndingGameSignal>();
         Container.DeclareSignal<EndedGameSignal>();
-
+        Container.DeclareSignal<GotCollectableSignal>();
+        Container.DeclareSignal<ObjectiveCompleteSignal>();
+        Container.DeclareSignal<ObjectiveCompletedSignal>();
 
         //binding
         Container.Bind<StateManager>().AsSingle();
