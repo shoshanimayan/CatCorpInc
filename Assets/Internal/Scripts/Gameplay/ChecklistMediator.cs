@@ -5,6 +5,10 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Signals.Game;
+using Signals.Core;
+using System.Linq;
+
 namespace Gameplay
 {
 	public class ChecklistMediator: MediatorBase<ChecklistView>, IInitializable, IDisposable
@@ -13,11 +17,21 @@ namespace Gameplay
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-
+		private int _objectiveCount = 0;
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
+		private void OnObjectiveCompleted( Objective obj)
+		{
 
+			if (_view.GetObjectives().Contains(obj))
+			{
+				_objectiveCount--;
+				_view.RemoveObjective(obj);
+				_signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
+			}
+		
+		}
 		///  PUBLIC API                ///
 
 		///  IMPLEMENTATION            ///
@@ -30,8 +44,10 @@ namespace Gameplay
 
 		public void Initialize()
 		{
-
-		}
+			_objectiveCount=_view.GetObjectives().Length;
+            _signalBus.GetStream<ObjectiveCompleteSignal>()
+             .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

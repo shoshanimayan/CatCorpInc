@@ -5,11 +5,9 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Signals.Core;
-
-namespace Gameplay
+namespace Managers
 {
-	public class InteractableMediator: MediatorBase<InteractableView>, IInitializable, IDisposable
+	public class GameManagerMediator: MediatorBase<GameManagerView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -21,9 +19,6 @@ namespace Gameplay
 		///  LISTNER METHODS           ///
 
 		///  PUBLIC API                ///
-		public void CompleteObjective(Objective objective) {
-			_signalBus.Fire(new ObjectiveCompleteSignal() { Objective = objective });
-		}
 
 		///  IMPLEMENTATION            ///
 
@@ -35,7 +30,7 @@ namespace Gameplay
 
 		public void Initialize()
 		{
-			_view.Initializer(this);
+
 		}
 
 		public void Dispose()

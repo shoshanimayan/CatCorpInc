@@ -7,7 +7,7 @@ namespace Managers
 {
 	public class GameSettings
 	{
-
+		//gameplay settings
 		private bool _headBob=true;
 		private bool _canShoot = true;
 
@@ -27,6 +27,9 @@ namespace Managers
 		}
 
 		public bool GetCanShoot() { return _canShoot; }
+
+
+		
 
 	}
 }
