@@ -14,11 +14,9 @@ namespace Gameplay
         [SerializeField] float _deathTime = 2.5f;
         
         ///  PRIVATE VARIABLES         ///
-        private bool _dead = false;
         ///  PRIVATE METHODS           ///
         private void OnCollisionEnter(Collision collision)
         {
-            _dead = true;
             Destroy(gameObject);
         }
 
