@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 namespace Ui
 {
+    [RequireComponent(typeof(RectTransform))]
 	public class NotificationView: MonoBehaviour,IView
 	{
 
@@ -16,12 +17,12 @@ namespace Ui
 		[SerializeField] private float _yOffset;
         [SerializeField]private  float _popupTime;
         [SerializeField] private float _notificationTime;
-
+        [SerializeField] private RectTransform _offset;
         ///  PRIVATE VARIABLES         ///
         private Vector2 _origin;
         private NotificationMediator _mediator;
         private RectTransform _notificationRectTransform;
-        private Vector2 _offsetVector;
+        
 
         ///  PRIVATE METHODS           /// <summary>
 		private void OnValidate()
@@ -34,13 +35,10 @@ namespace Ui
         }
         private void Awake()
         {
-            Debug.Log(_notificationRectTransform);
 
             _notificationRectTransform = GetComponent<RectTransform>();
-            Debug.Log(_notificationRectTransform.position);
             _origin = _notificationRectTransform.position;
-            _offsetVector = _origin;
-            _offsetVector.y += _yOffset;
+           
 
         }
         ///  PUBLIC API                ///
@@ -51,7 +49,7 @@ namespace Ui
 
 		public void Notify()
 		{
-            DOTween.Sequence().Append(_notificationRectTransform.DOMove(_offsetVector,_popupTime))
+            DOTween.Sequence().Append(_notificationRectTransform.DOMove(_offset.position,_popupTime))
                 .AppendInterval(_notificationTime)
                 .Append(_notificationRectTransform.DOMove(_origin, _popupTime)).AppendCallback(()=>_mediator.CheckForCompletetion()).SetId("notification");
 
