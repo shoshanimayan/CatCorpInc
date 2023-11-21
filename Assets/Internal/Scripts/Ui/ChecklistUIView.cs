@@ -38,7 +38,6 @@ namespace Ui
                 list.Add(ui);
 
             }
-            Debug.Log(list.Count);
             _objectives = list.ToArray();
         }
 
@@ -49,7 +48,6 @@ namespace Ui
 
                 if (obj.ObjectiveEquals(objective))
                 {
-                    Debug.Log("2");
                     obj.Completed();
                     return;
                 }

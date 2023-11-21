@@ -28,7 +28,6 @@ namespace Ui
 
 		private void OnObjectiveCompleted(Objective objective)
 		{
-			Debug.Log(1);
 			_view.completeObjectiveUI(objective);
 		}
 

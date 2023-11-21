@@ -68,15 +68,14 @@ namespace Player
 
             Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
 
-            Vector3 forceDirection = _cam.forward;
+            Vector3 forceDirection = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0)).direction;
 
             RaycastHit hit;
 
-           // if (Physics.Raycast(_cam.position, _cam.forward, out hit, 500f))
-           // {
-            //    forceDirection = (hit.point - _attackPoint.position).normalized;
-            //}
-            Debug.Log(forceDirection);
+            if (Physics.Raycast(_cam.position, _cam.forward, out hit, 500f))
+            {
+                forceDirection = (hit.point - _attackPoint.position).normalized;
+            }
             Vector3 forceToAdd = forceDirection  * _throwForce + transform.up * _throwUpwardForce;
 
             projectileRB.AddForce(forceToAdd, ForceMode.Impulse);
