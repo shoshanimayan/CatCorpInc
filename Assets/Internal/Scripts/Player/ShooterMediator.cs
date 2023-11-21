@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using Signals.Core;
 
 namespace Player
 {
@@ -17,13 +18,17 @@ namespace Player
 		///  PRIVATE VARIABLES         ///
 		private bool _canShoot;
 		///  PRIVATE METHODS           ///
-
-		///  LISTNER METHODS           ///
-
-		///  PUBLIC API                ///
-		public bool GetCanShoot()
+		private State _currentState;
+        ///  LISTNER METHODS           ///
+        private void OnStateChanged(State state)
+        {
+            _currentState = state;
+            
+        }
+        ///  PUBLIC API                ///
+        public bool GetCanShoot()
 		{ 
-			return _canShoot;
+			return _gameSettings.GetCanShoot() && _currentState==State.Play;
 		}
 		///  IMPLEMENTATION            ///
 
@@ -40,7 +45,9 @@ namespace Player
 		{
 			_canShoot = _gameSettings.GetCanShoot();
 			_view.Init(this);
-		}
+            _signalBus.GetStream<StateChangedSignal>()
+                      .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

@@ -72,11 +72,11 @@ namespace Player
 
             RaycastHit hit;
 
-            if (Physics.Raycast(_cam.position, _cam.forward, out hit, 500f))
-            {
-                forceDirection = (hit.point - _attackPoint.position).normalized;
-            }
-
+           // if (Physics.Raycast(_cam.position, _cam.forward, out hit, 500f))
+           // {
+            //    forceDirection = (hit.point - _attackPoint.position).normalized;
+            //}
+            Debug.Log(forceDirection);
             Vector3 forceToAdd = forceDirection  * _throwForce + transform.up * _throwUpwardForce;
 
             projectileRB.AddForce(forceToAdd, ForceMode.Impulse);
