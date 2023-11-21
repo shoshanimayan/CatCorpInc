@@ -18,7 +18,7 @@ namespace Ui
 
 
         ///  PRIVATE VARIABLES         ///
-
+        private Objective _objective;
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
@@ -28,11 +28,17 @@ namespace Ui
         { 
             _name.text = obj.Name;
             _description.text = obj.Description;
+            _objective = obj;
         }
 
         public void Completed()
         { 
             _checkSpot.sprite = _checkmark;
+        }
+
+        public bool ObjectiveEquals(Objective objective)
+        {
+            return objective == _objective;
         }
         ///  IMPLEMENTATION            ///
 

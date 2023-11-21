@@ -11,7 +11,7 @@ public class CameraPOVExtension : CinemachineExtension
     [SerializeField] private float _horizontalSpeed = 10f;
     [SerializeField] private float _verticalSpeed = 10f;
     [SerializeField]private Vector3 _startingRotation;
-
+    
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class CameraPOVExtension : CinemachineExtension
 
     protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        if (vcam.Follow)
+        if (vcam.Follow && _inputReciever.IsPlaying())
         {
             if (stage == CinemachineCore.Stage.Aim)
             {

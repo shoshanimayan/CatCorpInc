@@ -41,7 +41,10 @@ namespace Gameplay
 			}
 		}
 		///  PUBLIC API                ///
-
+		public void InitializeObjectiveMenu(Objective[] objectives)
+		{
+            _signalBus.Fire(new ObjectiveListSignal() { Objectives = objectives });
+        }
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -52,11 +55,13 @@ namespace Gameplay
 
 		public void Initialize()
 		{
+			_view.Initilize(this);
 			_objectiveCount=_view.GetObjectives().Length;
             _signalBus.GetStream<ObjectiveCompleteSignal>()
              .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
             _signalBus.GetStream<ChecklistCompletionCheck>()
              .Subscribe(x => CheckForCompletion()).AddTo(_disposables);
+			
         }
 
 		public void Dispose()

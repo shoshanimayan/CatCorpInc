@@ -8,7 +8,7 @@ using Signals.Core;
 
 namespace Managers
 {
-    public enum State { Menu, Play, Loading, Text,Paused }
+    public enum State { Menu, Play, Loading, Text,Paused,Objective }
     public class StateManager : IDisposable
     {
 
@@ -23,6 +23,7 @@ namespace Managers
 
         private void OnStateChanged(StateChangeSignal signal)
         {
+            Debug.Log(signal.ToState);
             SetState(signal.ToState);
         }
 

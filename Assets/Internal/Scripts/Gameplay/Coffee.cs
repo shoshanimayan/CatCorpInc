@@ -17,6 +17,7 @@ namespace Gameplay
         ///  PRIVATE METHODS           ///
         private void OnCollisionEnter(Collision collision)
         {
+            Debug.Log(collision.collider.gameObject);
             Destroy(gameObject);
         }
 

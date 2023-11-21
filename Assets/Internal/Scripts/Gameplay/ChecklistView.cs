@@ -11,12 +11,26 @@ namespace Gameplay
 
 		///  INSPECTOR VARIABLES       ///
 		[SerializeField] private Objective[] _objectives;
-		///  PRIVATE VARIABLES         ///
+        ///  PRIVATE VARIABLES         ///
+		private ChecklistMediator _mediator;
+        ///  PRIVATE METHODS           ///
+        private void Awake()
+        {
+            
+        }
 
-		///  PRIVATE METHODS           ///
+        private void Start()
+        {
+            _mediator.InitializeObjectiveMenu(_objectives);
 
-		///  PUBLIC API                ///
-		public Objective[] GetObjectives() { return _objectives; }
+        }
+
+        ///  PUBLIC API                ///
+        public Objective[] GetObjectives() { return _objectives; }
+
+		public void Initilize( ChecklistMediator mediator) { 
+			_mediator = mediator;
+		}
 
 		public void RemoveObjective(Objective obj)
 		{

@@ -28,7 +28,6 @@ namespace Ui
 			switch (state) {
 				case State.Play: 
 					_playCanvas.enabled = true;
-					_objectiveCanvas.enabled = true;
 					break;
 				case State.Paused:
 					_pauseCanvas.enabled = true;
@@ -36,7 +35,9 @@ namespace Ui
 				case State.Text: 
 					_readerCanvas.enabled = true;
 					break;
-
+				case State.Objective:
+					_objectiveCanvas.enabled = true;
+					break;
 			}
 		}
 	}

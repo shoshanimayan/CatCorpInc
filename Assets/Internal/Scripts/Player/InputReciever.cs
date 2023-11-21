@@ -10,7 +10,7 @@ namespace Player
 
 		///  PRIVATE VARIABLES         ///
 		private PlayerControls _playerControls;
-
+        private bool _isPlaying = false;
         ///  PRIVATE METHODS           ///
         private void Awake()
         {
@@ -68,7 +68,17 @@ namespace Player
            return  _playerControls.Player.Sprint.IsPressed();
         }
 
-        
+        public bool IsPlaying()
+        {
+            return _isPlaying;
+        }
+
+        public void SetIsPlaying(bool isPlaying)
+        {
+            _isPlaying = isPlaying;
+        }
+
+
 
         ///  IMPLEMENTATION            ///
 

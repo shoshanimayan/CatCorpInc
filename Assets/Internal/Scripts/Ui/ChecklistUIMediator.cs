@@ -5,6 +5,10 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Signals.Game;
+using Signals.Core;
+using Managers;
+
 namespace Ui
 {
 	public class ChecklistUIMediator: MediatorBase<ChecklistUIView>, IInitializable, IDisposable
@@ -17,12 +21,23 @@ namespace Ui
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
+		private void OnRecieveObjectives(Objective[] objectives)
+		{
+			_view.SetObjectives(objectives);		
+		}
 
-		///  PUBLIC API                ///
+		private void OnObjectiveCompleted(Objective objective)
+		{
+			Debug.Log(1);
+			_view.completeObjectiveUI(objective);
+		}
 
-		///  IMPLEMENTATION            ///
+		
+        ///  PUBLIC API                ///
 
-		[Inject]
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
 
@@ -30,8 +45,13 @@ namespace Ui
 
 		public void Initialize()
 		{
-
-		}
+            _signalBus.GetStream<ObjectiveListSignal>()
+            .Subscribe(x => OnRecieveObjectives(x.Objectives)).AddTo(_disposables);
+            _signalBus.GetStream<ObjectiveCompletedSignal>()
+            .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
+           // _signalBus.GetStream<StateChangedSignal>()
+           //               .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

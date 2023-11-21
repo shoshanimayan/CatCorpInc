@@ -20,4 +20,9 @@ namespace Signals.Game
     {
         
     }
+
+    public class ObjectiveListSignal
+    {
+        public Objective[] Objectives;
+    }
 }

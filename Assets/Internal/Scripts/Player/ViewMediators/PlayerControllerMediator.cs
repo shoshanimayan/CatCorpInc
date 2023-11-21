@@ -17,14 +17,26 @@ namespace Player
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-
+		private bool _canInput;
+		private State _currentState;
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
-			Debug.Log(state);
-			switch (state)
+			_currentState = state;
+			if (state == State.Play)
+			{ 
+				_canInput = true;
+				_view.EnableInputPlay(true);
+			}	
+			else
+			{
+				_canInput= false;
+                _view.EnableInputPlay(false);
+
+            }
+            switch (state)
 			{
 				case State.Play:
                     Cursor.lockState = CursorLockMode.Locked;
@@ -35,13 +47,49 @@ namespace Player
 				case State.Paused:
                     Cursor.lockState = CursorLockMode.Confined;
                     break;
-			}
+                case State.Objective:
+                    Cursor.lockState = CursorLockMode.Confined;
+                    break;
+            }
 		}
 		///  PUBLIC API                ///
 		public void ChangeWalkState(WalkState state)
 		{
 			_signalBus.Fire(new WalkStateChangedSignal() { ToState = state });
 		}
+
+		public bool CanReadInput()
+		{
+			return _canInput;
+		}
+
+		public void TogglePauseMenu()
+		{
+
+			if (_currentState == State.Paused)
+			{
+				_signalBus.Fire(new StateChangeSignal() { ToState=State.Play });
+			}
+            else if (_currentState == State.Play)
+            {
+                _signalBus.Fire(new StateChangeSignal() { ToState = State.Paused });
+
+            }
+        }
+
+		public void ToggleObjectiveMode()
+		{
+            if (_currentState == State.Objective)
+            {
+                _signalBus.Fire(new StateChangeSignal() { ToState = State.Play });
+            }
+            else if(_currentState==State.Play)
+            {
+                _signalBus.Fire(new StateChangeSignal() { ToState = State.Objective });
+
+            }
+        }
+
 		///  IMPLEMENTATION            ///
 
 		[Inject]

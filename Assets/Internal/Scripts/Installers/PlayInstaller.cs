@@ -18,6 +18,7 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<CrosshairMediator, CrosshairView>();
         Container.BindMediatorView<NotificationMediator, NotificationView>();
         Container.BindMediatorView<ChecklistMediator, ChecklistView>();
+        Container.BindMediatorView<ChecklistUIMediator, ChecklistUIView>();
         Container.BindMediatorView<GameUIManagerMediator, GameUIManagerView>();
         Container.BindMediatorView<GameManagerMediator, GameManagerView>();
 
@@ -27,6 +28,7 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<WalkStateChangedSignal>();
         Container.DeclareSignal<HoveringSignal>();
         Container.DeclareSignal<ChecklistCompletionCheck>();
+        Container.DeclareSignal<ObjectiveListSignal>();
 
 
     }
