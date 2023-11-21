@@ -8,7 +8,7 @@ namespace Gameplay
     {
 
         ///  INSPECTOR VARIABLES       ///
-
+        
         ///  PRIVATE VARIABLES         ///
         private CollectableMediator _mediator;
        

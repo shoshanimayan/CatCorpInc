@@ -10,6 +10,7 @@ namespace Managers
 		//gameplay settings
 		private bool _headBob=true;
 		private bool _canShoot = true;
+		private bool _ended = false;
 
 
 		private void SetHeadBob(bool CanHeadBob = true)
@@ -29,7 +30,8 @@ namespace Managers
 		public bool GetCanShoot() { return _canShoot; }
 
 
-		
+		public void SetEnded(bool ended) { _ended = ended; }
+		public bool GetEnded() { return _ended;}
 
 	}
 }

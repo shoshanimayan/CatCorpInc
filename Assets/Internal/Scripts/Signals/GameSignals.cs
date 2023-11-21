@@ -14,4 +14,10 @@ namespace Signals.Game
     {
         public string Hovering;
     }
+
+
+    public class ChecklistCompletionCheck
+    {
+        
+    }
 }

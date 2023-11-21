@@ -5,24 +5,30 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Signals.Core;
+using Managers;
+
 namespace Ui
 {
 	public class GameUIManagerMediator: MediatorBase<GameUIManagerView>, IInitializable, IDisposable
 	{
 
-		///  INSPECTOR VARIABLES       ///
+        ///  INSPECTOR VARIABLES       ///
 
-		///  PRIVATE VARIABLES         ///
+        ///  PRIVATE VARIABLES         ///
 
-		///  PRIVATE METHODS           ///
+        ///  PRIVATE METHODS           ///
 
-		///  LISTNER METHODS           ///
+        ///  LISTNER METHODS           ///
+        private void OnStateChanged(State state)
+        {
+            _view.SetCanvas(state);
+        }
+        ///  PUBLIC API                ///
 
-		///  PUBLIC API                ///
+        ///  IMPLEMENTATION            ///
 
-		///  IMPLEMENTATION            ///
-
-		[Inject]
+        [Inject]
 
 		private SignalBus _signalBus;
 
@@ -30,8 +36,9 @@ namespace Ui
 
 		public void Initialize()
 		{
-
-		}
+            _signalBus.GetStream<StateChangeSignal>()
+                       .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

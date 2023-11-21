@@ -32,6 +32,14 @@ namespace Gameplay
 			}
 		
 		}
+
+		private void CheckForCompletion()
+		{
+			if (_objectiveCount==0)
+			{
+				Debug.Log("win");
+			}
+		}
 		///  PUBLIC API                ///
 
 		///  IMPLEMENTATION            ///
@@ -47,6 +55,8 @@ namespace Gameplay
 			_objectiveCount=_view.GetObjectives().Length;
             _signalBus.GetStream<ObjectiveCompleteSignal>()
              .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
+            _signalBus.GetStream<ChecklistCompletionCheck>()
+             .Subscribe(x => CheckForCompletion()).AddTo(_disposables);
         }
 
 		public void Dispose()

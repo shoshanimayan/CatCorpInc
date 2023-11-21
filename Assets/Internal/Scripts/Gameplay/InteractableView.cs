@@ -3,6 +3,7 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using DG.Tweening;
 
 namespace Gameplay
 {
@@ -12,6 +13,7 @@ namespace Gameplay
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private Objective _objective;
         [SerializeField] private UnityEvent _event=null;
+        [SerializeField] private float _delay;
         ///  PRIVATE VARIABLES         ///
 
         ///  PRIVATE METHODS           ///
@@ -19,11 +21,29 @@ namespace Gameplay
         ///  PUBLIC API                ///
         public void DoInteraction()
         {
-            if (_event != null)
-            { 
-                _event.Invoke();
-            }
-            _mediator.CompleteObjective(_objective);
+            DOTween.Sequence().AppendCallback(() =>
+            {
+                if (_event != null)
+                {
+                    _event.Invoke();
+                }
+                else
+                { 
+                    gameObject.GetComponent<MeshRenderer>().enabled = false;
+                    gameObject.GetComponent<Collider>().enabled = false;
+                }
+            }).AppendInterval(_delay).AppendCallback
+            (() =>
+            {
+                if (_objective != null)
+                {
+                    _mediator.CompleteObjective(_objective);
+
+                }
+            });
+
+           
+          
             
         }
 
