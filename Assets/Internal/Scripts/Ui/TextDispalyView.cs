@@ -2,18 +2,29 @@ using UnityEngine;
 using Core;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+
 namespace Ui
 {
 	public class TextDispalyView: MonoBehaviour,IView
 	{
 
-		///  INSPECTOR VARIABLES       ///
+        ///  INSPECTOR VARIABLES       ///
+        [SerializeField] private TextMeshProUGUI _name;
+        [SerializeField] private TextMeshProUGUI _textField;
+        ///  PRIVATE VARIABLES         ///
 
-		///  PRIVATE VARIABLES         ///
+        ///  PRIVATE METHODS           ///
 
-		///  PRIVATE METHODS           ///
+        ///  PUBLIC API                ///
+        public void SetName(string name)
+        { 
+            _name.text = name;
+        }
 
-		///  PUBLIC API                ///
-
-	}
+        public void SetText(string text)
+        { 
+            _textField.text = text;
+        }
+    }
 }

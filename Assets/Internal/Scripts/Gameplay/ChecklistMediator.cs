@@ -59,7 +59,7 @@ namespace Gameplay
 			_objectiveCount=_view.GetObjectives().Length;
             _signalBus.GetStream<ObjectiveCompleteSignal>()
              .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
-            _signalBus.GetStream<ChecklistCompletionCheck>()
+            _signalBus.GetStream<ChecklistCompletionCheckSignal>()
              .Subscribe(x => CheckForCompletion()).AddTo(_disposables);
 			
         }

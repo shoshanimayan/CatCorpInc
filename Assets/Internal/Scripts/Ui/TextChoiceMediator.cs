@@ -5,12 +5,13 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Signals.Core;
 using Signals.Game;
-using Gameplay;
+
 
 namespace Ui
 {
-	public class TextDispalyMediator: MediatorBase<TextDispalyView>, IInitializable, IDisposable
+	public class TextChoiceMediator: MediatorBase<TextChoiceView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -18,15 +19,17 @@ namespace Ui
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
-
-		///  LISTNER METHODS           ///
-		private void OnRecievedText(TextObject text)
+		private void OnRecievedChoices(string[] choices)
 		{ 
-			_view.SetName(text.Name);
-			_view.SetText(text.BodyText);
+			_view.SetChoices(choices);
 		}
-		///  PUBLIC API                ///
+		///  LISTNER METHODS           ///
 
+		///  PUBLIC API                ///
+		public void SendChoice(int choice)
+		{
+			_signalBus.Fire(new ChoiceSendSignal() { Choice = choice });
+		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -37,8 +40,9 @@ namespace Ui
 
 		public void Initialize()
 		{
-            _signalBus.GetStream<SendTextSignal>()
-           .Subscribe(x => OnRecievedText(x.Text)).AddTo(_disposables);
+			_view.Init(this);
+            _signalBus.GetStream<ChoiceListSignal>()
+                          .Subscribe(x => OnRecievedChoices(x.Choices)).AddTo(_disposables);
         }
 
 		public void Dispose()

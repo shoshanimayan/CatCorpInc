@@ -41,7 +41,7 @@ namespace Ui
 
         public void CheckForCompletetion()
 		{
-			_signalBus.Fire(new ChecklistCompletionCheck());
+			_signalBus.Fire(new ChecklistCompletionCheckSignal());
 		}
 
 		///  IMPLEMENTATION            ///

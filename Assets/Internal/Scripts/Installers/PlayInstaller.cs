@@ -11,6 +11,7 @@ public class PlayInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
+        //binding
         Container.BindMediatorView<PlayerControllerMediator, PlayerControllerView>();
         Container.BindMediatorView<HeadBobMediator, HeadBobView>();
         Container.BindMediatorView<ShooterMediator, ShooterView>();
@@ -21,14 +22,27 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<ChecklistUIMediator, ChecklistUIView>();
         Container.BindMediatorView<GameUIManagerMediator, GameUIManagerView>();
         Container.BindMediatorView<GameManagerMediator, GameManagerView>();
+        Container.BindMediatorView<ReaderMediator, ReaderView>();
+        Container.BindMediatorView<TextDispalyMediator, TextDispalyView>();
+        Container.BindMediatorView<TextChoiceMediator, TextChoiceView>();
 
 
-
-
+        //signals
         Container.DeclareSignal<WalkStateChangedSignal>();
         Container.DeclareSignal<HoveringSignal>();
-        Container.DeclareSignal<ChecklistCompletionCheck>();
+        Container.DeclareSignal<ChecklistCompletionCheckSignal>();
         Container.DeclareSignal<ObjectiveListSignal>();
+        Container.DeclareSignal<ChoiceListSignal>();
+        Container.DeclareSignal<ChoiceSendSignal>();
+        Container.DeclareSignal<SendTextSignal>();
+        Container.DeclareSignal<SendTextAssetSignal>();
+        Container.DeclareSignal<ChangeReadStateSignal>();
+        Container.DeclareSignal<ChangedReadStateSignal>();
+        Container.DeclareSignal<ProgressReaderSignal>();
+
+
+
+
 
 
     }
