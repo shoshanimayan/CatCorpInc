@@ -25,8 +25,8 @@ namespace Gameplay
 
 
 		///  INSPECTOR VARIABLES       ///
-		[SerializeField] private Canvas _TextDisplayCanvas;
-        [SerializeField] private Canvas _TextChoiceCanvas;
+		[SerializeField] private GameObject _TextDisplayPanel;
+        [SerializeField] private GameObject _TextChoicePanel;
 
         ///  PRIVATE VARIABLES         ///
         private ReaderMediator _mediator;
@@ -40,15 +40,15 @@ namespace Gameplay
 
         public void SetReadUI(ReadState state)
         {
-            _TextDisplayCanvas.enabled = false;
-            _TextChoiceCanvas.enabled=false;
+            _TextDisplayPanel.SetActive( false);
+            _TextChoicePanel.SetActive(false);
             switch (state)
             {
                 case ReadState.Text:
-                    _TextDisplayCanvas.enabled = true;
+                    _TextDisplayPanel.SetActive(true);
                     break;
                 case ReadState.Choice:
-                    _TextChoiceCanvas.enabled = true;
+                    _TextChoicePanel.SetActive(true);
                     break;
 
 
