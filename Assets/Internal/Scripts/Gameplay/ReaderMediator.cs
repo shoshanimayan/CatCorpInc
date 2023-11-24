@@ -80,9 +80,17 @@ namespace Gameplay
         }
 		///  PUBLIC API                ///
 		public ReadState GetState() { return _readState; }
-		///  IMPLEMENTATION            ///
 
-		[Inject]
+
+		public void SendProgressReader()
+		{
+            _signalBus.Fire(new ProgressReaderSignal());
+
+        }
+
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
 
@@ -90,6 +98,7 @@ namespace Gameplay
 
 		public void Initialize()
 		{
+			_view.Init(this);
             _signalBus.GetStream<ChangeReadStateSignal>()
                          .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
             _signalBus.GetStream<SendTextAssetSignal>()

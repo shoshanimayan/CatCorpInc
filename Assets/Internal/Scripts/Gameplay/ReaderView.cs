@@ -31,7 +31,11 @@ namespace Gameplay
         }
 
 
-       
+
+        public void ProgressReader()
+        { 
+            _mediator.SendProgressReader();
+        }
 
         public void SetReadUI(ReadState state)
         {
