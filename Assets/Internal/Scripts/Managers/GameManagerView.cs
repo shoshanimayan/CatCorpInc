@@ -16,7 +16,7 @@ namespace Managers
         ///  PRIVATE METHODS           ///
         private void Start()
         {
-            _mediator.StartIntro(_intro.Json);
+            _mediator.StartIntro(_intro);
 
         }
         ///  PUBLIC API                ///

@@ -7,6 +7,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
 using Signals.Game;
+using ScriptableObjects;
+
 namespace Managers
 {
 	public class GameManagerMediator: MediatorBase<GameManagerView>, IInitializable, IDisposable
@@ -21,10 +23,10 @@ namespace Managers
 		///  LISTNER METHODS           ///
 
 		///  PUBLIC API                ///
-		public void StartIntro( TextAsset intro) 
+		public void StartIntro( TextStep intro) 
 		{
 			Debug.Log(1);
-			_signalBus.Fire(new SendTextAssetSignal() { TextAsset=intro });
+			_signalBus.Fire(new SendTextStepSignal() { TextStep=intro });
 
 		}
 		///  IMPLEMENTATION            ///

@@ -54,12 +54,12 @@ namespace Player
 
         private void Update()
         {
-            if(_inputReciever.PlayerToggledObjective())
+            if(_inputReciever.PlayerToggledObjective() && (_mediator.GetCurrentState() == Managers.State.Play || _mediator.GetCurrentState() == Managers.State.Objective))
             {
 
                 _mediator.ToggleObjectiveMode();
             }
-            if (_inputReciever.PlayerPause() && (_mediator.GetCurrentState()==Managers.State.Play|| _mediator.GetCurrentState() == Managers.State.Objective))
+            if (_inputReciever.PlayerPause() )
             { 
                 _mediator.TogglePauseMenu();
             }

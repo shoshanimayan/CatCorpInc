@@ -14,12 +14,23 @@ namespace ScriptableObjects
         [SerializeField] private bool _startNextEntryOnCompletion;
         [SerializeField] private bool _completeGoalOnCompletion;
         ///  PRIVATE VARIABLES         ///
-
+        private TextStep _nextStep;
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
 
         ///  PUBLIC API   
+        public void SetNextStep(TextStep nextStep)
+        {   
+            _nextStep = nextStep;
+        }
+
+        public TextStep GetNextStep()
+        { 
+            return _nextStep;
+        }
+
+
         public Objective Objective;
 
         public TextAsset Json { get { return _json; } }

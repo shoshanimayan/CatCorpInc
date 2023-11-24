@@ -31,14 +31,14 @@ namespace Ui
 
         private void HandlePageTransition()
         {
-            if (_view.GetTotalPages() > _page)
+            if (_view.GetTotalPages()-1 > _page)
             {
                 _page++;
                 _view.IncrementPage();
             }
             else
             {
-
+                _signalBus.Fire(new FinishStepSignal());
             }
 
         }

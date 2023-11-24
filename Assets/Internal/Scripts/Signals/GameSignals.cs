@@ -1,5 +1,6 @@
 using Gameplay;
 using Player;
+using ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -57,12 +58,14 @@ namespace Signals.Game
        public  ReadState ReadState;
     }
 
-    public class SendTextAssetSignal {
-        public TextAsset TextAsset;
+    public class SendTextStepSignal {
+        public TextStep TextStep;
     }
 
 
     public class ProgressReaderSignal { }
+
+    public class FinishStepSignal { }
 
 
 }

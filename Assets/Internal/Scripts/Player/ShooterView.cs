@@ -54,6 +54,8 @@ namespace Player
 
         }
 
+
+
         private async void DoCoolDownTimer()
         {
             await Task.Delay((int)(_coolDownSeconds * 1000));
@@ -97,8 +99,11 @@ namespace Player
                 Throw();
             }
 
+        }
 
-
+        public void ForceCoolDown()
+        {
+            _cooledDown = false;
         }
     }
 }

@@ -35,10 +35,11 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<ChoiceListSignal>();
         Container.DeclareSignal<ChoiceSendSignal>();
         Container.DeclareSignal<SendTextSignal>();
-        Container.DeclareSignal<SendTextAssetSignal>();
+        Container.DeclareSignal<SendTextStepSignal>();
         Container.DeclareSignal<ChangeReadStateSignal>();
         Container.DeclareSignal<ChangedReadStateSignal>();
         Container.DeclareSignal<ProgressReaderSignal>();
+        Container.DeclareSignal<FinishStepSignal>();
 
 
 

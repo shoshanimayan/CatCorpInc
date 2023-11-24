@@ -23,6 +23,7 @@ namespace Player
         private void OnStateChanged(State state)
         {
             _currentState = state;
+			_view.ForceCoolDown();
             
         }
         ///  PUBLIC API                ///
