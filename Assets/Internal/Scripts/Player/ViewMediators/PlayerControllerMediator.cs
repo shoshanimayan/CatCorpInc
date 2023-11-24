@@ -63,6 +63,12 @@ namespace Player
 			return _canInput;
 		}
 
+		public void ProgressReader()
+		{
+
+			_signalBus.Fire(new ProgressReaderSignal());
+		}
+
 		public void TogglePauseMenu()
 		{
 
@@ -89,6 +95,8 @@ namespace Player
 
             }
         }
+
+		public State GetCurrentState() { return _currentState; }
 
 		///  IMPLEMENTATION            ///
 

@@ -23,6 +23,7 @@ namespace Managers
 		///  PUBLIC API                ///
 		public void StartIntro( TextAsset intro) 
 		{
+			Debug.Log(1);
 			_signalBus.Fire(new SendTextAssetSignal() { TextAsset=intro });
 
 		}

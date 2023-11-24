@@ -6,6 +6,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals.Game;
+using Signals.Core;
+using System.Xml;
 
 namespace Gameplay
 {
@@ -38,16 +40,19 @@ namespace Gameplay
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-		ReadState _readState = ReadState.Text;
+		private ReadState _readState = ReadState.Null;
 		///  PRIVATE METHODS           ///
 
 
+		
 		
 
 		///  LISTNER METHODS           ///
 		private void OnReadStateChanged(ReadState readstate)
 		{
-			if (readstate != _readState)
+            Debug.Log(3);
+
+            if (readstate != _readState)
 			{
 				_readState = readstate;
 				_view.SetReadUI(readstate);
@@ -55,7 +60,10 @@ namespace Gameplay
 		}
 
 		private void OnReceiveTextAsset(TextAsset textAsset)
-		{ 
+		{
+            Debug.Log(2);
+
+            _signalBus.Fire(new StateChangeSignal() { ToState= Managers.State.Text});
 			TextEntry entry = JsonUtility.FromJson<TextEntry>(textAsset.text);
             switch (entry.Type)
             {

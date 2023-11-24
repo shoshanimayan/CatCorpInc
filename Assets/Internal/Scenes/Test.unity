@@ -796,9 +796,9 @@ MonoBehaviour:
   m_fontSize: 26
   m_fontSizeBase: 26
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 26
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -811,7 +811,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 5
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -280.39587, y: 0, z: -282.1477, w: -93.097725}
+  m_margin: {x: -280.39587, y: 0, z: -282.1477, w: -78.87264}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -881,7 +881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 25.8}
+  m_AnchoredPosition: {x: 0, y: 47.5}
   m_SizeDelta: {x: -350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &294619724
@@ -1442,7 +1442,6 @@ GameObject:
   - component: {fileID: 737412803}
   - component: {fileID: 737412802}
   - component: {fileID: 737412801}
-  - component: {fileID: 737412804}
   m_Layer: 3
   m_Name: ReaderCanvas
   m_TagString: Untagged
@@ -1505,7 +1504,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1533,20 +1532,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &737412804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737412799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ed0189680f94fc41898af1a5a71d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _TextDisplayPanel: {fileID: 988949776}
-  _TextChoicePanel: {fileID: 645666032}
 --- !u!1 &758407326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,9 +1940,9 @@ MonoBehaviour:
   m_fontSize: 26
   m_fontSizeBase: 26
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 26
+  m_fontSizeMax: 26
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -2426,7 +2411,7 @@ MonoBehaviour:
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 1024
@@ -3393,6 +3378,7 @@ GameObject:
   - component: {fileID: 1503688321}
   - component: {fileID: 1503688324}
   - component: {fileID: 1503688325}
+  - component: {fileID: 1503688326}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -3497,6 +3483,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inspectionDistance: 3
+--- !u!114 &1503688326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503688319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed0189680f94fc41898af1a5a71d855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TextDisplayPanel: {fileID: 988949776}
+  _TextChoicePanel: {fileID: 645666032}
 --- !u!1 &1651067389
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,6 +4058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ba14e1c4c235f42a5c7cf60d6a205e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _intro: {fileID: 11400000, guid: ca9d786df0f5f934bb10ca9b66a9250e, type: 2}
 --- !u!1 &1986448649
 GameObject:
   m_ObjectHideFlags: 0

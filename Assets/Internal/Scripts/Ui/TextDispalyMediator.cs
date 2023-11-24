@@ -13,23 +13,40 @@ namespace Ui
 	public class TextDispalyMediator: MediatorBase<TextDispalyView>, IInitializable, IDisposable
 	{
 
-		///  INSPECTOR VARIABLES       ///
+        ///  INSPECTOR VARIABLES       ///
 
-		///  PRIVATE VARIABLES         ///
+        ///  PRIVATE VARIABLES         ///
+        private int _page = 0;
 
-		///  PRIVATE METHODS           ///
-
-		///  LISTNER METHODS           ///
-		private void OnRecievedText(TextObject text)
+        ///  PRIVATE METHODS           ///
+       
+        ///  LISTNER METHODS           ///
+        private void OnRecievedText(TextObject text)
 		{ 
+			Debug.Log(4);
+			_page = 0;
 			_view.SetName(text.Name);
 			_view.SetText(text.BodyText);
 		}
-		///  PUBLIC API                ///
 
-		///  IMPLEMENTATION            ///
+        private void HandlePageTransition()
+        {
+            if (_view.GetTotalPages() > _page)
+            {
+                _page++;
+                _view.IncrementPage();
+            }
+            else
+            {
 
-		[Inject]
+            }
+
+        }
+        ///  PUBLIC API                ///
+
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
 
@@ -39,6 +56,8 @@ namespace Ui
 		{
             _signalBus.GetStream<SendTextSignal>()
            .Subscribe(x => OnRecievedText(x.Text)).AddTo(_disposables);
+            _signalBus.GetStream<ProgressReaderSignal>()
+          .Subscribe(x => HandlePageTransition()).AddTo(_disposables);
         }
 
 		public void Dispose()

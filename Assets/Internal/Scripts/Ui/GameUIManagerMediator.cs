@@ -22,6 +22,7 @@ namespace Ui
         ///  LISTNER METHODS           ///
         private void OnStateChanged(State state)
         {
+
             _view.SetCanvas(state);
         }
         ///  PUBLIC API                ///

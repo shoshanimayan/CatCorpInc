@@ -59,9 +59,13 @@ namespace Player
 
                 _mediator.ToggleObjectiveMode();
             }
-            if (_inputReciever.PlayerPause())
+            if (_inputReciever.PlayerPause() && (_mediator.GetCurrentState()==Managers.State.Play|| _mediator.GetCurrentState() == Managers.State.Objective))
             { 
                 _mediator.TogglePauseMenu();
+            }
+            if (_inputReciever.PlayerProgressingReader() && _mediator.GetCurrentState() == Managers.State.Text)
+            { 
+                _mediator.ProgressReader();
             }
             if (_mediator.CanReadInput())
             {

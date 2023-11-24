@@ -78,6 +78,10 @@ namespace Player
             _isPlaying = isPlaying;
         }
 
+        public bool PlayerProgressingReader()
+        {
+           return _playerControls.Player.Fire.triggered || _playerControls.Player.Interact.triggered;
+        }
 
 
         ///  IMPLEMENTATION            ///

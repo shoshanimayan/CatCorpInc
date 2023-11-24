@@ -15,6 +15,11 @@ namespace Ui
         ///  PRIVATE VARIABLES         ///
 
         ///  PRIVATE METHODS           ///
+        private void Awake()
+        {
+            
+        }
+
 
         ///  PUBLIC API                ///
         public void SetName(string name)
@@ -26,5 +31,21 @@ namespace Ui
         { 
             _textField.text = text;
         }
+
+        public int GetTotalPages()
+        {
+
+            return _textField.textInfo.pageCount;
+        }
+
+        public void IncrementPage() {
+            _textField.pageToDisplay++;
+        }
+
+
+
+        
+
+
     }
 }

@@ -13,13 +13,16 @@ namespace Managers
 		[SerializeField] private TextStep _intro; 
 		///  PRIVATE VARIABLES         ///
 		private GameManagerMediator _mediator;
-		///  PRIVATE METHODS           ///
+        ///  PRIVATE METHODS           ///
+        private void Start()
+        {
+            _mediator.StartIntro(_intro.Json);
 
-		///  PUBLIC API                ///
-		public void Init(GameManagerMediator mediator)
+        }
+        ///  PUBLIC API                ///
+        public void Init(GameManagerMediator mediator)
 		{ 
 			_mediator = mediator;
-			_mediator.StartIntro(_intro.Json);
 		}
 	}
 }
