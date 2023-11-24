@@ -18,7 +18,16 @@ using System.Collections.Generic;
 		///  PUBLIC API   
 		public string Name { get { return _name; } }
 		public string Description { get { return _description; } }
+
+		public Objective( string name, string description) {
+			_name = name;
+			_description = description;
+		}
+
 		///  IMPLEMENTATION            ///
+		///  
+
+
 
 	}
 

@@ -9,7 +9,29 @@ using Signals.Game;
 
 namespace Gameplay
 {
-	public class ReaderMediator: MediatorBase<ReaderView>, IInitializable, IDisposable
+    [System.Serializable]
+    public class TextEntry
+	{
+		public String Type;
+		public String Name;
+		public String Content;
+
+	}
+
+    public struct TextObject
+    {
+        public string Name;
+        public string BodyText;
+
+        public TextObject(string name, string bodyText)
+        {
+            Name = name;
+            BodyText = bodyText;
+        }
+
+    }
+
+    public class ReaderMediator: MediatorBase<ReaderView>, IInitializable, IDisposable
 	{
 
 
@@ -19,16 +41,35 @@ namespace Gameplay
 		ReadState _readState = ReadState.Text;
 		///  PRIVATE METHODS           ///
 
+
+		
+
 		///  LISTNER METHODS           ///
 		private void OnReadStateChanged(ReadState readstate)
-		{ 
-		_readState = readstate;
+		{
+			if (readstate != _readState)
+			{
+				_readState = readstate;
+				_view.SetReadUI(readstate);
+			}
 		}
 
 		private void OnReceiveTextAsset(TextAsset textAsset)
 		{ 
+			TextEntry entry = JsonUtility.FromJson<TextEntry>(textAsset.text);
+            switch (entry.Type)
+            {
+                case "Read":
+                    _signalBus.Fire(new ChangeReadStateSignal() { ReadState = ReadState.Text });
+					_signalBus.Fire(new SendTextSignal() {  Text = new TextObject(entry.Name,entry.Content)});
+                    break;
+                case "MultipleChoice":
+                    _signalBus.Fire(new ChangeReadStateSignal() { ReadState = ReadState.Choice });
+					_signalBus.Fire(new ChoiceListSignal() { Choices = entry.Content.Split(",") }) ;
+                    break;
+            }
 
-		}
+        }
 		///  PUBLIC API                ///
 		public ReadState GetState() { return _readState; }
 		///  IMPLEMENTATION            ///

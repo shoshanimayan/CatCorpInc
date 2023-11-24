@@ -5,18 +5,7 @@ using System.Collections.Generic;
 namespace Gameplay
 {
 
-    public struct TextObject
-    {
-        public string Name;
-        public string BodyText;
-
-        public TextObject(string name, string bodyText)
-        { 
-            Name = name;
-            BodyText = bodyText;
-        }
-
-    }
+   
 
     public enum ReadState {Text,Choice,Draw,Drag }
 

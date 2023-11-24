@@ -8,12 +8,16 @@ namespace Managers
 	{
 
 		///  INSPECTOR VARIABLES       ///
-
+		[SerializeField] private TextAsset _intro; 
 		///  PRIVATE VARIABLES         ///
-
+		private GameManagerMediator _mediator;
 		///  PRIVATE METHODS           ///
 
 		///  PUBLIC API                ///
-
+		public void Init(GameManagerMediator mediator)
+		{ 
+			_mediator = mediator;
+			_mediator.StartIntro(_intro);
+		}
 	}
 }
