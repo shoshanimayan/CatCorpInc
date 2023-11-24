@@ -6,7 +6,7 @@ using UnityEditor;
 namespace ScriptableObjects
 {
     [CreateAssetMenu]
-    public class TextEntry : ScriptableObject
+    public class TextStep : ScriptableObject
     {
 
         ///  INSPECTOR VARIABLES       ///
@@ -26,7 +26,7 @@ namespace ScriptableObjects
         public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; } }
         public bool CompleteGoalOnCompletion { get { return _completeGoalOnCompletion; } }
 
-        public TextEntry(TextAsset json, bool startNextEntryOnCompletion, bool completeGoalOnCompletion, Objective objective)
+        public TextStep(TextAsset json, bool startNextEntryOnCompletion, bool completeGoalOnCompletion, Objective objective)
         { 
             _json = json;
             _startNextEntryOnCompletion = startNextEntryOnCompletion;
@@ -36,12 +36,12 @@ namespace ScriptableObjects
 
         ///  IMPLEMENTATION            ///
 #if UNITY_EDITOR
-        [CustomEditor(typeof(TextEntry))]
+        [CustomEditor(typeof(TextStep))]
         class MyClassEditor : Editor
         {
             public override void OnInspectorGUI()
             {
-                TextEntry self = (TextEntry)target;
+                TextStep self = (TextStep)target;
                 serializedObject.Update();
                 if (self.CompleteGoalOnCompletion)
                     DrawDefaultInspector();
