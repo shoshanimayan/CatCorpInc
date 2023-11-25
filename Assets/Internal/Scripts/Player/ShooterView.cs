@@ -104,6 +104,8 @@ namespace Player
         public void ForceCoolDown()
         {
             _cooledDown = false;
+            DoCoolDownTimer();
+
         }
     }
 }

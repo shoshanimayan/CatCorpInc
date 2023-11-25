@@ -25,7 +25,6 @@ namespace Managers
 		///  PUBLIC API                ///
 		public void StartIntro( TextStep intro) 
 		{
-			Debug.Log(1);
 			_signalBus.Fire(new SendTextStepSignal() { TextStep=intro });
 
 		}

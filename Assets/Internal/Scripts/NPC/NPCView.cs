@@ -47,9 +47,9 @@ namespace NPC
 
         public void DoInteraction()
         {
-
+            
             _mediator.SendStep(_steps[_currentStep],transform);
-            if (_currentStep < _steps.Length)
+            if (_currentStep+1 < _steps.Length)
             {
                 _currentStep++;
             }

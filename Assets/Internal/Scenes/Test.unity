@@ -4416,6 +4416,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
+      propertyPath: _steps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
+      propertyPath: _steps.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 255bf3d8dddb04b40819f9bca7df473a,
+        type: 2}
     - target: {fileID: 945914334707263391, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
       propertyPath: m_RootOrder

@@ -23,7 +23,6 @@ namespace Managers
 
         private void OnStateChanged(State state)
         {
-            Debug.Log(state);
             SetState(state);
         }
 

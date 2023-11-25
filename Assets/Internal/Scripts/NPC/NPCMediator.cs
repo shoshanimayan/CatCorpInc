@@ -43,7 +43,7 @@ namespace NPC
 
 		public void Initialize()
 		{
-
+            _view.Init(this);
 		}
 
 		public void Dispose()

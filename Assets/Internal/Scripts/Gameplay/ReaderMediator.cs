@@ -52,7 +52,6 @@ namespace Gameplay
 		///  LISTNER METHODS           ///
 		private void OnReadStateChanged(ReadState readstate)
 		{
-            Debug.Log(3);
 
             if (readstate != _readState)
 			{
@@ -89,10 +88,13 @@ namespace Gameplay
 		private void OnReceiveStepAsset(TextStep textStep)
 		{
 			_step = textStep;
-            Debug.Log(2);
 
             _signalBus.Fire(new StateChangeSignal() { ToState= State.Text});
-			TextEntry entry = JsonUtility.FromJson<TextEntry>(textStep.Json.text);
+            TextEntry entry = JsonUtility.FromJson<TextEntry>(textStep.Json.text);
+            Debug.Log(entry.Content);
+
+            entry.Content=entry.Content.Replace("\n","<page>");
+			Debug.Log(entry.Content);
             switch (entry.Type)
             {
                 case "Read":

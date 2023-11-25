@@ -39,7 +39,6 @@ namespace Gameplay
 
         public void SetReadUI(ReadState state)
         {
-            Debug.Log(state);
             _TextDisplayPanel.SetActive( false);
             _TextChoicePanel.SetActive(false);
             switch (state)

@@ -25,12 +25,12 @@ public class GlobalInstaller : MonoInstaller
         Container.DeclareSignal<ObjectiveCompleteSignal>();
         Container.DeclareSignal<ObjectiveCompletedSignal>();
         Container.DeclareSignal<SendTextStepSignal>();
+        Container.DeclareSignal<CameraFocusSignal>();
 
 
         //binding
         Container.Bind<StateManager>().AsSingle();
         Container.Bind<GameSettings>().AsSingle();
-        Container.Bind<CameraFocusSignal>().AsSingle();
 
 
 

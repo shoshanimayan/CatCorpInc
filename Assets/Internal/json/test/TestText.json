@@ -1,7 +1,5 @@
 {
   "Type": "Read",
   "Name": "testCharacter",
-  "Content": "Fancy words go here.
-
-Another Page of Words after a new line."
+  "Content": "Fancy words go here.\nAnother Page of Words after a new line."
 }

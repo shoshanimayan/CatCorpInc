@@ -145,7 +145,6 @@ namespace Managers
                 }
                 else
                     {
-                    Debug.Log("playing");
                     Cursor.lockState = CursorLockMode.Locked;
 
                     _signalBus.Fire(new StateChangeSignal() { ToState = State.Text });

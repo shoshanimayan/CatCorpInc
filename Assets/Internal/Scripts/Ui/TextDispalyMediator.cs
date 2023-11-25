@@ -23,7 +23,6 @@ namespace Ui
         ///  LISTNER METHODS           ///
         private void OnRecievedText(TextObject text)
 		{ 
-			Debug.Log(4);
 			_page = 0;
 			_view.SetName(text.Name);
 			_view.SetText(text.BodyText);
