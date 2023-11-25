@@ -32,9 +32,11 @@ namespace ScriptableObjects
 
 
         public Objective Objective;
+        
 
         public TextAsset Json { get { return _json; } }
-        public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; } }
+        public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; }  
+            set { _startNextEntryOnCompletion = value; } }
         public bool CompleteGoalOnCompletion { get { return _completeGoalOnCompletion; } }
 
         public TextStep(TextAsset json, bool startNextEntryOnCompletion, bool completeGoalOnCompletion, Objective objective)

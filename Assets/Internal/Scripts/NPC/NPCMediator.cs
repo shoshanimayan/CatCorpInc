@@ -5,24 +5,37 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
+using Signals.Game;
+using Signals.Core;
+
 namespace NPC
 {
 	public class NPCMediator: MediatorBase<NPCView>, IInitializable, IDisposable
 	{
 
-		///  INSPECTOR VARIABLES       ///
+        ///  INSPECTOR VARIABLES       ///
 
-		///  PRIVATE VARIABLES         ///
+        ///  PRIVATE VARIABLES         ///
 
-		///  PRIVATE METHODS           ///
+        ///  PRIVATE METHODS           ///
 
-		///  LISTNER METHODS           ///
+        ///  LISTNER METHODS           ///
 
-		///  PUBLIC API                ///
+        ///  PUBLIC API                ///
+        public void SendStep(TextStep step, Transform transform=null)
+        {
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = step });
+            if (transform != null)
+            {
+                _signalBus.Fire(new CameraFocusSignal() { Focus= transform });
+            }
 
-		///  IMPLEMENTATION            ///
 
-		[Inject]
+        }
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
 

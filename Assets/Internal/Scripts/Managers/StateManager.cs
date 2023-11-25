@@ -21,10 +21,10 @@ namespace Managers
 
         ///  LISTNER METHODS          ///
 
-        private void OnStateChanged(StateChangeSignal signal)
+        private void OnStateChanged(State state)
         {
-            Debug.Log(signal.ToState);
-            SetState(signal.ToState);
+            Debug.Log(state);
+            SetState(state);
         }
 
         ///  PUBLIC API               ///
@@ -57,7 +57,7 @@ namespace Managers
             _signalBus = signalBus;
             _state = State.Loading;
             _signalBus.GetStream<StateChangeSignal>()
-                       .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+                       .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
 
 
         }

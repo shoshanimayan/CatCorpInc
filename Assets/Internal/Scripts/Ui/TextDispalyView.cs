@@ -30,6 +30,7 @@ namespace Ui
         public void SetText(string text)
         { 
             _textField.text = text;
+            Debug.Log (_textField.textInfo.pageCount);
         }
 
         public int GetTotalPages()

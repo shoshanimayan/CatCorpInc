@@ -5,7 +5,10 @@ using Managers;
 
 namespace Signals.Core
 {
-
+    public class CameraFocusSignal
+    {
+        public Transform Focus;
+    }
     public class StateChangeSignal
     {
         public State ToState;
