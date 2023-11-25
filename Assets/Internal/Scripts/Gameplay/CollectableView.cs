@@ -25,6 +25,11 @@ namespace Gameplay
         {
         }
 
+        public void IncrementStep()
+        {
+            
+        }
+
         public void Init(CollectableMediator mediator)
         {
             _mediator = mediator;

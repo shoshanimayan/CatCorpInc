@@ -21,11 +21,19 @@ namespace NPC
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
+        
+        private void GotCollectable()
+        {
+            if (_view.GetNeedsCollectable())
+            { 
+                _view.ForceIncrementStep();
+            }
+        }
 
         ///  PUBLIC API                ///
-        public void SendStep(TextStep step, Transform transform=null)
+        public void SendStep(TextStep step, NPCView view, Transform transform = null)
         {
-            _signalBus.Fire(new SendTextStepSignal() { TextStep = step });
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin=view });
             if (transform != null)
             {
                 _signalBus.Fire(new CameraFocusSignal() { Focus= transform });
@@ -44,7 +52,9 @@ namespace NPC
 		public void Initialize()
 		{
             _view.Init(this);
-		}
+            _signalBus.GetStream<GotCollectableSignal>()
+             .Subscribe(x => GotCollectable()).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

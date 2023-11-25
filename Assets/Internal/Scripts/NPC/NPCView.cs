@@ -13,10 +13,10 @@ namespace NPC
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private TextStep[] _steps;
         [SerializeField] private Transform _face;
+        [SerializeField]private int _currentStep = 0;
 
         ///  PRIVATE VARIABLES         ///
         private NPCMediator _mediator;
-        private int _currentStep=0;
         ///  PRIVATE METHODS           ///
         private void Awake()
         {
@@ -41,6 +41,8 @@ namespace NPC
             
         }
         ///  PUBLIC API                ///
+
+        
         public void Init(NPCMediator mediator)
         {
             _mediator = mediator;
@@ -50,8 +52,26 @@ namespace NPC
         {
            
 
-            _mediator.SendStep(_steps[_currentStep],_face);
-            if (_currentStep+1 < _steps.Length)
+            _mediator.SendStep(_steps[_currentStep],this,_face);
+            
+        }
+
+        public void IncrementStep()
+        {
+            if (_currentStep + 1 < _steps.Length && !_steps[_currentStep].NeedsCollectable)
+            {
+                _currentStep++;
+            }
+        }
+
+        public bool GetNeedsCollectable()
+        {
+            return _steps[_currentStep].NeedsCollectable;
+        }
+
+        public void ForceIncrementStep()
+        {
+            if (_currentStep + 1 < _steps.Length )
             {
                 _currentStep++;
             }

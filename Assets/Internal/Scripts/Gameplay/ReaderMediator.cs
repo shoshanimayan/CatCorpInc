@@ -43,6 +43,7 @@ namespace Gameplay
 		///  PRIVATE VARIABLES         ///
 		private ReadState _readState = ReadState.Null;
 		private TextStep _step;
+		private Interactable _origin = null;
 		///  PRIVATE METHODS           ///
 
 
@@ -78,16 +79,23 @@ namespace Gameplay
 				}
 				else
 				{
+					if (_origin!=null)
+					{
+						_origin.IncrementStep();
+					}
 					_signalBus.Fire(new StateChangeSignal() { ToState=State.Play});
+					_origin = null;
 				}
 
 				
 			
 			}
+			
 		}
 
-		private void OnReceiveStepAsset(TextStep textStep)
+		private void OnReceiveStepAsset(TextStep textStep,Interactable origin)
 		{
+			_origin = origin;
 			_step = textStep;
 
             _signalBus.Fire(new StateChangeSignal() { ToState= State.Text});
@@ -131,7 +139,7 @@ namespace Gameplay
             _signalBus.GetStream<ChangeReadStateSignal>()
                          .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
             _signalBus.GetStream<SendTextStepSignal>()
-                         .Subscribe(x => OnReceiveStepAsset(x.TextStep)).AddTo(_disposables);
+                         .Subscribe(x => OnReceiveStepAsset(x.TextStep,x.Origin)).AddTo(_disposables);
             _signalBus.GetStream<FinishStepSignal>()
                          .Subscribe(x => OnFinishStep()).AddTo(_disposables);
         }

@@ -17,6 +17,7 @@ namespace Gameplay
 		///  PUBLIC API                ///
 		public void DoInteraction();
 
+		public void IncrementStep();
 
 		public void HoverOn();
 

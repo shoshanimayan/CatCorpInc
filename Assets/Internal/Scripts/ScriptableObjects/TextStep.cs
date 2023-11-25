@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using Signals.Core;
 
 namespace ScriptableObjects
 {
@@ -13,6 +14,8 @@ namespace ScriptableObjects
         [SerializeField] private TextAsset _json;
         [SerializeField] private bool _startNextEntryOnCompletion;
         [SerializeField] private bool _completeGoalOnCompletion;
+        [SerializeField] private bool _needsCollectable;
+
         ///  PRIVATE VARIABLES         ///
         private TextStep _nextStep;
         ///  PRIVATE METHODS           ///
@@ -28,6 +31,15 @@ namespace ScriptableObjects
         public TextStep GetNextStep()
         { 
             return _nextStep;
+        }
+
+        private void OnValidate()
+        {
+            if (!_completeGoalOnCompletion)
+            {
+                Objective = null;
+            
+            }
         }
 
 
@@ -47,6 +59,8 @@ namespace ScriptableObjects
             Objective = objective;
         }
 
+        public bool NeedsCollectable { get { return _needsCollectable; } }
+
         ///  IMPLEMENTATION            ///
 #if UNITY_EDITOR
         [CustomEditor(typeof(TextStep))]
@@ -61,6 +75,7 @@ namespace ScriptableObjects
                 else
                 {
                     DrawPropertiesExcluding(serializedObject, "Objective");
+                    
                 }
                 serializedObject.ApplyModifiedProperties();
             }

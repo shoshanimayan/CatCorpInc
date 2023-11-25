@@ -1,4 +1,5 @@
 using Gameplay;
+using NPC;
 using Player;
 using ScriptableObjects;
 using System.Collections;
@@ -60,6 +61,7 @@ namespace Signals.Game
 
     public class SendTextStepSignal {
         public TextStep TextStep;
+        public Interactable Origin = null;
     }
 
 
