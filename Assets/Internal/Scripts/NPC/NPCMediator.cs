@@ -30,6 +30,14 @@ namespace NPC
             }
         }
 
+        private void UnblockStep()
+        {
+            if (_view.IsStepBlocked())
+            {
+                _view.ForceIncrementStep();
+            }
+        }
+
         ///  PUBLIC API                ///
         public void SendStep(TextStep step, NPCView view, Transform transform = null)
         {
@@ -39,7 +47,11 @@ namespace NPC
                 _signalBus.Fire(new CameraFocusSignal() { Focus= transform });
             }
 
+        }
 
+        public void SendUnblock()
+        {
+            _signalBus.Fire(new UnblockedConversationSignal());
         }
         ///  IMPLEMENTATION            ///
 
@@ -54,6 +66,8 @@ namespace NPC
             _view.Init(this);
             _signalBus.GetStream<GotCollectableSignal>()
              .Subscribe(x => GotCollectable()).AddTo(_disposables);
+            _signalBus.GetStream<UnblockedConversationSignal>()
+            .Subscribe(x => GotCollectable()).AddTo(_disposables);
         }
 
 		public void Dispose()

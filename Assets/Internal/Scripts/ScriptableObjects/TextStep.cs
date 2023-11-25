@@ -15,6 +15,9 @@ namespace ScriptableObjects
         [SerializeField] private bool _startNextEntryOnCompletion;
         [SerializeField] private bool _completeGoalOnCompletion;
         [SerializeField] private bool _needsCollectable;
+        [SerializeField] private bool _waitingForAnotherConversation;
+        [SerializeField] private bool _unblocksConversation;
+
 
         ///  PRIVATE VARIABLES         ///
         private TextStep _nextStep;
@@ -60,6 +63,8 @@ namespace ScriptableObjects
         }
 
         public bool NeedsCollectable { get { return _needsCollectable; } }
+        public bool WaitingForAnotherConversation { get { return _waitingForAnotherConversation; } }
+        public bool UnblocksConversation { get { return _unblocksConversation; } }
 
         ///  IMPLEMENTATION            ///
 #if UNITY_EDITOR
