@@ -24,7 +24,16 @@ namespace Player
         {
             if (state != State.Text)
             {
-                _view.UnfocusCamera();
+
+                if (state == State.Paused)
+                {
+                    _view.FocusCamera(_view.GetFollow());
+
+                }
+                else
+                {
+                    _view.UnfocusCamera();
+                }
             }
         }
 

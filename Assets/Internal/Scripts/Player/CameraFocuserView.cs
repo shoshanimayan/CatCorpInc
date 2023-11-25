@@ -10,26 +10,50 @@ namespace Player
 	{
 
         ///  INSPECTOR VARIABLES       ///
+        [SerializeField] private Transform _tempFocus;
 
         ///  PRIVATE VARIABLES         ///
-        private CinemachineVirtualCamera _camera;
+        private CinemachineVirtualCamera _virCam;
+        private Transform _originalFollow;
+        private Camera _camera;
+        private Transform _focus=null;
         ///  PRIVATE METHODS           ///
          private void Awake()
          {
-            _camera = GetComponent<CinemachineVirtualCamera>();
+            _camera=Camera.main;
+           _virCam = GetComponent<CinemachineVirtualCamera>();
+            _originalFollow = _virCam.Follow;
+
          }
         ///  PUBLIC API                ///
 
+        private void Update()
+        {
+            if (_focus!=null)
+            {
+                _originalFollow.transform.LookAt(_focus);
+            }
+        }
+
+        public Vector3 GetFollow() { return _originalFollow.position+Camera.main.transform.forward; }
+
         public void FocusCamera(Transform focus)
         {
-            _camera.LookAt = focus;
+         
+            _focus = focus;
+           
+        }
+
+        public void FocusCamera(Vector3 focus)
+        {
+            _tempFocus.position = focus;
+            _focus = _tempFocus;
+
         }
 
         public void UnfocusCamera()
         {
-            if (_camera.LookAt != null) {
-                _camera.LookAt = null;
-            }
+           _focus = null;
         }
 
 

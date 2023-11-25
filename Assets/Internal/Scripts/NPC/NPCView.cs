@@ -12,7 +12,8 @@ namespace NPC
 
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private TextStep[] _steps;
-        
+        [SerializeField] private Transform _face;
+
         ///  PRIVATE VARIABLES         ///
         private NPCMediator _mediator;
         private int _currentStep=0;
@@ -47,8 +48,9 @@ namespace NPC
 
         public void DoInteraction()
         {
-            
-            _mediator.SendStep(_steps[_currentStep],transform);
+           
+
+            _mediator.SendStep(_steps[_currentStep],_face);
             if (_currentStep+1 < _steps.Length)
             {
                 _currentStep++;
