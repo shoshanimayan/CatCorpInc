@@ -145,7 +145,7 @@ namespace Managers
                 }
                 else
                     {
-                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.lockState = CursorLockMode.Confined;
 
                     _signalBus.Fire(new StateChangeSignal() { ToState = State.Text });
 
