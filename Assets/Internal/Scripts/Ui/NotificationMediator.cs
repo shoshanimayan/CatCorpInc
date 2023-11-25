@@ -17,7 +17,7 @@ namespace Ui
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-
+		private State _prevState = State.Play;
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
@@ -30,7 +30,11 @@ namespace Ui
 
         private void OnStateChanged(State state)
         {
-			_view.KillNotification();
+			if (_prevState != State.Text)
+			{
+				_view.KillNotification();
+			}
+			_prevState = state;
 			if (!_gameSettings.GetEnded())
 			{
 				CheckForCompletetion();

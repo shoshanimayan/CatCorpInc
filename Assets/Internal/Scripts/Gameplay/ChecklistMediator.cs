@@ -24,9 +24,10 @@ namespace Gameplay
 		private void OnObjectiveCompleted( Objective obj)
 		{
 
-			if (_view.GetObjectives().Contains(obj))
+            if (_view.GetObjectives().Contains(obj))
 			{
-				_objectiveCount--;
+
+                _objectiveCount--;
 				_view.RemoveObjective(obj);
 				_signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
 			}

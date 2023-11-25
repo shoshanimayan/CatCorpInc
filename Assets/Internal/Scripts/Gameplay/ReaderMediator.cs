@@ -66,6 +66,7 @@ namespace Gameplay
 			{
                 if (_step.CompleteGoalOnCompletion)
                 {
+
                     _signalBus.Fire(new ObjectiveCompleteSignal() { Objective = _step.Objective });
 
                 }
@@ -91,10 +92,8 @@ namespace Gameplay
 
             _signalBus.Fire(new StateChangeSignal() { ToState= State.Text});
             TextEntry entry = JsonUtility.FromJson<TextEntry>(textStep.Json.text);
-            Debug.Log(entry.Content);
 
             entry.Content=entry.Content.Replace("\n","<page>");
-			Debug.Log(entry.Content);
             switch (entry.Type)
             {
                 case "Read":
