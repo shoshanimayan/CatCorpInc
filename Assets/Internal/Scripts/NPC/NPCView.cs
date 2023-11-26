@@ -58,12 +58,13 @@ namespace NPC
 
         public void IncrementStep()
         {
+            if (_steps[_currentStep].UnblocksConversation)
+            {
+                _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
+            }
             if (_currentStep + 1 < _steps.Length && !_steps[_currentStep].NeedsCollectable && !_steps[_currentStep].WaitingForAnotherConversation)
             {
-                if (_steps[_currentStep].UnblocksConversation)
-                {
-                    _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
-                }
+               
                 _currentStep++;
             }
         }
