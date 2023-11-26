@@ -41,6 +41,7 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<ChangedReadStateSignal>();
         Container.DeclareSignal<ProgressReaderSignal>();
         Container.DeclareSignal<FinishStepSignal>();
+        Container.DeclareSignal<UpdateObjectiveCountSignal>();
 
 
 

@@ -79,6 +79,13 @@ namespace Signals.Game
     
     }
 
+    public class UpdateObjectiveCountSignal
+    {
+        public Objective Objective;
+        public int total;
+        public int current;
+    }
+
 
 
 

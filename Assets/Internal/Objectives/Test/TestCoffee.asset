@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Give Everyone Coffee
   _description: throw coffee at everyone in the office.
+  _hasCount: 1
+  Total: 5
+  CurrentCount: 0

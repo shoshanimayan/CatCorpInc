@@ -31,7 +31,11 @@ namespace Ui
 			_view.completeObjectiveUI(objective);
 		}
 
-		
+        private void OnObjectiveCountUpdated(Objective objective, int total, int current)
+        {
+			_view.UpdateObjectiveCountUI(objective, total, current);
+
+        }
         ///  PUBLIC API                ///
 
         ///  IMPLEMENTATION            ///
@@ -48,8 +52,10 @@ namespace Ui
             .Subscribe(x => OnRecieveObjectives(x.Objectives)).AddTo(_disposables);
             _signalBus.GetStream<ObjectiveCompletedSignal>()
             .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
-           // _signalBus.GetStream<StateChangedSignal>()
-           //               .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+            _signalBus.GetStream<UpdateObjectiveCountSignal>()
+            .Subscribe(x => OnObjectiveCountUpdated(x.Objective, x.total, x.current)).AddTo(_disposables);
+            // _signalBus.GetStream<StateChangedSignal>()
+            //               .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
         }
 
 		public void Dispose()

@@ -41,15 +41,33 @@ namespace Ui
             _objectives = list.ToArray();
         }
 
-        public void completeObjectiveUI(Objective objective)
-        {   
-            foreach (ObjectiveUI obj in _objectives)
+        public void UpdateObjectiveCountUI(Objective objective, int total, int current)
+        {
+            if (_objectives != null)
             {
-
-                if (obj.ObjectiveEquals(objective))
+                foreach (ObjectiveUI obj in _objectives)
                 {
-                    obj.Completed();
-                    return;
+
+                    if (obj.ObjectiveEquals(objective))
+                    {
+                        obj.UpdateCountUI(total, current);
+                    }
+                }
+            }
+        }
+
+        public void completeObjectiveUI(Objective objective)
+        {
+            if (_objectives!=null)
+            {
+                foreach (ObjectiveUI obj in _objectives)
+                {
+
+                    if (obj.ObjectiveEquals(objective))
+                    {
+                        obj.Completed();
+                        return;
+                    }
                 }
             }
         }

@@ -19,6 +19,7 @@ namespace Ui
 
         ///  PRIVATE VARIABLES         ///
         private Objective _objective;
+        private bool _completed = false;
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
@@ -28,11 +29,22 @@ namespace Ui
         { 
             _name.text = obj.Name;
             _description.text = obj.Description;
+            if (obj.HasCount)
+            { 
+                _description.text = _description.text+" "+obj.CurrentCount.ToString()+"/"+obj.Total.ToString();
+            }
             _objective = obj;
         }
 
+        public void UpdateCountUI(int total, int current)
+        {
+            _description.text = _objective.Description +" "+ current.ToString() + "/" + total.ToString();
+
+        }
+
         public void Completed()
-        { 
+        {
+            _completed = false;
             _checkSpot.sprite = _checkmark;
         }
 
@@ -40,6 +52,8 @@ namespace Ui
         {
             return objective == _objective;
         }
+
+        public bool IsCompleted() { return _completed; }
         ///  IMPLEMENTATION            ///
 
     }

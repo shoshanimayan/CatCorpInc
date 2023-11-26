@@ -17,7 +17,8 @@ namespace Gameplay
         ///  INSPECTOR VARIABLES       ///
 
         ///  PRIVATE VARIABLES         ///
-        private int _coffeeCount;
+        private int _coffeeCount=0;
+		private int _coffeeTotal=0;
 		private bool _completed;
 		///  PRIVATE METHODS           ///
 		private void CheckCoffeeCompletion()
@@ -28,15 +29,20 @@ namespace Gameplay
 
         ///  PUBLIC API                ///
         public void GotCoffee() { 
-			_coffeeCount--;
-			if (_coffeeCount <= 0 && !_completed)
+			_coffeeCount++;
+            _signalBus.Fire(new UpdateObjectiveCountSignal() { Objective = _view.Objective, total = _coffeeTotal, current = _coffeeCount });
+
+            if (_coffeeCount >= _coffeeTotal  && !_completed)
 			{ 
 				_completed = true;
 				CheckCoffeeCompletion();
 			}
 		}
 
-		public void SetCoffee() { _coffeeCount++; }
+		public void SetCoffee() { 
+			_coffeeTotal++;
+			_signalBus.Fire(new UpdateObjectiveCountSignal() { Objective=_view.Objective, total=_coffeeTotal, current=_coffeeCount});
+		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]
