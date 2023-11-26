@@ -27,6 +27,8 @@ public class GlobalInstaller : MonoInstaller
         Container.DeclareSignal<SendTextStepSignal>();
         Container.DeclareSignal<CameraFocusSignal>();
         Container.DeclareSignal<UnblockedConversationSignal>();
+        Container.DeclareSignal<GotCoffeeSignal>();
+        Container.DeclareSignal<SetCoffeeSignal>();
 
 
         //binding

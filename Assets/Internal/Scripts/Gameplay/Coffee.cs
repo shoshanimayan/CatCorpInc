@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using NPC;
 
 namespace Gameplay
 {
@@ -17,6 +18,11 @@ namespace Gameplay
         ///  PRIVATE METHODS           ///
         private void OnCollisionEnter(Collision collision)
         {
+            NPCView npc;
+            if (collision.gameObject.TryGetComponent<NPCView>(out npc))
+            {
+                npc.CoffeeInteraction();
+            }
             Destroy(gameObject);
         }
 

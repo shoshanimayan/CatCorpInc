@@ -26,6 +26,7 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<TextDispalyMediator, TextDispalyView>();
         Container.BindMediatorView<TextChoiceMediator, TextChoiceView>();
         Container.BindMediatorView<CameraFocuserMediator, CameraFocuserView>();
+        Container.BindMediatorView<CoffeeManagerMediator, CoffeeManagerView>();
 
 
         //signals

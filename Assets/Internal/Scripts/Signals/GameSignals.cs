@@ -69,5 +69,17 @@ namespace Signals.Game
 
     public class FinishStepSignal { }
 
+    public class  SetCoffeeSignal
+    {
+        
+    }
+
+    public class GotCoffeeSignal
+    { 
+    
+    }
+
+
+
 
 }

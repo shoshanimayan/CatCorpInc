@@ -17,7 +17,7 @@ namespace NPC
         ///  INSPECTOR VARIABLES       ///
 
         ///  PRIVATE VARIABLES         ///
-
+        private bool _gotCoffee;
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
@@ -39,6 +39,19 @@ namespace NPC
         }
 
         ///  PUBLIC API                ///
+        public void GotCoffee()
+        {
+            if (!_gotCoffee) {
+                _signalBus.Fire(new GotCoffeeSignal());
+            }
+        }
+
+        public void SetCoffee()
+        {
+            _signalBus.Fire(new SetCoffeeSignal());
+
+        }
+
         public void SendStep(TextStep step, NPCView view, Transform transform = null)
         {
             _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin=view });

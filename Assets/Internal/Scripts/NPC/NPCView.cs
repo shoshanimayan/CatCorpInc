@@ -40,9 +40,14 @@ namespace NPC
             
             
         }
+
+        private void Start()
+        {
+            _mediator.SetCoffee();
+        }
         ///  PUBLIC API                ///
 
-        
+
         public void Init(NPCMediator mediator)
         {
             _mediator = mediator;
@@ -54,6 +59,11 @@ namespace NPC
 
             _mediator.SendStep(_steps[_currentStep],this,_face);
             
+        }
+
+        public void CoffeeInteraction()
+        {
+            _mediator.GotCoffee();
         }
 
         public void IncrementStep()
