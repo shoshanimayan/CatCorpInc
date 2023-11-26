@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Managers;
+using ScriptableObjects;
 
 namespace Signals.Core
 {
@@ -60,5 +61,6 @@ namespace Signals.Core
 
     public class UnblockedConversationSignal
     {
+        public TextStep Unblock;
     }
 }

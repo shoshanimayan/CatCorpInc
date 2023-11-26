@@ -62,7 +62,7 @@ namespace NPC
             {
                 if (_steps[_currentStep].UnblocksConversation)
                 {
-                    _mediator.SendUnblock();
+                    _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
                 }
                 _currentStep++;
             }
@@ -71,6 +71,11 @@ namespace NPC
         public bool GetNeedsCollectable()
         {
             return _steps[_currentStep].NeedsCollectable;
+        }
+
+        public bool CheckForMatchingStep(TextStep step)
+        { 
+            return step == _steps[_currentStep];
         }
 
         public bool IsStepBlocked()
@@ -84,7 +89,7 @@ namespace NPC
             {
                 if (_steps[_currentStep].UnblocksConversation)
                 {
-                    _mediator.SendUnblock();
+                    _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
                 }
                 _currentStep++;
             }

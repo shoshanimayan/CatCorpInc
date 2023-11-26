@@ -30,9 +30,9 @@ namespace NPC
             }
         }
 
-        private void UnblockStep()
+        private void UnblockStep(TextStep step)
         {
-            if (_view.IsStepBlocked())
+            if (_view.IsStepBlocked() &&_view.CheckForMatchingStep(step))
             {
                 _view.ForceIncrementStep();
             }
@@ -49,9 +49,9 @@ namespace NPC
 
         }
 
-        public void SendUnblock()
+        public void SendUnblock(TextStep unblock)
         {
-            _signalBus.Fire(new UnblockedConversationSignal());
+            _signalBus.Fire(new UnblockedConversationSignal() {Unblock=unblock});
         }
         ///  IMPLEMENTATION            ///
 
@@ -67,7 +67,7 @@ namespace NPC
             _signalBus.GetStream<GotCollectableSignal>()
              .Subscribe(x => GotCollectable()).AddTo(_disposables);
             _signalBus.GetStream<UnblockedConversationSignal>()
-            .Subscribe(x => GotCollectable()).AddTo(_disposables);
+            .Subscribe(x => UnblockStep(x.Unblock)).AddTo(_disposables);
         }
 
 		public void Dispose()

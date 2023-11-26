@@ -43,11 +43,15 @@ namespace ScriptableObjects
                 Objective = null;
             
             }
+            if (!_unblocksConversation)
+            { 
+                UnblockStep = null;
+            }
         }
 
 
         public Objective Objective;
-        
+        public TextStep UnblockStep;
 
         public TextAsset Json { get { return _json; } }
         public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; }  
@@ -75,13 +79,18 @@ namespace ScriptableObjects
             {
                 TextStep self = (TextStep)target;
                 serializedObject.Update();
-                if (self.CompleteGoalOnCompletion)
-                    DrawDefaultInspector();
-                else
+                List<string> exclude = new List<string>();
+                if (!self.CompleteGoalOnCompletion)
                 {
-                    DrawPropertiesExcluding(serializedObject, "Objective");
-                    
+                    exclude.Add("Objective");
                 }
+                if (!self.UnblocksConversation)
+                {
+                   exclude.Add( "UnblockStep");
+
+                }
+                DrawPropertiesExcluding(serializedObject, exclude.ToArray());
+
                 serializedObject.ApplyModifiedProperties();
             }
         }
