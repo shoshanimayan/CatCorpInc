@@ -30,6 +30,10 @@ namespace Gameplay
             
         }
 
+        public void IncrementStepByValue(int increment)
+        {
+        }
+
         public void Init(CollectableMediator mediator)
         {
             _mediator = mediator;

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f8c7938270066246b9e7a544f191a6b, type: 3}
-  m_Name: Test
+  m_Name: TestInteractable
   m_EditorClassIdentifier: 
   _name: use the interactable
   _description: This is a test Objective, try interacting with the interactable

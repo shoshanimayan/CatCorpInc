@@ -21,7 +21,11 @@ namespace Gameplay
 
 		public void HoverOn();
 
+        public void IncrementStepByValue(int increment);
+
+
         public GameObject gameObject { get; }
+
 
         ///  IMPLEMENTATION            ///
 

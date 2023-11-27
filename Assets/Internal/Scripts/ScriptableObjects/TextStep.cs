@@ -17,6 +17,8 @@ namespace ScriptableObjects
         [SerializeField] private bool _needsCollectable;
         [SerializeField] private bool _waitingForAnotherConversation;
         [SerializeField] private bool _unblocksConversation;
+        [SerializeField] private bool _multipleChoice;
+
 
 
         ///  PRIVATE VARIABLES         ///
@@ -69,6 +71,7 @@ namespace ScriptableObjects
         public bool NeedsCollectable { get { return _needsCollectable; } }
         public bool WaitingForAnotherConversation { get { return _waitingForAnotherConversation; } }
         public bool UnblocksConversation { get { return _unblocksConversation; } }
+        public bool IsMultipleChoice { get { return _multipleChoice; } }
 
         ///  IMPLEMENTATION            ///
 #if UNITY_EDITOR

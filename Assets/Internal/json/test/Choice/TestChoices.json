@@ -2,5 +2,5 @@
   
   "Type": "MultipleChoice",
   "Name": "Test",
-  "Content": ["Option 1", "Option 2", "option 3"]
+  "Content": "Option 1, Option 2, option 3"
 }

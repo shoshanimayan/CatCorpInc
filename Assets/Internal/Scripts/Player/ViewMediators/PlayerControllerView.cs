@@ -63,7 +63,7 @@ namespace Player
             { 
                 _mediator.TogglePauseMenu();
             }
-            if (_inputReciever.PlayerProgressingReader() && _mediator.GetCurrentState() == Managers.State.Text)
+            if (_inputReciever.PlayerProgressingReader() && _mediator.GetCurrentState() == Managers.State.Text && _mediator.IsReadStateClickable())
             { 
                 _mediator.ProgressReader();
             }

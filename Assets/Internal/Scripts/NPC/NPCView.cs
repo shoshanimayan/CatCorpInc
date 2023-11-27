@@ -79,6 +79,20 @@ namespace NPC
             }
         }
 
+        public void IncrementStepByValue(int increment) 
+        {
+            if (_steps[_currentStep].UnblocksConversation)
+            {
+                _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
+            }
+            if (_currentStep + increment < _steps.Length && !_steps[_currentStep].NeedsCollectable && !_steps[_currentStep].WaitingForAnotherConversation)
+            {
+
+                _currentStep+=increment;
+            }
+
+        }
+
         public bool GetNeedsCollectable()
         {
             return _steps[_currentStep].NeedsCollectable;
@@ -93,6 +107,7 @@ namespace NPC
         {
             return _steps[_currentStep].WaitingForAnotherConversation;
         }
+
 
         public void ForceIncrementStep()
         {

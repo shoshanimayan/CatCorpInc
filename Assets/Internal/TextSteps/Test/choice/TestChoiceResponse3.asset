@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
+  m_Name: TestChoiceResponse3
+  m_EditorClassIdentifier: 
+  _json: {fileID: 4900000, guid: 67c17501ab2caf34891dd15f21a5a188, type: 3}
+  _startNextEntryOnCompletion: 0
+  _completeGoalOnCompletion: 1
+  _needsCollectable: 0
+  _waitingForAnotherConversation: 1
+  _unblocksConversation: 0
+  _multipleChoice: 0
+  Objective: {fileID: 11400000, guid: bc3c5d12108fc9143967b941e01398bd, type: 2}
+  UnblockStep: {fileID: 0}

@@ -24,6 +24,7 @@ namespace Ui
             if (button != null)
             {
                 button.onClick.AddListener(() => _mediator.SendChoice(choiceNumber));
+                button.GetComponentInChildren<TextMeshProUGUI>().text=choice;
             }
             _choices.Add(x);
         }
@@ -46,10 +47,12 @@ namespace Ui
 
         public void SetChoices(string[] choices)
         {
+            Debug.Log(choices.Length);
             ClearChoices();
 
             for (int i = 0; i < choices.Length; i++)
             {
+                Debug.Log(choices[i]);
                 CreateChoice(choices[i],i);
             }
         }

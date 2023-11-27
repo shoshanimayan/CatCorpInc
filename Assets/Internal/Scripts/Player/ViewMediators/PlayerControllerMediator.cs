@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Signals.Core;
 using Managers;
 using Signals.Game;
+using Gameplay;
 
 namespace Player
 {
@@ -19,12 +20,17 @@ namespace Player
 		///  PRIVATE VARIABLES         ///
 		private bool _canInput;
 		private State _currentState;
+		private ReadState _readState= ReadState.Null;
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
 			_currentState = state;
+			if (_currentState != State.Text)
+			{
+				_readState = ReadState.Null;
+			}
 			if (state == State.Play)
 			{ 
 				_canInput = true;
@@ -52,8 +58,18 @@ namespace Player
                     break;
             }
 		}
-		///  PUBLIC API                ///
-		public void ChangeWalkState(WalkState state)
+
+        private void OnReadStateChanged(ReadState readstate)
+        {
+
+            if (readstate != _readState)
+            {
+                _readState = readstate;
+               
+            }
+        }
+        ///  PUBLIC API                ///
+        public void ChangeWalkState(WalkState state)
 		{
 			_signalBus.Fire(new WalkStateChangedSignal() { ToState = state });
 		}
@@ -61,6 +77,11 @@ namespace Player
 		public bool CanReadInput()
 		{
 			return _canInput;
+		}
+
+		public bool IsReadStateClickable()
+		{
+			return _readState == ReadState.Text;
 		}
 
 		public void ProgressReader()
@@ -111,6 +132,8 @@ namespace Player
 			_view.Init(this);
             _signalBus.GetStream<StateChangedSignal>()
                            .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+            _signalBus.GetStream<ChangeReadStateSignal>()
+                         .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
         }
 
 		public void Dispose()

@@ -115,6 +115,15 @@ namespace Gameplay
             }
 
         }
+
+		private void ChoiceRecieved(int choice)
+		{
+			Debug.Log(_step.IsMultipleChoice && _origin != null);
+			if (_step.IsMultipleChoice && _origin!=null)
+			{ 
+				_origin.IncrementStepByValue(choice);
+			}
+		}
 		///  PUBLIC API                ///
 		public ReadState GetState() { return _readState; }
 
@@ -142,6 +151,8 @@ namespace Gameplay
                          .Subscribe(x => OnReceiveStepAsset(x.TextStep,x.Origin)).AddTo(_disposables);
             _signalBus.GetStream<FinishStepSignal>()
                          .Subscribe(x => OnFinishStep()).AddTo(_disposables);
+            _signalBus.GetStream<ChoiceSendSignal>()
+                        .Subscribe(x => ChoiceRecieved(x.Choice)).AddTo(_disposables);
         }
 
 		public void Dispose()
