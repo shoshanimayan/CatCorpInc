@@ -6,6 +6,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
+using NPC;
+using ScriptableObjects;
+using Signals.Game;
 
 namespace Gameplay
 {
@@ -25,7 +28,15 @@ namespace Gameplay
 			
         }
         ///  PUBLIC API                ///
+		public void SendStep(TextStep step, CollectableView view, Transform transform = null)
+        {
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin = view });
+            if (transform != null)
+            {
+                _signalBus.Fire(new CameraFocusSignal() { Focus = transform });
+            }
 
+        }
         ///  IMPLEMENTATION            ///
 
         [Inject]

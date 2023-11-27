@@ -47,7 +47,6 @@ namespace Ui
 
         public void SetChoices(string[] choices)
         {
-            Debug.Log(choices.Length);
             ClearChoices();
 
             for (int i = 0; i < choices.Length; i++)

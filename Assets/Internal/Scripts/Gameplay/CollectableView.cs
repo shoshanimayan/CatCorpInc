@@ -2,23 +2,29 @@ using UnityEngine;
 using Core;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
+using System.Diagnostics;
+
 namespace Gameplay
 {
     public class CollectableView : MonoBehaviour, IView, Interactable
     {
 
         ///  INSPECTOR VARIABLES       ///
-        
+        [SerializeField] private TextStep[] _steps;
+
         ///  PRIVATE VARIABLES         ///
         private CollectableMediator _mediator;
-       
+        private int _currentStep = 0;
+
         ///  PRIVATE METHODS           ///
 
         ///  PUBLIC API                ///
         public void DoInteraction()
         {
+            _mediator.SendStep(_steps[_currentStep], this);
+
             _mediator.CollectObject();
-            gameObject.SetActive(false);
         }
 
         public void HoverOn()
@@ -27,11 +33,14 @@ namespace Gameplay
 
         public void IncrementStep()
         {
-            
+            gameObject.SetActive(false);
+
         }
 
         public void IncrementStepByValue(int increment)
         {
+            gameObject.SetActive(false);
+
         }
 
         public void Init(CollectableMediator mediator)
