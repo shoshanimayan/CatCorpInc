@@ -91,11 +91,9 @@ namespace NPC
             {
 
                 _currentStep+=increment;
-                Debug.Log(_steps[_currentStep - increment].name);
 
                 if (_steps[_currentStep - increment].IsMultipleChoice)
                 {
-                    Debug.Log("sending");
 
                     _mediator.SendStep(_steps[_currentStep], this);
 

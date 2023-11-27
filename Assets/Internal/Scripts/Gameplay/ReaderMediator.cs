@@ -122,10 +122,8 @@ namespace Gameplay
 		private void ChoiceRecieved(int choice)
 		{
 			
-			Debug.Log(_origin );
 			if (_step.IsMultipleChoice && _origin!=null)
 			{ 
-				Debug.Log("in");
 				_origin.IncrementStepByValue(choice);
 			}
 		}
