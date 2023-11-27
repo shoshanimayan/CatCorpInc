@@ -22,9 +22,9 @@ namespace Gameplay
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
-        public void CollectObject()
+        public void CollectObject(int key)
         {
-            _signalBus.Fire(new GotCollectableSignal());
+            _signalBus.Fire(new GotCollectableSignal() { Key=key});
 			
         }
         ///  PUBLIC API                ///

@@ -12,7 +12,7 @@ namespace Gameplay
 
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private TextStep[] _steps;
-
+        [SerializeField] private int _key;
         ///  PRIVATE VARIABLES         ///
         private CollectableMediator _mediator;
         private int _currentStep = 0;
@@ -24,7 +24,7 @@ namespace Gameplay
         {
             _mediator.SendStep(_steps[_currentStep], this);
 
-            _mediator.CollectObject();
+            _mediator.CollectObject(_key);
         }
 
         public void HoverOn()

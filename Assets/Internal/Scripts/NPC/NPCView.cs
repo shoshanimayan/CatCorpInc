@@ -53,6 +53,11 @@ namespace NPC
             _mediator = mediator;
         }
 
+        public int GetCollectableKey()
+        {
+            return _steps[_currentStep].CollectableKey;
+        }
+
         public void DoInteraction()
         {
            

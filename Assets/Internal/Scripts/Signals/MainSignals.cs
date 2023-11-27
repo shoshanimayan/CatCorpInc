@@ -57,6 +57,7 @@ namespace Signals.Core
 
     public class GotCollectableSignal
     {
+        public int Key;
     }
 
     public class UnblockedConversationSignal

@@ -22,9 +22,9 @@ namespace NPC
 
         ///  LISTNER METHODS           ///
         
-        private void GotCollectable()
+        private void GotCollectable(int key )
         {
-            if (_view.GetNeedsCollectable())
+            if (_view.GetNeedsCollectable() && _view.GetCollectableKey()==key)
             { 
                 _view.ForceIncrementStep();
             }
@@ -78,7 +78,7 @@ namespace NPC
 		{
             _view.Init(this);
             _signalBus.GetStream<GotCollectableSignal>()
-             .Subscribe(x => GotCollectable()).AddTo(_disposables);
+             .Subscribe(x => GotCollectable(x.Key)).AddTo(_disposables);
             _signalBus.GetStream<UnblockedConversationSignal>()
             .Subscribe(x => UnblockStep(x.Unblock)).AddTo(_disposables);
         }

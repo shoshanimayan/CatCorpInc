@@ -54,6 +54,7 @@ namespace ScriptableObjects
 
         public Objective Objective;
         public TextStep UnblockStep;
+        public int CollectableKey;
 
         public TextAsset Json { get { return _json; } }
         public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; }  
@@ -90,6 +91,11 @@ namespace ScriptableObjects
                 if (!self.UnblocksConversation)
                 {
                    exclude.Add( "UnblockStep");
+
+                }
+                if (!self.NeedsCollectable)
+                {
+                    exclude.Add("CollectableKey");
 
                 }
                 DrawPropertiesExcluding(serializedObject, exclude.ToArray());
