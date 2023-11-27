@@ -28,7 +28,6 @@ namespace Ui
 		///  PUBLIC API                ///
 		public void SendChoice(int choice)
 		{
-			Debug.Log(choice);
 			_signalBus.Fire(new ChoiceSendSignal() { Choice = choice });
 		}
 		///  IMPLEMENTATION            ///

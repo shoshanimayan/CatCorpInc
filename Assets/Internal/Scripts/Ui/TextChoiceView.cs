@@ -52,8 +52,7 @@ namespace Ui
 
             for (int i = 0; i < choices.Length; i++)
             {
-                Debug.Log(choices[i]);
-                CreateChoice(choices[i],i);
+                CreateChoice(choices[i],i+1);
             }
         }
 

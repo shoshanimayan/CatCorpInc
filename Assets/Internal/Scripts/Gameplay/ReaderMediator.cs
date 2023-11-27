@@ -74,8 +74,11 @@ namespace Gameplay
 
                 if (_step.StartNextEntryOnCompletion)
 				{
-
-					_signalBus.Fire(new SendTextStepSignal() { TextStep=_step.GetNextStep()});
+                    if (_origin != null)
+                    {
+                        _origin.IncrementStep();
+                    }
+                    _signalBus.Fire(new SendTextStepSignal() { TextStep=_step.GetNextStep(), Origin=_origin});
 				}
 				else
 				{
@@ -118,9 +121,11 @@ namespace Gameplay
 
 		private void ChoiceRecieved(int choice)
 		{
-			Debug.Log(_step.IsMultipleChoice && _origin != null);
+			
+			Debug.Log(_origin );
 			if (_step.IsMultipleChoice && _origin!=null)
 			{ 
+				Debug.Log("in");
 				_origin.IncrementStepByValue(choice);
 			}
 		}
