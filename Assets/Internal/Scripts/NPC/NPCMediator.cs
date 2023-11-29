@@ -42,6 +42,7 @@ namespace NPC
         public void GotCoffee()
         {
             if (!_gotCoffee) {
+                _gotCoffee = true;
                 _signalBus.Fire(new GotCoffeeSignal());
             }
         }
