@@ -16,27 +16,25 @@ namespace Ui
         ///  INSPECTOR VARIABLES       ///
 
         ///  PRIVATE VARIABLES         ///
-        private int _page = 0;
 
         ///  PRIVATE METHODS           ///
        
         ///  LISTNER METHODS           ///
         private void OnRecievedText(TextObject text)
 		{ 
-			_page = 0;
 			_view.SetName(text.Name);
 			_view.SetText(text.BodyText);
 		}
 
         private void HandlePageTransition()
         {
-            if (_view.GetTotalPages()-1 > _page)
+            if (_view.GetCurrentPage()<=_view.GetTotalPages())
             {
-                _page++;
                 _view.IncrementPage();
             }
             else
             {
+                _view.ClearToken();
                 _signalBus.Fire(new FinishStepSignal());
             }
 

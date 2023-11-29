@@ -3,6 +3,8 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Ui
 {
@@ -13,11 +15,36 @@ namespace Ui
         [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private TextMeshProUGUI _textField;
         ///  PRIVATE VARIABLES         ///
+        private bool _writing;
+        private CancellationTokenSource _cToken;
 
         ///  PRIVATE METHODS           ///
-        private void Awake()
+        private async Task TypeText( CancellationToken t = default)
         {
-            
+
+            _writing = true;
+            _textField.maxVisibleCharacters = 0;
+            var TotalVisibleCharacters = _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex - _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex;
+            int counter = _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex;
+           
+            while (counter <= _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex+1)
+            {
+                if (t.IsCancellationRequested)
+                {
+                    _textField.maxVisibleCharacters = _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex+1;
+                    _writing = false;
+
+                    return;
+                }
+                int visibleCount = counter ;
+
+                _textField.maxVisibleCharacters = visibleCount;
+
+
+                counter++;
+                await Task.Delay(5 * 10);
+            }
+            _writing = false;
         }
 
 
@@ -27,10 +54,26 @@ namespace Ui
             _name.text = name;
         }
 
-        public void SetText(string text)
-        { 
+        public async void SetText(string text)
+        {
+            if (_cToken == null)
+            {
+                _cToken = new CancellationTokenSource();
+
+            }
+            else {
+                _cToken.Cancel();
+                _cToken.Dispose();
+                _cToken = new CancellationTokenSource();
+            }
             _textField.text = text;
             _textField.pageToDisplay = 1;
+            _textField.ForceMeshUpdate();
+            Debug.Log(_textField.textInfo.pageInfo[_textField.pageToDisplay-1].firstCharacterIndex);
+            Debug.Log(_textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex);
+            Debug.Log(_textField.text.Substring(_textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex, _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex - _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex));
+            await TypeText(_cToken.Token);
+
         }
 
         public int GetTotalPages()
@@ -39,13 +82,37 @@ namespace Ui
             return _textField.textInfo.pageCount;
         }
 
-        public void IncrementPage() {
+        public int GetCurrentPage()
+        {
+            return _textField.pageToDisplay;
+        }
+
+        public void ClearToken()
+        {
+            _cToken.Cancel();
+            _cToken.Dispose();
+            _cToken = null;
+        }
+
+        public async void IncrementPage() {
+
+            if ( _writing && _cToken != null)
+            {
+                _cToken.Cancel();
+                _cToken.Dispose();
+                _cToken = new CancellationTokenSource();
+                return;
+            }
+
+
             _textField.pageToDisplay++;
+             await TypeText(_cToken.Token);
+
         }
 
 
 
-        
+
 
 
     }
