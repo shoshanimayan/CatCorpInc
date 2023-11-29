@@ -17,12 +17,14 @@ namespace Player
         private Transform _originalFollow;
         private Camera _camera;
         private Transform _focus=null;
+        private Vector3 _tempPos;
         ///  PRIVATE METHODS           ///
          private void Awake()
          {
             _camera=Camera.main;
            _virCam = GetComponent<CinemachineVirtualCamera>();
             _originalFollow = _virCam.Follow;
+            _tempPos= _tempFocus.position;
 
          }
         ///  PUBLIC API                ///
@@ -54,6 +56,8 @@ namespace Player
         public void UnfocusCamera()
         {
            _focus = null;
+            _tempFocus.position = _tempPos;
+
         }
 
 
