@@ -24,7 +24,7 @@ namespace Player
             _camera=Camera.main;
            _virCam = GetComponent<CinemachineVirtualCamera>();
             _originalFollow = _virCam.Follow;
-            _tempPos= _tempFocus.position;
+            _tempPos= _tempFocus.localPosition;
 
          }
         ///  PUBLIC API                ///
@@ -41,7 +41,7 @@ namespace Player
 
         public void FocusCamera(Transform focus)
         {
-         
+            
             _focus = focus;
            
         }

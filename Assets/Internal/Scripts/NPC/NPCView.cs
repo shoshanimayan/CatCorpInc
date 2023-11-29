@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
 using Gameplay;
+using Cinemachine;
 
 namespace NPC
 {
@@ -13,13 +14,15 @@ namespace NPC
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private TextStep[] _steps;
         [SerializeField] private Transform _face;
-        [SerializeField]private int _currentStep = 0;
-
+        [SerializeField] private CinemachineVirtualCamera _cam;
         ///  PRIVATE VARIABLES         ///
         private NPCMediator _mediator;
+        private int _currentStep = 0;
+
         ///  PRIVATE METHODS           ///
         private void Awake()
         {
+            _cam.enabled = false;
             for (int i = 0; i < _steps.Length; i++)
             {
                 if (i + 1 < _steps.Length)
@@ -60,8 +63,8 @@ namespace NPC
 
         public void DoInteraction()
         {
-           
 
+            _cam.enabled = true;
             _mediator.SendStep(_steps[_currentStep],this,_face);
             
         }
@@ -73,6 +76,8 @@ namespace NPC
 
         public void IncrementStep()
         {
+            _cam.enabled = false;
+
             if (_steps[_currentStep].UnblocksConversation)
             {
                 _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
@@ -88,6 +93,7 @@ namespace NPC
 
         public void IncrementStepByValue(int increment) 
         {
+            _cam.enabled = false;
             if (_steps[_currentStep].UnblocksConversation)
             {
                 _mediator.SendUnblock(_steps[_currentStep].UnblockStep);
@@ -126,6 +132,7 @@ namespace NPC
 
         public void ForceIncrementStep()
         {
+            _cam.enabled = false;
             if (_currentStep + 1 < _steps.Length )
             {
                 if (_steps[_currentStep].UnblocksConversation)
