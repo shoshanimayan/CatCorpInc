@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
 using System.Diagnostics;
+using Cinemachine;
 
 namespace Gameplay
 {
@@ -13,6 +14,8 @@ namespace Gameplay
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private TextStep[] _steps;
         [SerializeField] private int _key;
+        [SerializeField] private CinemachineVirtualCamera _cam;
+
         ///  PRIVATE VARIABLES         ///
         private CollectableMediator _mediator;
         private int _currentStep = 0;
@@ -22,7 +25,9 @@ namespace Gameplay
         ///  PUBLIC API                ///
         public void DoInteraction()
         {
-            _mediator.SendStep(_steps[_currentStep], this);
+            _cam.enabled = true;
+
+            _mediator.SendStep(_steps[_currentStep], this,transform);
 
             _mediator.CollectObject(_key);
         }
@@ -33,12 +38,16 @@ namespace Gameplay
 
         public void IncrementStep()
         {
+            _cam.enabled = false;
+
             gameObject.SetActive(false);
 
         }
 
         public void IncrementStepByValue(int increment)
         {
+            _cam.enabled = false;
+
             gameObject.SetActive(false);
 
         }
