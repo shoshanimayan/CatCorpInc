@@ -26,7 +26,9 @@ namespace Player
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(State state)
 		{
-			_currentState = state;
+            _signalBus.Fire(new WalkStateChangedSignal() { ToState = WalkState.None });
+
+            _currentState = state;
 			if (_currentState != State.Text)
 			{
 				_readState = ReadState.Null;
