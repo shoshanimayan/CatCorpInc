@@ -80,7 +80,7 @@ namespace Player
 
         public bool PlayerProgressingReader()
         {
-           return _playerControls.Player.Fire.triggered || _playerControls.Player.Interact.triggered;
+           return _playerControls.Player.Fire.triggered ;
         }
 
 
