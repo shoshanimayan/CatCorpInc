@@ -17,7 +17,7 @@ namespace Ui
         ///  PRIVATE VARIABLES         ///
         private bool _writing;
         private CancellationTokenSource _cToken;
-
+        private TextDispalyMediator _mediator;
         ///  PRIVATE METHODS           ///
         private async Task TypeText( CancellationToken t = default)
         {
@@ -87,6 +87,11 @@ namespace Ui
             return _textField.pageToDisplay;
         }
 
+        public void Initilization(TextDispalyMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
         public void ClearToken()
         {
             _cToken.Cancel();
@@ -106,6 +111,11 @@ namespace Ui
 
 
             _textField.pageToDisplay++;
+            if (_textField.textInfo.pageCount < _textField.pageToDisplay)
+            {
+                _mediator.ForceEnd();
+                return;
+            }
              await TypeText(_cToken.Token);
 
         }

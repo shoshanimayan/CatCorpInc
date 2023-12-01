@@ -28,6 +28,7 @@ namespace Ui
 
         private void HandlePageTransition()
         {
+
             if (_view.GetCurrentPage()<=_view.GetTotalPages())
             {
                 _view.IncrementPage();
@@ -40,7 +41,11 @@ namespace Ui
 
         }
         ///  PUBLIC API                ///
-
+        public void ForceEnd()
+        {
+            _view.ClearToken();
+            _signalBus.Fire(new FinishStepSignal());
+        }
         ///  IMPLEMENTATION            ///
 
         [Inject]
@@ -51,6 +56,7 @@ namespace Ui
 
 		public void Initialize()
 		{
+            _view.Initilization(this);
             _signalBus.GetStream<SendTextSignal>()
            .Subscribe(x => OnRecievedText(x.Text)).AddTo(_disposables);
             _signalBus.GetStream<ProgressReaderSignal>()
