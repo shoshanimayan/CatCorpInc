@@ -4646,6 +4646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: {fileID: 880620274}
   _textField: {fileID: 282940524}
+  _textDelay: 25
 --- !u!4 &991547071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 945914334707263391, guid: d3b1b49c0250e6d479994c5dcaaab427,
@@ -7593,7 +7594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3b71e113443694d82c3856913cb10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpeed: 2.5
+  _playerSpeed: 3
   _SprintSpeedBonus: 2
   _jumpHeight: 0.5
   _gravityValue: -9.81

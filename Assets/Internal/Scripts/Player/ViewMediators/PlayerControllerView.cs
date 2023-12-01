@@ -80,7 +80,7 @@ namespace Player
                 Vector3 move = new Vector3(movement.x, 0f, movement.y);
                 move = _cameraTransform.forward * move.z + _cameraTransform.right * movement.x;
                 move.y = 0f;
-                _controller.Move(move * Time.deltaTime * (_playerSpeed + (_sprinting ? _SprintSpeedBonus : 0)));
+                _controller.Move(move * Time.deltaTime * (_playerSpeed * (_sprinting ? _SprintSpeedBonus : 1)));
 
 
 
