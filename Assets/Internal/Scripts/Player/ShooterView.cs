@@ -51,6 +51,7 @@ namespace Player
         private void Start()
         {
             _cam = Camera.main.transform;
+            _attackPoint.parent = _cam;
 
         }
 
