@@ -14,6 +14,7 @@ namespace Ui
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private TextMeshProUGUI _name;
         [SerializeField] private TextMeshProUGUI _textField;
+        [SerializeField] private int _textDelay=50;
         ///  PRIVATE VARIABLES         ///
         private bool _writing;
         private CancellationTokenSource _cToken;
@@ -42,7 +43,7 @@ namespace Ui
 
 
                 counter++;
-                await Task.Delay(5 * 10);
+                await Task.Delay(_textDelay);
             }
             _writing = false;
         }
@@ -69,9 +70,6 @@ namespace Ui
             _textField.text = text;
             _textField.pageToDisplay = 1;
             _textField.ForceMeshUpdate();
-            Debug.Log(_textField.textInfo.pageInfo[_textField.pageToDisplay-1].firstCharacterIndex);
-            Debug.Log(_textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex);
-            Debug.Log(_textField.text.Substring(_textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex, _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex - _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex));
             await TypeText(_cToken.Token);
 
         }
