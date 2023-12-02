@@ -39,6 +39,12 @@ namespace Signals.Game
         public string[] Choices;
     }
 
+    public class SetTypingSignal
+    {
+        public string Prompt;
+    }
+
+
     public class ChoiceSendSignal
     {
         public int Choice;
@@ -84,6 +90,11 @@ namespace Signals.Game
         public Objective Objective;
         public int total;
         public int current;
+    }
+
+    public class SendTypedMessageSignal
+    {
+        public string Message;
     }
 
 

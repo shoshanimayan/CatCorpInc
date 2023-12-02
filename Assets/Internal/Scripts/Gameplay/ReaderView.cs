@@ -9,7 +9,7 @@ namespace Gameplay
 
    
 
-    public enum ReadState {Text,Choice,Draw,Drag,Null }
+    public enum ReadState {Text,Choice,Draw,Drag,Type,Null }
 
     public class ReaderView: MonoBehaviour,IView
 	{
@@ -18,7 +18,9 @@ namespace Gameplay
 		///  INSPECTOR VARIABLES       ///
 		[SerializeField] private GameObject _TextDisplayPanel;
         [SerializeField] private GameObject _TextChoicePanel;
-        
+        [SerializeField] private GameObject _TypingPanel;
+
+
         ///  PRIVATE VARIABLES         ///
         private ReaderMediator _mediator;
 
@@ -41,6 +43,7 @@ namespace Gameplay
         {
             _TextDisplayPanel.SetActive( false);
             _TextChoicePanel.SetActive(false);
+            _TypingPanel.SetActive(false);
             switch (state)
             {
                 case ReadState.Text:
@@ -48,6 +51,9 @@ namespace Gameplay
                     break;
                 case ReadState.Choice:
                     _TextChoicePanel.SetActive(true);
+                    break;
+                case ReadState.Type:
+                    _TypingPanel.SetActive(true);
                     break;
 
 

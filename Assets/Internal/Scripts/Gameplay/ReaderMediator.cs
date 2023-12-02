@@ -61,6 +61,11 @@ namespace Gameplay
 			}
 		}
 
+		private void OnRecievedTypedMessage(string message)
+		{
+			OnFinishStep();
+		}
+
 		private void OnFinishStep()
 		{
 			if (_step)
@@ -89,8 +94,6 @@ namespace Gameplay
 					_signalBus.Fire(new StateChangeSignal() { ToState=State.Play});
 					_origin = null;
 				}
-
-				
 			
 			}
 			
@@ -115,6 +118,12 @@ namespace Gameplay
                     _signalBus.Fire(new ChangeReadStateSignal() { ReadState = ReadState.Choice });
 					_signalBus.Fire(new ChoiceListSignal() { Choices = entry.Content.Split(",") }) ;
                     break;
+				case "Typing":
+                    _signalBus.Fire(new ChangeReadStateSignal() { ReadState = ReadState.Type});
+					_signalBus.Fire(new SetTypingSignal() { Prompt = entry.Content });
+					break;
+
+
             }
 
         }
@@ -137,6 +146,8 @@ namespace Gameplay
 
         }
 
+		
+
         ///  IMPLEMENTATION            ///
 
         [Inject]
@@ -156,6 +167,8 @@ namespace Gameplay
                          .Subscribe(x => OnFinishStep()).AddTo(_disposables);
             _signalBus.GetStream<ChoiceSendSignal>()
                         .Subscribe(x => ChoiceRecieved(x.Choice)).AddTo(_disposables);
+            _signalBus.GetStream<SendTypedMessageSignal>()
+                       .Subscribe(x => OnRecievedTypedMessage(x.Message)).AddTo(_disposables);
         }
 
 		public void Dispose()

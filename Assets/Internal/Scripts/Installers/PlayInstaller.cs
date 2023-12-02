@@ -27,6 +27,7 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<TextChoiceMediator, TextChoiceView>();
         Container.BindMediatorView<CameraFocuserMediator, CameraFocuserView>();
         Container.BindMediatorView<CoffeeManagerMediator, CoffeeManagerView>();
+        Container.BindMediatorView<TextTypeMediator, TextTypeView>();
 
 
         //signals
@@ -42,6 +43,8 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<ProgressReaderSignal>();
         Container.DeclareSignal<FinishStepSignal>();
         Container.DeclareSignal<UpdateObjectiveCountSignal>();
+        Container.DeclareSignal<SendTypedMessageSignal>();
+        Container.DeclareSignal<SetTypingSignal>();
 
 
 
