@@ -19,6 +19,7 @@ namespace Gameplay
 		[SerializeField] private GameObject _TextDisplayPanel;
         [SerializeField] private GameObject _TextChoicePanel;
         [SerializeField] private GameObject _TypingPanel;
+        [SerializeField] private GameObject _DragPanel;
 
 
         ///  PRIVATE VARIABLES         ///
@@ -44,6 +45,7 @@ namespace Gameplay
             _TextDisplayPanel.SetActive( false);
             _TextChoicePanel.SetActive(false);
             _TypingPanel.SetActive(false);
+            _DragPanel.SetActive(false);
             switch (state)
             {
                 case ReadState.Text:
@@ -54,6 +56,9 @@ namespace Gameplay
                     break;
                 case ReadState.Type:
                     _TypingPanel.SetActive(true);
+                    break;
+                case ReadState.Drag: 
+                    _DragPanel.SetActive(true);
                     break;
 
 

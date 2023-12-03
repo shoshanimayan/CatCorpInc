@@ -6,6 +6,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals.Game;
+using Signals.Core;
+using Managers;
 
 namespace Player
 {
@@ -15,14 +17,23 @@ namespace Player
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
+		State _currentState ;
+        ///  PRIVATE METHODS           ///
 
-		///  PRIVATE METHODS           ///
+        ///  LISTNER METHODS           ///
+        private void OnStateChanged(State state)
+        {
+            _currentState = state;
 
-		///  LISTNER METHODS           ///
-
-		///  PUBLIC API                ///
-		public void SetHovering(string hovering) {
+        }
+        ///  PUBLIC API                ///
+        public void SetHovering(string hovering) {
 			_signalBus.Fire(new HoveringSignal() { Hovering = hovering });
+		}
+
+		public bool CanInteract()
+		{
+			return _currentState == State.Play;
 		}
 		///  IMPLEMENTATION            ///
 
@@ -35,7 +46,9 @@ namespace Player
 		public void Initialize()
 		{
 			_view.Init(this);
-		}
+            _signalBus.GetStream<StateChangedSignal>()
+             .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

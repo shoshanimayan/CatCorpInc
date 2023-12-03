@@ -67,7 +67,7 @@ namespace Player
         private void Update()
         {
             CheckForInteraction();
-            if (_interactingWith != null && _inputReciever.PlayerInteracted())
+            if (_interactingWith != null && _inputReciever.PlayerInteracted() && _mediator.CanInteract())
             { 
                 _interactingWith.DoInteraction();
             }

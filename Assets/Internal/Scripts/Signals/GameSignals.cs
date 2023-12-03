@@ -44,6 +44,15 @@ namespace Signals.Game
         public string Prompt;
     }
 
+    public class SetDragSignal
+    {
+        public string Message;
+    }
+
+    public class FinishDragSignal
+    {
+       
+    }
 
     public class ChoiceSendSignal
     {

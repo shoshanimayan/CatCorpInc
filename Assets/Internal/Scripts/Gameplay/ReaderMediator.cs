@@ -66,7 +66,11 @@ namespace Gameplay
 			OnFinishStep();
 		}
 
-		private void OnFinishStep()
+        private void OnFinishedDrag()
+        {
+            OnFinishStep();
+        }
+        private void OnFinishStep()
 		{
 			if (_step)
 			{
@@ -122,6 +126,11 @@ namespace Gameplay
                     _signalBus.Fire(new ChangeReadStateSignal() { ReadState = ReadState.Type});
 					_signalBus.Fire(new SetTypingSignal() { Prompt = entry.Content });
 					break;
+                case "Dragging":
+                    _signalBus.Fire(new ChangeReadStateSignal() { ReadState = ReadState.Drag });
+                    _signalBus.Fire(new SetDragSignal() { Message = entry.Content });
+                    break;
+
 
 
             }
@@ -169,6 +178,8 @@ namespace Gameplay
                         .Subscribe(x => ChoiceRecieved(x.Choice)).AddTo(_disposables);
             _signalBus.GetStream<SendTypedMessageSignal>()
                        .Subscribe(x => OnRecievedTypedMessage(x.Message)).AddTo(_disposables);
+            _signalBus.GetStream<FinishDragSignal>()
+                      .Subscribe(x => OnFinishedDrag()).AddTo(_disposables);
         }
 
 		public void Dispose()
