@@ -1,11 +1,8 @@
 using UnityEngine;
 using Core;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.AddressableAssets.Settings;
+
 using UnityEngine.AddressableAssets;
-using Unity.VisualScripting;
-using System.Threading;
+
 using System.Threading.Tasks;
 
 namespace Player

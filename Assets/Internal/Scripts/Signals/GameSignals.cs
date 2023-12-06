@@ -1,13 +1,7 @@
 using Gameplay;
-using NPC;
 using Player;
 using ScriptableObjects;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using UnityEditor.AddressableAssets.Settings;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
+
 
 
 namespace Signals.Game
