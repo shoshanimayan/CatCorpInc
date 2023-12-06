@@ -8,12 +8,16 @@ namespace Ui
 	{
 
 		///  INSPECTOR VARIABLES       ///
-
+		[SerializeField] private Canvas _loadingCanvas;
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
 
 		///  PUBLIC API                ///
+		public void EnableLoadingUI(bool enabled)
+		{ 
+		_loadingCanvas.enabled = enabled;
+		}
 
 	}
 }

@@ -23,7 +23,7 @@ namespace Managers
             ///  PRIVATE VARIABLES         ///
             private AsyncOperationHandle<SceneInstance> _handle;
             private bool _unloaded = true;
-            private State _stateLoading;
+            private State _stateLoading=State.Text;
             ///  PRIVATE METHODS           ///
 
 
@@ -47,7 +47,6 @@ namespace Managers
                 {
                     _handle = obj;
                     _unloaded = false;
-                 //   _signalBus.Fire(new RespawnSignal());
                     switch (_stateLoading)
                     {
                         case State.Play:
@@ -57,7 +56,10 @@ namespace Managers
                         case State.Menu:
                         _signalBus.Fire(new StateChangeSignal() { ToState = _stateLoading });
                         break;
-                    }
+                    case State.Text:
+                        _signalBus.Fire(new StateChangeSignal() { ToState = _stateLoading });
+                        break;
+                }
                     Debug.Log(_stateLoading.ToString() + " loaded");
                 }
             }
@@ -130,7 +132,7 @@ namespace Managers
                 if (SceneManager.sceneCount == 1)
                 {
                 _signalBus.Fire(new StateChangeSignal() { ToState=State.Loading});
-                    _stateLoading = State.Menu;
+                    _stateLoading = State.Loading;
                     Load(_view.GetMenuAsset());
                 }
                 else

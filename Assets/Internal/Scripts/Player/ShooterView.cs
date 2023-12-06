@@ -52,6 +52,7 @@ namespace Player
         {
             _cam = Camera.main.transform;
             _attackPoint.parent = _cam;
+            _attackPoint.localPosition = new Vector3(.6f, 0, 0);
 
         }
 
