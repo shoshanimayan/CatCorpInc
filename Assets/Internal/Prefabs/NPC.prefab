@@ -119,8 +119,8 @@ MonoBehaviour:
   _cam: {fileID: 9213831460991986805}
   _symbolCanvas: {fileID: 6342932985159075967}
   _symbolTextures:
-  - {fileID: 2800000, guid: 7c164a8ab621d5b4cbfdafbb24034032, type: 3}
-  - {fileID: 2800000, guid: e5da668c6557abb47a17a303cf69943f, type: 3}
+  - {fileID: 2800000, guid: 7f584910e90ee104a90179c084c92d88, type: 3}
+  - {fileID: 2800000, guid: 6815862a6f3716f48b0d60720c99dc5c, type: 3}
 --- !u!114 &945914334707263378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.00000011920929}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 750, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6342932985159075967
 Canvas:
@@ -287,8 +287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000053406, y: 0.000091553}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 750, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4741164178034973104
 CanvasRenderer:
@@ -454,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6002849264764386688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.544, z: 0}
+  m_LocalPosition: {x: 0, y: 0.677, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
