@@ -5,6 +5,7 @@ using System;
 
 using Signals.Core;
 using Signals.Game;
+using UnityEngine;
 
 namespace Gameplay
 {
@@ -25,7 +26,7 @@ namespace Gameplay
         ///  LISTNER METHODS           ///
 
         ///  PUBLIC API                ///
-        public void GotCoffee() { 
+        public void GotCoffee() {
 			_coffeeCount++;
             _signalBus.Fire(new UpdateObjectiveCountSignal() { Objective = _view.Objective, total = _coffeeTotal, current = _coffeeCount });
 

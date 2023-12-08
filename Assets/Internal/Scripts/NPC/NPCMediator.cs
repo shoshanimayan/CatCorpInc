@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using ScriptableObjects;
 using Signals.Game;
 using Signals.Core;
+using Managers;
+using DG.Tweening;
 
 namespace NPC
 {
@@ -18,10 +20,23 @@ namespace NPC
 
         ///  PRIVATE VARIABLES         ///
         private bool _gotCoffee;
+        private State _currentState;
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
-        
+        private void OnStateChanged(State state)
+        {
+            _currentState = state;
+            if (state == State.Play)
+            {
+                _view.ShowQuestSymbol();
+            }
+            else
+            {
+                DOTween.Kill("coffee");
+                _view.HideSymbol();
+            }
+        }
         private void GotCollectable(int key )
         {
             if (_view.GetNeedsCollectable() && _view.GetCollectableKey()==key)
@@ -38,10 +53,19 @@ namespace NPC
             }
         }
 
+        private void OnObjectiveCompleted(Objective obj)
+        {
+            if (_view.CompareObjective(obj))
+            {
+                _view.DeactivateQuest();
+            }
+        }
+
         ///  PUBLIC API                ///
         public void GotCoffee()
         {
             if (!_gotCoffee) {
+                _view.ShowHeartSymbol();
                 _gotCoffee = true;
                 _signalBus.Fire(new GotCoffeeSignal());
             }
@@ -67,6 +91,14 @@ namespace NPC
         {
             _signalBus.Fire(new UnblockedConversationSignal() {Unblock=unblock});
         }
+
+        public State GetCurrentState()
+        {
+
+            return _currentState;
+        }
+
+
         ///  IMPLEMENTATION            ///
 
         [Inject]
@@ -82,6 +114,10 @@ namespace NPC
              .Subscribe(x => GotCollectable(x.Key)).AddTo(_disposables);
             _signalBus.GetStream<UnblockedConversationSignal>()
             .Subscribe(x => UnblockStep(x.Unblock)).AddTo(_disposables);
+            _signalBus.GetStream<ObjectiveCompleteSignal>().Subscribe(x => OnObjectiveCompleted(x.Objective));
+            _signalBus.GetStream<StateChangedSignal>()
+              .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+            _view.ShowQuestSymbol();
         }
 
 		public void Dispose()
