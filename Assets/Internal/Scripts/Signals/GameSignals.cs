@@ -1,8 +1,7 @@
 using Gameplay;
 using Player;
 using ScriptableObjects;
-
-
+using UnityEngine;
 
 namespace Signals.Game
 {
@@ -86,6 +85,11 @@ namespace Signals.Game
     public class GotCoffeeSignal
     { 
     
+    }
+
+    public class SendCoffeePositionSignal
+    {
+        public Vector3 Position;
     }
 
     public class UpdateObjectiveCountSignal

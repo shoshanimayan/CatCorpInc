@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Signals.Core;
+using Signals.Game;
 
 namespace Player
 {
@@ -30,6 +31,11 @@ namespace Player
         public bool GetCanShoot()
 		{ 
 			return _gameSettings.GetCanShoot() && _currentState==State.Play;
+		}
+
+		public void SendCoffeeHitPosition(Vector3 pos)
+		{
+			_signalBus.Fire(new SendCoffeePositionSignal() { Position = pos });
 		}
 		///  IMPLEMENTATION            ///
 

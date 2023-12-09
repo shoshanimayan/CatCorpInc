@@ -4,6 +4,7 @@ using Core;
 using UnityEngine.AddressableAssets;
 
 using System.Threading.Tasks;
+using Gameplay;
 
 namespace Player
 {
@@ -61,12 +62,22 @@ namespace Player
             _cooledDown=true;
         }
 
+        private void SendHitPosition(Vector3 pos)
+        {
+
+            _mediator.SendCoffeeHitPosition(pos);
+        }
+
         private void Throw()
         {
             _cooledDown = false;
 
             GameObject projectile = Instantiate(_shootObject, _attackPoint.position, _cam.rotation);
-
+            Coffee coffe=null;
+            if (projectile.TryGetComponent<Coffee>(out coffe))
+            {
+                coffe.SetOnHit(SendHitPosition);
+            }
             Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
 
             Vector3 forceDirection = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0)).direction;

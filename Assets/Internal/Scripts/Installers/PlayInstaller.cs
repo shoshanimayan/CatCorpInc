@@ -30,6 +30,7 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<TextTypeMediator, TextTypeView>();
         Container.BindMediatorView<DragPanelMediator, DragPanelView>();
         Container.BindMediatorView<DraggableMediator, DraggableView>();
+        Container.BindMediatorView<CoffeeParticleMediator, CoffeeParticleView>();
 
 
         //signals
@@ -49,6 +50,7 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<SetTypingSignal>();
         Container.DeclareSignal<SetDragSignal>();
         Container.DeclareSignal<FinishDragSignal>();
+        Container.DeclareSignal<SendCoffeePositionSignal>();
 
 
 
