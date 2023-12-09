@@ -178,12 +178,12 @@ namespace NPC
 
         public void ShowQuestSymbol() 
         {
-            if (_mediator.GetCurrentState() != State.Play||_hasGoal==false) { return; }
-            _symbolCanvas.transform.localEulerAngles = new Vector3(0, 0, 0);
+            if (_mediator.GetCurrentState() == State.Text||_hasGoal==false) { return; }
             _symbolCanvas.enabled = true;
             RawImage image =  _symbolCanvas.GetComponentInChildren<RawImage>();
             if (image != null) 
             {
+                image.transform.localEulerAngles = new Vector3(0, 0, 0);
                 image.texture = _symbolTextures[0];
             }
         }

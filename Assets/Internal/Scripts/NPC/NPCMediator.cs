@@ -31,7 +31,7 @@ namespace NPC
             {
                 _view.ShowQuestSymbol();
             }
-            else
+            else if (state==State.Text)
             {
                 DOTween.Kill("coffee");
                 _view.HideSymbol();
