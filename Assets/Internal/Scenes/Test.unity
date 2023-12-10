@@ -19829,6 +19829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _noiseSettingsWalk: {fileID: 11400000, guid: 617952425d63b544cb64bad86845dc6e, type: 2}
   _noiseSettingsRun: {fileID: 11400000, guid: 55a0404039b857b4aa8acf4dd025245e, type: 2}
+  _noiseSettingShake: {fileID: 11400000, guid: e883eeb2207127449ae8574d1e5fc422, type: 2}
 --- !u!114 &2113486485
 MonoBehaviour:
   m_ObjectHideFlags: 0

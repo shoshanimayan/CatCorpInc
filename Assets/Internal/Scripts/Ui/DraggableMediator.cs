@@ -9,6 +9,8 @@ using Signals.Core;
 using Managers;
 using Gameplay;
 using Signals.Game;
+using UnityEditor;
+using Player;
 
 namespace Ui
 {
@@ -34,8 +36,24 @@ namespace Ui
         {
             if (!_completed)
             { 
-            _completed = true;
+                _completed = true;
                 _signalBus.Fire(new FinishDragSignal());
+                _signalBus.Fire(new WalkStateChangedSignal() { ToState = WalkState.None });
+
+            }
+        }
+
+        public void ShakeScreen(bool shake)
+        {
+            if (shake)
+            {
+                _signalBus.Fire(new WalkStateChangedSignal() { ToState=WalkState.Shake }) ;
+            }
+            else
+            {
+                _signalBus.Fire(new WalkStateChangedSignal() { ToState = WalkState.None });
+
+
             }
         }
         ///  IMPLEMENTATION            ///

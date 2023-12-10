@@ -13,6 +13,7 @@ namespace Player
         ///  INSPECTOR VARIABLES       ///
         [SerializeField] private NoiseSettings _noiseSettingsWalk;
         [SerializeField]  private NoiseSettings _noiseSettingsRun;
+        [SerializeField] private NoiseSettings _noiseSettingShake;
 
 
         ///  PRIVATE VARIABLES         ///
@@ -47,6 +48,9 @@ namespace Player
                     case WalkState.Run:
                         SetWalk();
                         break;
+                    case WalkState.Shake:
+                        SetShake();
+                        break; 
                 }
             }
         }
@@ -63,11 +67,13 @@ namespace Player
 
         public void SetOff() {
             _bobber.m_NoiseProfile = null;
-
-
         }
 
+        public void SetShake()
+        {
+            _bobber.m_NoiseProfile = _noiseSettingShake;
 
+        }
 
 
     }

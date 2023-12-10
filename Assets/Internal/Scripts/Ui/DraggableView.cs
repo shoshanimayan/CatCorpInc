@@ -8,7 +8,7 @@ using Player;
 namespace Ui
 {
     [RequireComponent(typeof(RectTransform))]
-    public class DraggableView : MonoBehaviour, IView, IDragHandler, IPointerDownHandler
+    public class DraggableView : MonoBehaviour, IView, IDragHandler, IPointerDownHandler, IEndDragHandler
     {
 
 
@@ -35,14 +35,18 @@ namespace Ui
         ///  PUBLIC API                ///
         public void OnDrag(PointerEventData eventData)
         {
+
             if (eventData.position.y < _lastPos.y && _mediator.CanDrag)
-            { 
-                float reduction= _lastPos.y - eventData.position.y;
+            {
+                _mediator.ShakeScreen(true);
+
+                float reduction = _lastPos.y - eventData.position.y;
                 _rectTransform.localPosition = new Vector2(_rectTransform.localPosition.x, _rectTransform.localPosition.y - reduction);
             }
             _lastPos = eventData.position;
 
-        }
+        } 
+
 
        public void Init(DraggableMediator mediator)
         { _mediator = mediator; }
@@ -51,6 +55,11 @@ namespace Ui
         {
             _lastPos = eventData.position;
 
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            _mediator.ShakeScreen(false);
         }
     }
 }

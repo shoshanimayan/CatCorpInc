@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 namespace Player
 {
-    public enum WalkState {None,Walk,Run }
+    public enum WalkState {None,Walk,Run,Shake }
 
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(InputReciever))]
