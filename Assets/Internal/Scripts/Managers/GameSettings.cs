@@ -11,7 +11,7 @@ namespace Managers
 		private bool _headBob=true;
 		private bool _canShoot = true;
 		private bool _ended = false;
-
+		private bool _timerEnabled = false;
 
 		private void SetHeadBob(bool CanHeadBob = true)
 		{ 
@@ -32,6 +32,10 @@ namespace Managers
 
 		public void SetEnded(bool ended) { _ended = ended; }
 		public bool GetEnded() { return _ended;}
+
+
+		public void SetTimerEnabled(bool timerEnabled) {  _timerEnabled = timerEnabled; }
+		public bool GetTimerEnabled() { return _timerEnabled; }
 
 	}
 }
