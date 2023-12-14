@@ -26,7 +26,12 @@ namespace Audio
 			_view.PlayOneShot(key, worldPos);
 		}
 
-		private void OnStopSound(string key)
+		private void OnPlaySound(string key, Vector3 worldPos)
+        {
+            _view.PlaySound(key, worldPos);
+        }
+
+        private void OnStopSound(string key)
 		{ 
 			_view.StopInstance(key);
 		}
@@ -56,6 +61,8 @@ namespace Audio
                                   .Subscribe(x => OnStopAllSounds()).AddTo(_disposables);
             _signalBus.GetStream<StateChangedSignal>()
                      .Subscribe(x =>OnStopAllSounds()).AddTo(_disposables);
+            _signalBus.GetStream<PlaySoundSignal>()
+                    .Subscribe(x => OnPlaySound(x.ClipName, x.WorldPos)).AddTo(_disposables);
         }
 
 		public void Dispose()

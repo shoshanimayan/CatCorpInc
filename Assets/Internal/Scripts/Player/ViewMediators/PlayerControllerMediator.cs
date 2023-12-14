@@ -21,10 +21,34 @@ namespace Player
 		private bool _canInput;
 		private State _currentState;
 		private ReadState _readState= ReadState.Null;
-		///  PRIVATE METHODS           ///
+        ///  PRIVATE METHODS           ///
+        private void PlayWalkSound(WalkState state, Vector3 position)
+        {
+            switch (state)
+            {
+                case WalkState.Walk:
+                    _signalBus.Fire(new PlaySoundSignal() { ClipName = "walk" });
+                    _signalBus.Fire(new StopSoundSignal() { ClipName = "run" });
 
-		///  LISTNER METHODS           ///
-		private void OnStateChanged(State state)
+
+                    break;
+                case WalkState.Run:
+                    _signalBus.Fire(new PlaySoundSignal() { ClipName = "run" });
+                    _signalBus.Fire(new StopSoundSignal() { ClipName = "walk" });
+
+
+                    break;
+                case WalkState.None:
+                    _signalBus.Fire(new StopSoundSignal() { ClipName = "walk" });
+                    _signalBus.Fire(new StopSoundSignal() { ClipName = "run" });
+
+
+                    break;
+            }
+
+        }
+        ///  LISTNER METHODS           ///
+        private void OnStateChanged(State state)
 		{
             _signalBus.Fire(new WalkStateChangedSignal() { ToState = WalkState.None });
 
@@ -50,12 +74,15 @@ namespace Player
                     Cursor.lockState = CursorLockMode.Locked;
                     break;
 				case State.Text:
+                    _view.StopWalkState();
                     Cursor.lockState = CursorLockMode.Confined;
                     break;
 				case State.Paused:
+                    _view.StopWalkState();
                     Cursor.lockState = CursorLockMode.Confined;
                     break;
                 case State.Objective:
+                    _view.StopWalkState();
                     Cursor.lockState = CursorLockMode.Confined;
                     break;
             }
@@ -73,8 +100,11 @@ namespace Player
         ///  PUBLIC API                ///
         public void ChangeWalkState(WalkState state)
 		{
+            PlayWalkSound(state,_view.transform.position);
 			_signalBus.Fire(new WalkStateChangedSignal() { ToState = state });
 		}
+
+		
 
 		public bool CanReadInput()
 		{

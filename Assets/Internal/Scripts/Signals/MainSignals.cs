@@ -71,6 +71,13 @@ namespace Signals.Core
         public Vector3 WorldPos;
     }
 
+    public class PlaySoundSignal
+    {
+        public string ClipName;
+        public Vector3 WorldPos;
+    }
+
+
     public class StopSoundSignal
     {
         public string ClipName;

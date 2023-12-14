@@ -67,7 +67,7 @@ namespace Player
             { 
                 _mediator.ProgressReader();
             }
-            if (_mediator.CanReadInput())
+            if (_mediator.CanReadInput() && _mediator.GetCurrentState() == Managers.State.Play)
             {
                 _sprinting = _inputReciever.PlayerSprinting();
                 _groundedPlayer = _controller.isGrounded;
@@ -93,7 +93,7 @@ namespace Player
                 _playerVelocity.y += _gravityValue * Time.deltaTime;
                 _controller.Move(_playerVelocity * Time.deltaTime);
                 var state = WalkState.None;
-                if (move.magnitude > 0)
+                if (move.magnitude > 0 && _groundedPlayer)
                 {
                     if (_sprinting)
                     {
@@ -106,8 +106,13 @@ namespace Player
                 }
                 UpdateWalkState(state);
             }
+  
+        }
 
-            
+        public void StopWalkState() 
+        {
+        _walkState = WalkState.None; ;
+        
         }
 
         public void Init( PlayerControllerMediator mediator)

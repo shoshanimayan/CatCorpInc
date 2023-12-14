@@ -21,3 +21,19 @@ MonoBehaviour:
         Data3: -231245400
         Data4: 1003292824
       Path: event:/Interacted
+  - key: walk
+    value:
+      Guid:
+        Data1: 474817631
+        Data2: 1182537315
+        Data3: -699244153
+        Data4: 2084784266
+      Path: event:/playerFootSteps
+  - key: run
+    value:
+      Guid:
+        Data1: -1177919114
+        Data2: 1232613616
+        Data3: 1805607049
+        Data4: -1419129769
+      Path: event:/playerFastFootSteps
