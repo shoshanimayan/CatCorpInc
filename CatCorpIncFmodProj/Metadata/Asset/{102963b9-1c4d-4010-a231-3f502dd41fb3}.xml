@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="EncodableAsset" id="{a81716ed-82a0-4daf-808d-9bfd21b4b739}">
+	<object class="EncodableAsset" id="{102963b9-1c4d-4010-a231-3f502dd41fb3}">
 		<property name="assetPath">
-			<value>sfx/steps/</value>
+			<value>Music/</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a4b62c8c-42a5-4c93-9392-2b0284c3aed8}</destination>

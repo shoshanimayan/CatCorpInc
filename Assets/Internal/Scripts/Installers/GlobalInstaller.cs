@@ -33,6 +33,9 @@ public class GlobalInstaller : MonoInstaller
         Container.DeclareSignal<StopSoundSignal>();
         Container.DeclareSignal<StopAllSoundsSignal>();
         Container.DeclareSignal<PlaySoundSignal>();
+        Container.DeclareSignal<PlayMusicSignal>();
+        Container.DeclareSignal<PauseMusicSignal>();
+        Container.DeclareSignal<TransitionMusicSignal>();
 
 
 

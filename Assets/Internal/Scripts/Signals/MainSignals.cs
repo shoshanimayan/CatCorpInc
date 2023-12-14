@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Managers;
 using ScriptableObjects;
+using Audio;
 
 namespace Signals.Core
 {
@@ -88,4 +89,19 @@ namespace Signals.Core
         public string ClipName;
     }
 
+
+    public class PlayMusicSignal
+    {
+        public string ClipName;
+    }
+
+    public class PauseMusicSignal
+    {
+        public string ClipName;
+    }
+
+    public class TransitionMusicSignal
+    {
+        public MusicState musicState;
+    }
 }

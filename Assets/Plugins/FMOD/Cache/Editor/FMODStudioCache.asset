@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9103239461713834411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: CatCorpIncFmodProj/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 638380968363471884
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
 --- !u!114 &-7724066230335818584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,11 +35,65 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638380938786862330
+  lastModified: 638380968362311562
   FileSizes:
   - Name: Desktop
     Value: 1036
   Exists: 1
+--- !u!114 &-7678108204111835962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/playerFootSteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/playerFootSteps
+  Guid:
+    Data1: 474817631
+    Data2: 1182537315
+    Data3: -699244153
+    Data4: 2084784266
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-3764545492877846952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/playerFastFootSteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/playerFastFootSteps
+  Guid:
+    Data1: -1177919114
+    Data2: 1232613616
+    Data3: 1805607049
+    Data4: -1419129769
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-2348822087898069626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,10 +109,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638380938786872317
+  lastModified: 638380968362321534
   FileSizes:
   - Name: Desktop
-    Value: 918
+    Value: 1008
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -56,71 +130,19 @@ MonoBehaviour:
   - {fileID: -2348822087898069626}
   - {fileID: -7724066230335818584}
   - {fileID: 5497173414093313933}
+  - {fileID: 5803748426873731050}
+  - {fileID: -9103239461713834411}
   EditorEvents:
-  - {fileID: 8635015511340187699}
-  - {fileID: 407708063859334664}
-  - {fileID: 1611487593532950630}
+  - {fileID: -7678108204111835962}
+  - {fileID: -3764545492877846952}
+  - {fileID: 6012614018620739337}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7724066230335818584}
   StringsBanks:
   - {fileID: -2348822087898069626}
-  cacheTime: 638380938787087055
+  cacheTime: 638380968363501741
   cacheVersion: 131609
---- !u!114 &407708063859334664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/playerFootSteps
-  m_EditorClassIdentifier: 
-  Path: event:/playerFootSteps
-  Guid:
-    Data1: 474817631
-    Data2: 1182537315
-    Data3: -699244153
-    Data4: 2084784266
-  Banks:
-  - {fileID: 5497173414093313933}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1000
---- !u!114 &1611487593532950630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/playerFastFootSteps
-  m_EditorClassIdentifier: 
-  Path: event:/playerFastFootSteps
-  Guid:
-    Data1: -1177919114
-    Data2: 1232613616
-    Data3: 1805607049
-    Data4: -1419129769
-  Banks:
-  - {fileID: 5497173414093313933}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1000
 --- !u!114 &5497173414093313933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,12 +158,32 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638380938787087055
+  lastModified: 638380968363442553
   FileSizes:
   - Name: Desktop
     Value: 18336
   Exists: 1
---- !u!114 &8635015511340187699
+--- !u!114 &5803748426873731050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: CatCorpIncFmodProj/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638380968363501741
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &6012614018620739337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,9 +193,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Interacted
+  m_Name: event:/SFX/Interacted
   m_EditorClassIdentifier: 
-  Path: event:/Interacted
+  Path: event:/SFX/Interacted
   Guid:
     Data1: 1816862090
     Data2: 1233940004

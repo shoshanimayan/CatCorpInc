@@ -33,18 +33,35 @@ namespace Audio
 
         private void OnStopSound(string key)
 		{ 
-			_view.StopInstance(key);
+			_view.StopClipInstance(key);
 		}
 
-		public void OnStopAllSounds()
+		private void OnStopAllSounds()
 		{ 
-			_view.KillAllSounds();
+			_view.KillAllClips();
 		}
-		///  PUBLIC API                ///
 
-		///  IMPLEMENTATION            ///
 
-		[Inject]
+		private void OnPlayMusic(string song)
+		{ 
+			_view.PlayMusic(song);
+		}
+
+        private void OnPauseMusic(string song)
+        {
+            _view.PauseMusic(song);
+        }
+
+		private void OnTransitionMusic(MusicState musicState)
+		{ 
+			_view.TransitionMusicState(musicState);
+		}
+
+        ///  PUBLIC API                ///
+
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
 
@@ -63,6 +80,14 @@ namespace Audio
                      .Subscribe(x =>OnStopAllSounds()).AddTo(_disposables);
             _signalBus.GetStream<PlaySoundSignal>()
                     .Subscribe(x => OnPlaySound(x.ClipName, x.WorldPos)).AddTo(_disposables);
+            _signalBus.GetStream<PauseMusicSignal>()
+                              .Subscribe(x => OnPauseMusic(x.ClipName)).AddTo(_disposables);
+
+            _signalBus.GetStream<PlayMusicSignal>()
+                            .Subscribe(x => OnPlayMusic(x.ClipName)).AddTo(_disposables);
+
+            _signalBus.GetStream<TransitionMusicSignal>()
+                            .Subscribe(x => OnTransitionMusic(x.musicState)).AddTo(_disposables);
         }
 
 		public void Dispose()
