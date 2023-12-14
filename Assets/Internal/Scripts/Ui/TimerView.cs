@@ -67,7 +67,6 @@ namespace Ui
 
         public void TimerCanvasEnabled(bool enabled)
         {
-            Debug.Log(enabled);
         _timerCanvas.enabled = enabled;
         }
     }

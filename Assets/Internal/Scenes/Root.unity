@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 247660077}
   - component: {fileID: 247660078}
+  - component: {fileID: 247660079}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: RootManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,6 +178,21 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+--- !u!114 &247660079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247660076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb660c4344935f49b3d70e8d55b114d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioLibrarySounds: {fileID: 11400000, guid: da9f295db70b3e140b4680cb2bab5ec6,
+    type: 2}
+  _audioLibraryMusic: {fileID: 11400000, guid: fabe4ed726d10414fbf0d06c76372471, type: 2}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
+  attenuationObject: {fileID: 330585543}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

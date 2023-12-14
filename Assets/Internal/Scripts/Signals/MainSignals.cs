@@ -64,4 +64,21 @@ namespace Signals.Core
     {
         public TextStep Unblock;
     }
+
+    public class PlayOneShotSignal
+    {
+        public string ClipName;
+        public Vector3 WorldPos;
+    }
+
+    public class StopSoundSignal
+    {
+        public string ClipName;
+    }
+
+    public class StopAllSoundsSignal
+    {
+        public string ClipName;
+    }
+
 }

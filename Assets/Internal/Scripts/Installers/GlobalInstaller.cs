@@ -29,6 +29,10 @@ public class GlobalInstaller : MonoInstaller
         Container.DeclareSignal<UnblockedConversationSignal>();
         Container.DeclareSignal<GotCoffeeSignal>();
         Container.DeclareSignal<SetCoffeeSignal>();
+        Container.DeclareSignal<PlayOneShotSignal>();
+        Container.DeclareSignal<StopSoundSignal>();
+        Container.DeclareSignal<StopAllSoundsSignal>();
+
 
 
         //binding

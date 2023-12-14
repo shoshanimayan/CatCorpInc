@@ -21,8 +21,11 @@ namespace Gameplay
         ///  PUBLIC API                ///
         public void DoInteraction()
         {
+            
+            _mediator.PlaySound(transform.position);
             DOTween.Sequence().AppendCallback(() =>
             {
+               
                 if (_event != null)
                 {
                     _event.Invoke();

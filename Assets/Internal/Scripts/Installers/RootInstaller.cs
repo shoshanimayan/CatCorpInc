@@ -3,6 +3,7 @@ using UnityEngine;
 using Utility;
 using Zenject;
 using Ui;
+using Audio;
 
 public class RootInstaller : MonoInstaller
 {
@@ -13,6 +14,7 @@ public class RootInstaller : MonoInstaller
         //binding
         Container.BindMediatorView<SceneManagerMediator, SceneManagerView>();
         Container.BindMediatorView<LoadingUIMediator, LoadingUIView>();
+        Container.BindMediatorView<AudioManagerMediator, AudioManagerView>();
 
     }
 }
