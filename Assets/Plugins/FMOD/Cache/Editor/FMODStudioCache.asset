@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638381665875577777
+  lastModified: 638381681782700003
   FileSizes:
   - Name: Desktop
     Value: 2314176
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638381646431581433
+  lastModified: 638381681782560189
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -135,7 +135,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638381646431591414
+  lastModified: 638381681782560189
   FileSizes:
   - Name: Desktop
     Value: 1156
@@ -196,7 +196,7 @@ MonoBehaviour:
   - {fileID: -7724066230335818584}
   StringsBanks:
   - {fileID: -2348822087898069626}
-  cacheTime: 638381665875577777
+  cacheTime: 638381681782709990
   cacheVersion: 131609
 --- !u!114 &2766754984481112754
 MonoBehaviour:
@@ -241,7 +241,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638381663178700680
+  lastModified: 638381681782709990
   FileSizes:
   - Name: Desktop
     Value: 29824
@@ -261,7 +261,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638380968363501741
+  lastModified: 638381681782560189
   FileSizes:
   - Name: Desktop
     Value: 494
