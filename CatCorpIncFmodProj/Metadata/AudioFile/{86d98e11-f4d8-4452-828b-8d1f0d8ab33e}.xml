@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{86d98e11-f4d8-4452-828b-8d1f0d8ab33e}">
+		<property name="assetPath">
+			<value>Music/Laid Back LOOP.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>57.600022675736959</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a4b62c8c-42a5-4c93-9392-2b0284c3aed8}</destination>
+		</relationship>
+	</object>
+</objects>

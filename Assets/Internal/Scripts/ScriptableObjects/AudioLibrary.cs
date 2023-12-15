@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using FMODUnity;
+using System.Linq;
 
 namespace ScriptableObjects
 {
@@ -37,7 +38,11 @@ namespace ScriptableObjects
 
         ///  PUBLIC API                ///
 
+        public AudioDictionaryEntry GetAtIndex(int index)
+        {
+            return inspectorDictionary[index];
         
+        }
 
         public bool TryGetClip(string key, out EventReference reference) {
             reference= new EventReference();

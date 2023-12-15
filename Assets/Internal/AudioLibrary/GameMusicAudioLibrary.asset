@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: GameMusicAudioLibrary
   m_EditorClassIdentifier: 
   inspectorDictionary:
-  - key: interacted
+  - key: Music
     value:
       Guid:
-        Data1: 1816862090
-        Data2: 1233940004
-        Data3: -231245400
-        Data4: 1003292824
-      Path: event:/Interacted
+        Data1: 632078610
+        Data2: 1128009688
+        Data3: 1752441764
+        Data4: -380489563
+      Path: event:/Music/MusicEvent

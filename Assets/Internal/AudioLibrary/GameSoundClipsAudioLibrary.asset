@@ -37,3 +37,11 @@ MonoBehaviour:
         Data3: 1805607049
         Data4: -1419129769
       Path: event:/playerFastFootSteps
+  - key: coffeeCrash
+    value:
+      Guid:
+        Data1: 1308436559
+        Data2: 1075978075
+        Data3: -46723397
+        Data4: 2115092500
+      Path: event:/SFX/Coffee

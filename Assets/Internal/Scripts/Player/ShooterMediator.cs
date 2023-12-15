@@ -35,7 +35,9 @@ namespace Player
 
 		public void SendCoffeeHitPosition(Vector3 pos)
 		{
-			_signalBus.Fire(new SendCoffeePositionSignal() { Position = pos });
+            _signalBus.Fire(new PlayOneShotSignal() { ClipName = "coffeeCrash", WorldPos = pos});
+
+            _signalBus.Fire(new SendCoffeePositionSignal() { Position = pos });
 		}
 		///  IMPLEMENTATION            ///
 

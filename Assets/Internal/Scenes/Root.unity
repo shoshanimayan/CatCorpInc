@@ -193,6 +193,7 @@ MonoBehaviour:
   _audioLibrarySounds: {fileID: 11400000, guid: da9f295db70b3e140b4680cb2bab5ec6,
     type: 2}
   _audioLibraryMusic: {fileID: 11400000, guid: fabe4ed726d10414fbf0d06c76372471, type: 2}
+  _musicTransitionParameter: MusicState
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

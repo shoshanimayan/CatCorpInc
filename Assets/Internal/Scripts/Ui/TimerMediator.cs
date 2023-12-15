@@ -7,6 +7,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Managers;
 using Signals.Core;
+using static UnityEditor.PlayerSettings;
+using Audio;
 
 namespace Ui
 {
@@ -56,9 +58,15 @@ namespace Ui
         }
         ///  PUBLIC API                ///
         public bool TimerEnabled;
-		///  IMPLEMENTATION            ///
 
-		[Inject]
+        public void TransitionToLateMusic()
+        {
+            _signalBus.Fire(new TransitionMusicSignal() {  musicState=MusicState.song2});
+
+        }
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
         [Inject] private GameSettings _gameSettings;

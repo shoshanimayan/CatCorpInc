@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638380968363471884
+  lastModified: 638381665875577777
   FileSizes:
   - Name: Desktop
-    Value: 494
+    Value: 2314176
   Exists: 1
 --- !u!114 &-7724066230335818584
 MonoBehaviour:
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638380968362311562
+  lastModified: 638381646431581433
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -94,6 +94,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &-3390362455153124673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicEvent/MusicState
+  m_EditorClassIdentifier: 
+  Name: MusicState
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2471235594
+    data2: 359630030
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - song1
+  - song2
+  Exists: 1
 --- !u!114 &-2348822087898069626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,11 +135,38 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638380968362321534
+  lastModified: 638381646431591414
   FileSizes:
   - Name: Desktop
-    Value: 1008
+    Value: 1156
   Exists: 1
+--- !u!114 &-287451829036286413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Coffee
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Coffee
+  Guid:
+    Data1: 1308436559
+    Data2: 1075978075
+    Data3: -46723397
+    Data4: 2115092500
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,13 +189,43 @@ MonoBehaviour:
   - {fileID: -7678108204111835962}
   - {fileID: -3764545492877846952}
   - {fileID: 6012614018620739337}
+  - {fileID: 2766754984481112754}
+  - {fileID: -287451829036286413}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7724066230335818584}
   StringsBanks:
   - {fileID: -2348822087898069626}
-  cacheTime: 638380968363501741
+  cacheTime: 638381665875577777
   cacheVersion: 131609
+--- !u!114 &2766754984481112754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MusicEvent
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MusicEvent
+  Guid:
+    Data1: 632078610
+    Data2: 1128009688
+    Data3: 1752441764
+    Data4: -380489563
+  Banks:
+  - {fileID: -9103239461713834411}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3390362455153124673}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5497173414093313933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,10 +241,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638380968363442553
+  lastModified: 638381663178700680
   FileSizes:
   - Name: Desktop
-    Value: 18336
+    Value: 29824
   Exists: 1
 --- !u!114 &5803748426873731050
 MonoBehaviour:

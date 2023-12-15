@@ -19,6 +19,7 @@ namespace Ui
         private float _totalTime;
         private float _currentTime;
         private TimerMediator _mediator;
+        private bool _panicTime;
         ///  PRIVATE METHODS           ///
         private void Awake()
         {
@@ -34,8 +35,10 @@ namespace Ui
                 if (_currentTime > 0)
                 {
                     _currentTime -= Time.deltaTime;
-                    if (_currentTime < 60&&_timerText.color!=_endColor)
+                    if (_currentTime < 60&&_timerText.color!=_endColor&&!_panicTime)
                     { 
+                        _panicTime = true;
+                        _mediator.TransitionToLateMusic();
                         _timerText.color = _endColor;
                     }
                     DisplayTime(_currentTime);

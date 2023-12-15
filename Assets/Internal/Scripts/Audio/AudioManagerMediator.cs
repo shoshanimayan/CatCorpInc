@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Signals.Game;
 using Signals.Core;
 using TMPro.EditorUtilities;
+using Managers;
 
 namespace Audio
 {
@@ -57,6 +58,20 @@ namespace Audio
 			_view.TransitionMusicState(musicState);
 		}
 
+		private void OnStateChange(State state)
+		{
+			switch (state)
+			{
+				case State.Paused:
+					_view.PauseMusic();
+					break;
+				default:
+					_view.PlayMusic();
+					break;
+			
+			}
+		}
+
         ///  PUBLIC API                ///
 
         ///  IMPLEMENTATION            ///
@@ -77,7 +92,7 @@ namespace Audio
             _signalBus.GetStream<StopAllSoundsSignal>()
                                   .Subscribe(x => OnStopAllSounds()).AddTo(_disposables);
             _signalBus.GetStream<StateChangedSignal>()
-                     .Subscribe(x =>OnStopAllSounds()).AddTo(_disposables);
+                     .Subscribe(x => { OnStopAllSounds();OnStateChange(x.ToState); }).AddTo(_disposables);
             _signalBus.GetStream<PlaySoundSignal>()
                     .Subscribe(x => OnPlaySound(x.ClipName, x.WorldPos)).AddTo(_disposables);
             _signalBus.GetStream<PauseMusicSignal>()

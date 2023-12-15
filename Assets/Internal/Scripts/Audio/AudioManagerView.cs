@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Audio
 {
-    public enum MusicState { }
+    public enum MusicState {song1,song2 }
     public class AudioManagerView : MonoBehaviour, IView
     {
 
@@ -25,7 +25,7 @@ namespace Audio
         ///  PRIVATE METHODS           ///
         private void Start()
         {
-
+            PlayMusic(_audioLibraryMusic.GetAtIndex(0).key);
         }
         ///  PUBLIC API                ///
         public void PlayOneShot(string sound, Vector3 worldPos)
@@ -48,7 +48,7 @@ namespace Audio
             }
             else
             {
-                UnityEngine.Debug.LogError("could not find Event reference with key: " + sound);
+                Debug.LogError("could not find Event reference with key: " + sound);
             }
 
         }
@@ -96,17 +96,21 @@ namespace Audio
 
         }
 
-        public void PlayMusic(string sound)
+        public void PlayMusic(string sound=null)
         {
-            _eventReference = new EventReference();
-            if (!_instancesClips.ContainsKey(sound))
+            if (sound == null)
             {
-                if (_audioLibrarySounds.TryGetClip(sound, out _eventReference))
+                sound = _audioLibraryMusic.GetAtIndex(0).key;
+            }
+            _eventReference = new EventReference();
+            if (!_instancesMusic.ContainsKey(sound))
+            {
+                if (_audioLibraryMusic.TryGetClip(sound, out _eventReference))
                 {
                     //RuntimeManager.PlayOneShot(_eventReference, worldPos);
                     var instance = RuntimeManager.CreateInstance(_eventReference);
                     _instancesMusic.Add(sound, instance);
-
+                  //  instance.set3DAttributes(RuntimeUtils.To3DAttributes());
                     instance.start();
 
 
@@ -123,8 +127,12 @@ namespace Audio
             }
         }
 
-        public void PauseMusic(string sound)
+        public void PauseMusic(string sound=null)
         {
+            if (sound == null)
+            {
+                sound = _audioLibraryMusic.GetAtIndex(0).key;
+            }
             if (_instancesMusic.ContainsKey(sound))
             {
 

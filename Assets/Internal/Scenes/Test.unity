@@ -14715,7 +14715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timerCanvas: {fileID: 1611572541}
   _timerText: {fileID: 2108944814}
-  _minutes: 1
+  _minutes: 2
   _endColor: {r: 0.7924528, g: 0, b: 0, a: 1}
   CountDownActive: 0
 --- !u!1001 &1508630969
