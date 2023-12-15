@@ -3,11 +3,8 @@ using Core;
 using Zenject;
 using UniRx;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Signals.Game;
+
 using Signals.Core;
-using TMPro.EditorUtilities;
 using Managers;
 
 namespace Audio

@@ -1,13 +1,11 @@
-using UnityEngine;
+
 using Core;
 using Zenject;
 using UniRx;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using Managers;
 using Signals.Core;
-using static UnityEditor.PlayerSettings;
 using Audio;
 
 namespace Ui
