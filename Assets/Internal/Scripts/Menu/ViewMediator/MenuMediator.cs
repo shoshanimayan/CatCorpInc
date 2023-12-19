@@ -24,12 +24,14 @@ namespace Menu
 		///  PUBLIC API                ///
 		public void PlayClickAudio()
 		{
+            _signalBus.Fire(new PlayOneShotSignal() { ClipName = "interacted" });
 
-		}
+        }
 
-		public void PlayGame()
+        public void PlayGame()
 		{
-			_signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Game });
+			PlayClickAudio();
+            _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Game });
 		}
 		///  IMPLEMENTATION            ///
 

@@ -32,6 +32,7 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<DraggableMediator, DraggableView>();
         Container.BindMediatorView<CoffeeParticleMediator, CoffeeParticleView>();
         Container.BindMediatorView<TimerMediator,TimerView>();
+        Container.BindMediatorView<PauseMenuMediator, PauseMenuView>();
 
 
         //signals
