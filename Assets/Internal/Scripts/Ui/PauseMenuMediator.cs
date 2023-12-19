@@ -36,7 +36,7 @@ namespace Ui
         public void ToMenu()
         {
             PlayClickAudio();
-            _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Game });
+            _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Menu });
         }
         ///  IMPLEMENTATION            ///
 
