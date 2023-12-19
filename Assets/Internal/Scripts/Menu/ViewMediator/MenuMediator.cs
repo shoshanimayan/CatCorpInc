@@ -5,9 +5,12 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Signals.Core;
+using Managers;
+
 namespace Menu
 {
-	public class MenuMediator: MediatorBase<MenuView>, IInitializable, IDisposable
+	public class MenuMediator : MediatorBase<MenuView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -19,7 +22,15 @@ namespace Menu
 		///  LISTNER METHODS           ///
 
 		///  PUBLIC API                ///
+		public void PlayClickAudio()
+		{
 
+		}
+
+		public void PlayGame()
+		{
+			_signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Game });
+		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -30,7 +41,7 @@ namespace Menu
 
 		public void Initialize()
 		{
-
+			_view.Init(this);
 		}
 
 		public void Dispose()

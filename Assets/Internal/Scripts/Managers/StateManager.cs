@@ -9,6 +9,8 @@ using Signals.Core;
 namespace Managers
 {
     public enum State { Menu, Play, Loading, Text,Paused,Objective }
+    public enum SceneState { Menu, Game, Test}
+
     public class StateManager : IDisposable
     {
 

@@ -23,7 +23,7 @@ namespace Managers
             ///  PRIVATE VARIABLES         ///
             private AsyncOperationHandle<SceneInstance> _handle;
             private bool _unloaded = true;
-            private State _stateLoading=State.Text;
+            private SceneState _stateLoading=SceneState.Test;
             ///  PRIVATE METHODS           ///
 
 
@@ -49,15 +49,15 @@ namespace Managers
                     _unloaded = false;
                     switch (_stateLoading)
                     {
-                        case State.Play:
-                        _signalBus.Fire(new StateChangeSignal() { ToState = _stateLoading });
+                        case SceneState.Game:
+                        _signalBus.Fire(new StateChangeSignal() { ToState = State.Text });
 
                         break;
-                        case State.Menu:
-                        _signalBus.Fire(new StateChangeSignal() { ToState = _stateLoading });
+                        case SceneState.Menu:
+                        _signalBus.Fire(new StateChangeSignal() { ToState = State.Menu });
                         break;
-                    case State.Text:
-                        _signalBus.Fire(new StateChangeSignal() { ToState = _stateLoading });
+                    case SceneState.Test:
+                        _signalBus.Fire(new StateChangeSignal() { ToState = State.Text });
                         break;
                 }
                     Debug.Log(_stateLoading.ToString() + " loaded");
@@ -86,14 +86,14 @@ namespace Managers
 
 
             _signalBus.Fire(new StateChangeSignal() { ToState = State.Loading });
-            _stateLoading = signal.StateToLoad;
-                switch (signal.StateToLoad)
+            _stateLoading = signal.SceneToLoad;
+                switch (_stateLoading)
                 {
-                    case State.Play:
+                    case SceneState.Game:
 
                     Load(_view.GetLevelAsset());
                         break;
-                    case State.Menu:
+                    case SceneState.Menu:
 
                     Load(_view.GetMenuAsset());
                         break;
@@ -106,7 +106,7 @@ namespace Managers
             {
             _signalBus.Fire(new StateChangeSignal() { ToState = State.Loading });
 
-            _stateLoading = State.Menu;
+            _stateLoading = SceneState.Menu;
                 Load(_view.GetMenuAsset());
             }
             ///  PUBLIC API                ///
@@ -132,7 +132,7 @@ namespace Managers
                 if (SceneManager.sceneCount == 1)
                 {
                 _signalBus.Fire(new StateChangeSignal() { ToState=State.Loading});
-                    _stateLoading = State.Loading;
+                    _stateLoading = SceneState.Menu;
                     Load(_view.GetMenuAsset());
                 }
                 else
@@ -140,6 +140,7 @@ namespace Managers
                     //just for testing in editor
                     if (SceneManager.GetSceneAt(0).name.Contains("Menu"))
                     {
+                    Debug.Log("open from menu scene");
                     _signalBus.Fire(new StateChangeSignal() { ToState = State.Menu });
                     Cursor.lockState = CursorLockMode.Confined;
 

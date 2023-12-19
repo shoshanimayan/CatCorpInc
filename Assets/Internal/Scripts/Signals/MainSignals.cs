@@ -23,7 +23,7 @@ namespace Signals.Core
 
     public class LoadSceneSignal
     {
-        public State StateToLoad;
+        public SceneState SceneToLoad;
     }
 
     public class AudioEffectSignal
