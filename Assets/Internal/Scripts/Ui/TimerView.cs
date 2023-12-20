@@ -46,6 +46,7 @@ namespace Ui
                 else
                 {
                     _mediator.TimerEnabled = false;
+                    _mediator.EndTimer();
                     DisplayTime(0);
 
                 }

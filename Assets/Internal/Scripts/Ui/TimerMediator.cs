@@ -62,6 +62,12 @@ namespace Ui
             _signalBus.Fire(new TransitionMusicSignal() {  musicState=MusicState.song2});
 
         }
+
+        public void EndTimer()
+        {
+            _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Menu });
+
+        }
         ///  IMPLEMENTATION            ///
 
         [Inject]
