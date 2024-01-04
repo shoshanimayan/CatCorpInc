@@ -156,8 +156,9 @@ namespace Player
 		[Inject]
 
 		private SignalBus _signalBus;
+        [Inject] private GameSettings _gameSettings;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
@@ -166,6 +167,7 @@ namespace Player
                            .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
             _signalBus.GetStream<ChangeReadStateSignal>()
                          .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
+            _gameSettings.SetCanShoot(false) ;
         }
 
 		public void Dispose()

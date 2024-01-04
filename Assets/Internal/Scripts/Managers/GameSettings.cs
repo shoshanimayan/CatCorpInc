@@ -22,7 +22,7 @@ namespace Managers
 			return _headBob;
 		}
 
-		private void SetCanShoot(bool canShot)
+		public void SetCanShoot(bool canShot)
 		{		
 			_canShoot= canShot;
 		}
