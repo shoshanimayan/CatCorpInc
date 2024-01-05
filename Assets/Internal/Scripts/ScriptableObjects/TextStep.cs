@@ -14,6 +14,8 @@ namespace ScriptableObjects
         [SerializeField] private TextAsset _json;
         [SerializeField] private bool _startNextEntryOnCompletion;
         [SerializeField] private bool _completeGoalOnCompletion;
+        [SerializeField] private bool _addGoal;
+
         [SerializeField] private bool _needsCollectable;
         [SerializeField] private bool _waitingForAnotherConversation;
         [SerializeField] private bool _unblocksConversation;
@@ -53,6 +55,7 @@ namespace ScriptableObjects
 
 
         public Objective Objective;
+        public Objective ObjectiveToAdd;
         public TextStep UnblockStep;
         public int CollectableKey;
 
@@ -60,6 +63,8 @@ namespace ScriptableObjects
         public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; }  
             set { _startNextEntryOnCompletion = value; } }
         public bool CompleteGoalOnCompletion { get { return _completeGoalOnCompletion; } }
+        public bool AddGoal { get { return _addGoal; } }
+
 
         public TextStep(TextAsset json, bool startNextEntryOnCompletion, bool completeGoalOnCompletion, Objective objective)
         { 
@@ -87,6 +92,10 @@ namespace ScriptableObjects
                 if (!self.CompleteGoalOnCompletion)
                 {
                     exclude.Add("Objective");
+                }
+                if (!self.AddGoal)
+                {
+                    exclude.Add("ObjectiveToAdd");
                 }
                 if (!self.UnblocksConversation)
                 {

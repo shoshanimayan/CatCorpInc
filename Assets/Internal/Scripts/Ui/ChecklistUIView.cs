@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using Player;
+using System.Linq;
 
 namespace Ui
 {
@@ -53,6 +54,27 @@ namespace Ui
                         obj.UpdateCountUI(total, current);
                     }
                 }
+            }
+        }
+
+        public void AddObjective(Objective objective)
+        {
+            if (_objectives != null)
+            {
+                foreach (ObjectiveUI obj in _objectives)
+                {
+
+                    if (obj.ObjectiveEquals(objective))
+                    {
+                        return;
+                    }
+                }
+                List<ObjectiveUI> objectiveList = _objectives.ToList();
+                GameObject o = Instantiate(_objectiveUIPrefab, _contentContainer);
+                ObjectiveUI ui = o.GetComponent<ObjectiveUI>();
+                ui.SetObjective(objective);
+                objectiveList.Add(ui);
+                _objectives = objectiveList.ToArray();
             }
         }
 

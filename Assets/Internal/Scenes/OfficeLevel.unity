@@ -10365,6 +10365,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameHandlers
       objectReference: {fileID: 0}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _objectives.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _objectives.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 025d21fe96e3b8042b62caae523686be,
+        type: 2}
     - target: {fileID: 3518149244432395051, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
       propertyPath: m_RootOrder

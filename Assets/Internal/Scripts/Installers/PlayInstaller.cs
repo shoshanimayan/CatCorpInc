@@ -54,6 +54,7 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<SetDragSignal>();
         Container.DeclareSignal<FinishDragSignal>();
         Container.DeclareSignal<SendCoffeePositionSignal>();
+        Container.DeclareSignal<AddObjectiveSignal>();
 
 
 

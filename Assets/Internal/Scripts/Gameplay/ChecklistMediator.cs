@@ -41,6 +41,11 @@ namespace Gameplay
 				Debug.Log("win");
 			}
 		}
+
+		private void AddObjective(Objective obj)
+		{ 
+		
+		}
 		///  PUBLIC API                ///
 		public void InitializeObjectiveMenu(Objective[] objectives)
 		{
@@ -62,6 +67,8 @@ namespace Gameplay
              .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
             _signalBus.GetStream<ChecklistCompletionCheckSignal>()
              .Subscribe(x => CheckForCompletion()).AddTo(_disposables);
+			_signalBus.GetStream<AddObjectiveSignal>()
+				.Subscribe(x=>AddObjective(x.Objective)).AddTo(_disposables);
 			
         }
 

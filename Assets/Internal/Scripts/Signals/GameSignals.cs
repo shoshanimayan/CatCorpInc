@@ -26,6 +26,11 @@ namespace Signals.Game
         public Objective[] Objectives;
     }
 
+    public class AddObjectiveSignal
+    {
+        public Objective Objective;
+    }
+
 
     public class ChoiceListSignal
     {
