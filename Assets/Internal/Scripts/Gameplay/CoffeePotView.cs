@@ -29,6 +29,8 @@ namespace Gameplay
         
         public void DoInteraction()
         {
+            _cam.enabled = true;
+
             _mediator.SendStep(_steps[_currentStep], this, transform);
            
         }
@@ -41,8 +43,7 @@ namespace Gameplay
         {
             _mediator.ActivateCoffee();
             _cam.enabled = false;
-
-            gameObject.SetActive(false);
+            transform.parent.gameObject.SetActive(false);
 
         }
 
