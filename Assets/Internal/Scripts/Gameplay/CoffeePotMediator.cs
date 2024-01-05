@@ -6,6 +6,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using ScriptableObjects;
+using Signals.Core;
+using Signals.Game;
 
 namespace Gameplay
 {
@@ -25,9 +28,19 @@ namespace Gameplay
 		{
 			_gameSettings.SetCanShoot(true);
 		}
-		///  IMPLEMENTATION            ///
 
-		[Inject]
+        public void SendStep(TextStep step, CoffeePotView view, Transform transform = null)
+        {
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin = view });
+            if (transform != null)
+            {
+                _signalBus.Fire(new CameraFocusSignal() { Focus = transform });
+            }
+
+        }
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
         [Inject] private GameSettings _gameSettings;

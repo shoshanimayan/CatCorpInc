@@ -2,14 +2,22 @@ using UnityEngine;
 using Core;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
+using ScriptableObjects;
+using Cinemachine;
+
 namespace Gameplay
 {
     public class CoffeePotView : MonoBehaviour, IView, Interactable
     {
 
         ///  INSPECTOR VARIABLES       ///
+        [SerializeField] private TextStep[] _steps;
+        [SerializeField] private CinemachineVirtualCamera _cam;
+
 
         ///  PRIVATE VARIABLES         ///
+        private int _currentStep = 0;
 
         ///  PRIVATE METHODS           ///
         private CoffeePotMediator _mediator;
@@ -21,7 +29,8 @@ namespace Gameplay
         
         public void DoInteraction()
         {
-            _mediator.ActivateCoffee();
+            _mediator.SendStep(_steps[_currentStep], this, transform);
+           
         }
 
         public void HoverOn()
@@ -30,6 +39,11 @@ namespace Gameplay
 
         public void IncrementStep()
         {
+            _mediator.ActivateCoffee();
+            _cam.enabled = false;
+
+            gameObject.SetActive(false);
+
         }
 
         public void IncrementStepByValue(int increment)
