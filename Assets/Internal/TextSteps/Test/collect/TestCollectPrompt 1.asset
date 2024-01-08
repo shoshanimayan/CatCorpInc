@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
-  m_Name: TestCollectPrompt
+  m_Name: TestCollectPrompt 1
   m_EditorClassIdentifier: 
   _json: {fileID: 4900000, guid: 6466e04461ae3b346950e83a2d35b855, type: 3}
   _startNextEntryOnCompletion: 0

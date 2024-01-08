@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
-  m_Name: TestCollectableInfo
+  m_Name: TestMouseInfo
   m_EditorClassIdentifier: 
-  _json: {fileID: 4900000, guid: 7746a428f2f475f4fa16afd9346a01eb, type: 3}
+  _json: {fileID: 4900000, guid: 02627e9e63fce734a883fae58e3060d1, type: 3}
   _startNextEntryOnCompletion: 0
   _completeGoalOnCompletion: 0
   _addGoal: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   Objective: {fileID: 0}
   ObjectiveToAdd: {fileID: 0}
   UnblockStep: {fileID: 0}
-  CollectableKey: 0
+  CollectableKey: 1

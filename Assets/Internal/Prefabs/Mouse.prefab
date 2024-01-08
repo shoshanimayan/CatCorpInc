@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _steps:
-  - {fileID: 0}
-  _key: 0
+  - {fileID: 11400000, guid: 6221d55a52b1aef47a9cd6a854ead70c, type: 2}
+  _key: 1
   _cam: {fileID: 4828240608758892078}
 --- !u!135 &413058298998268708
 SphereCollider:

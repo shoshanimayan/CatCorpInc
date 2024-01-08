@@ -10,17 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
-  m_Name: TestCollectableInfo
+  m_Name: TestMouse
   m_EditorClassIdentifier: 
-  _json: {fileID: 4900000, guid: 7746a428f2f475f4fa16afd9346a01eb, type: 3}
+  _json: {fileID: 4900000, guid: 6466e04461ae3b346950e83a2d35b855, type: 3}
   _startNextEntryOnCompletion: 0
   _completeGoalOnCompletion: 0
-  _addGoal: 0
-  _needsCollectable: 0
-  _waitingForAnotherConversation: 0
-  _unblocksConversation: 0
-  _multipleChoice: 0
+  _needsCollectable: 1
   Objective: {fileID: 0}
-  ObjectiveToAdd: {fileID: 0}
-  UnblockStep: {fileID: 0}
-  CollectableKey: 0
