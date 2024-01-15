@@ -27,6 +27,8 @@ namespace NPC
         private bool _hasGoal;
         private Objective _npcObjective;
         private Quaternion originalRotation;
+        private bool _interacted;
+
 
         ///  PRIVATE METHODS           ///
         private void Awake()
@@ -78,7 +80,11 @@ namespace NPC
         }
         ///  PUBLIC API                ///
 
-
+        public bool Interacted
+        {
+            get { return _interacted; }
+            private set { }
+        }
         public void Init(NPCMediator mediator)
         {
             _mediator = mediator;
@@ -91,7 +97,6 @@ namespace NPC
 
         public void DoInteraction()
         {
-
             _cam.enabled = true;
             _mediator.SendStep(_steps[_currentStep], this, _face);
 

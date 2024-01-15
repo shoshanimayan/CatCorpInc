@@ -10,7 +10,7 @@ using Signals.Game;
 
 namespace Gameplay
 {
-	public class MouseCollectionHandlerMediator: MediatorBase<MouseCollectionHandlerView>, IInitializable, IDisposable
+	public class PlantCollectionHandlerMediator: MediatorBase<PlantCollectionHandlerView>, IInitializable, IDisposable
 	{
 
         ///  INSPECTOR VARIABLES       ///
@@ -18,9 +18,9 @@ namespace Gameplay
         ///  PRIVATE VARIABLES         ///
         private int _currentCount;
         ///  PRIVATE METHODS           ///
-        private void CompleteCollection() 
+        private void CompleteCollection()
         {
-            _signalBus.Fire(new ObjectiveCompletedSignal { Objective=_view.GetObjective()});
+            _signalBus.Fire(new ObjectiveCompletedSignal { Objective = _view.GetObjective() });
         }
         ///  LISTNER METHODS           ///
         private void GotCollectable(int key)
@@ -32,7 +32,7 @@ namespace Gameplay
 
                 if (_view.CountCheck(_currentCount))
                 {
-                    CompleteCollection();            
+                    CompleteCollection();
                 }
             }
         }
@@ -42,22 +42,22 @@ namespace Gameplay
 
         [Inject]
 
-		private SignalBus _signalBus;
+        private SignalBus _signalBus;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
-		public void Initialize()
-		{
+        public void Initialize()
+        {
             _signalBus.GetStream<GotCollectableSignal>()
             .Subscribe(x => GotCollectable(x.Key)).AddTo(_disposables);
         }
 
-		public void Dispose()
-		{
+        public void Dispose()
+        {
 
-			_disposables.Dispose();
+            _disposables.Dispose();
 
-		}
+        }
 
-	}
+    }
 }

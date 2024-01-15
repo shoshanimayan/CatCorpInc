@@ -24,8 +24,13 @@ namespace Gameplay
 		public void CompleteObjective(Objective objective) {
 			_signalBus.Fire(new ObjectiveCompleteSignal() { Objective = objective });
 		}
+        public void CollectObject(int key)
+        {
+            _signalBus.Fire(new GotCollectableSignal() { Key = key });
 
-		public void PlaySound(Vector3 worldPos)
+        }
+
+        public void PlaySound(Vector3 worldPos)
 		{
 			_signalBus.Fire(new PlayOneShotSignal() { ClipName="interacted", WorldPos=	worldPos  });
 		}

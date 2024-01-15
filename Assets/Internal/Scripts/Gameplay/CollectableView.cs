@@ -15,14 +15,20 @@ namespace Gameplay
         [SerializeField] private TextStep[] _steps;
         [SerializeField] private int _key;
         [SerializeField] private CinemachineVirtualCamera _cam;
-
+        [SerializeField] private bool _deactivateOnInteract=true;
         ///  PRIVATE VARIABLES         ///
         private CollectableMediator _mediator;
         private int _currentStep = 0;
+        private bool _interacted;
 
         ///  PRIVATE METHODS           ///
 
         ///  PUBLIC API                ///
+        public bool Interacted
+        {
+            get { return _interacted; }
+            private set { }
+        }
         public void DoInteraction()
         {
             _cam.enabled = true;
@@ -30,6 +36,7 @@ namespace Gameplay
             _mediator.SendStep(_steps[_currentStep], this,transform);
 
             _mediator.CollectObject(_key);
+            _interacted = true;
         }
 
         public void HoverOn()
@@ -39,8 +46,10 @@ namespace Gameplay
         public void IncrementStep()
         {
             _cam.enabled = false;
-
-            gameObject.SetActive(false);
+            if (_deactivateOnInteract)
+            {
+                gameObject.SetActive(false);
+            }
 
         }
 

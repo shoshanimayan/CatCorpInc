@@ -68,8 +68,11 @@ namespace Player
         {
             CheckForInteraction();
             if (_interactingWith != null && _inputReciever.PlayerInteracted() && _mediator.CanInteract())
-            { 
+            {
+                
                 _interactingWith.DoInteraction();
+                _interactingWith=null;
+                Hovering=false;
             }
         }
         ///  PUBLIC API                ///
@@ -85,7 +88,7 @@ namespace Player
                 if (_hovering)
                 {
 
-                    _mediator.SetHovering(_interactingWith.gameObject.name);
+                    _mediator.SetHovering(!_interactingWith.Interacted? _interactingWith.gameObject.name:"");
                 }
                 else
                 {
@@ -96,6 +99,7 @@ namespace Player
 
             }
         }
+
 
         public void Init(InteractorMediator mediator)
         {

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 namespace Gameplay
 {
-	public class MouseCollectionHandlerView: MonoBehaviour,IView
+	public class MouseCollectionHandlerView: MonoBehaviour,IView,ICollectionHandlerView
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -17,7 +17,7 @@ namespace Gameplay
 
 		///  PUBLIC API                ///
 		public bool CheckKey(int compKey) { return compKey == _key; }
-		public bool MouseCountCheck(int currentCount) { return _mouseCount <= currentCount; }
+		public bool CountCheck(int currentCount) { return _mouseCount <= currentCount; }
 
 		public int GetTotal() { return _mouseCount; }
 

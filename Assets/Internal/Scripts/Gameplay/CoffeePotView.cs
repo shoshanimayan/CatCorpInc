@@ -18,7 +18,7 @@ namespace Gameplay
 
         ///  PRIVATE VARIABLES         ///
         private int _currentStep = 0;
-
+        private bool _interacted;
         ///  PRIVATE METHODS           ///
         private CoffeePotMediator _mediator;
         ///  PUBLIC API                ///
@@ -32,7 +32,7 @@ namespace Gameplay
             _cam.enabled = true;
 
             _mediator.SendStep(_steps[_currentStep], this, transform);
-           
+            _interacted = true;
         }
 
         public void HoverOn()
@@ -49,6 +49,11 @@ namespace Gameplay
 
         public void IncrementStepByValue(int increment)
         {
+        }
+        public bool Interacted
+        {
+            get { return _interacted; }
+            private set { }
         }
     }
 }

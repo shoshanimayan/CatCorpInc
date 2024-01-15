@@ -14,39 +14,53 @@ namespace Gameplay
         [SerializeField] private Objective _objective;
         [SerializeField] private UnityEvent _event=null;
         [SerializeField] private float _delay;
+        [SerializeField] private bool _incrementsCollection;
+        [SerializeField] private int _collectableKey;
         ///  PRIVATE VARIABLES         ///
-
+        private bool _interacted;
         ///  PRIVATE METHODS           ///
         private InteractableMediator _mediator;
-        ///  PUBLIC API                ///
+        ///  PUBLIC API                /// <summary>
+
+        public bool Interacted {
+            get { return _interacted; }
+            private set { }
+        }
+
         public void DoInteraction()
         {
-            
-            _mediator.PlaySound(transform.position);
-            DOTween.Sequence().AppendCallback(() =>
+            if (!_interacted)
             {
-               
-                if (_event != null)
-                {
-                    _event.Invoke();
-                }
-                else
-                { 
-                    gameObject.GetComponent<MeshRenderer>().enabled = false;
-                    gameObject.GetComponent<Collider>().enabled = false;
-                }
-            }).AppendInterval(_delay).AppendCallback
-            (() =>
-            {
-                if (_objective != null)
-                {
-                    _mediator.CompleteObjective(_objective);
+                _interacted = true;
 
-                }
-            });
+                _mediator.PlaySound(transform.position);
+                DOTween.Sequence().AppendCallback(() =>
+                {
 
-           
-          
+                    if (_event != null)
+                    {
+                        _event.Invoke();
+                    }
+                    else
+                    {
+                        gameObject.GetComponent<MeshRenderer>().enabled = false;
+                        gameObject.GetComponent<Collider>().enabled = false;
+                    }
+                }).AppendInterval(_delay).AppendCallback
+                (() =>
+                {
+                    if (_objective != null)
+                    {
+                        _mediator.CompleteObjective(_objective);
+
+                    }
+                    if (_incrementsCollection)
+                    {
+                        _mediator.CollectObject(_collectableKey);
+                    }
+                });
+
+            }
             
         }
 
