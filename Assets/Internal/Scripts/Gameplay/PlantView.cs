@@ -28,6 +28,11 @@ namespace Gameplay
         { 
         _waterParticles.Play();
         }
+
+        private void KillWater()
+        {
+            _waterParticles.Stop(); _wateringCan.SetActive(false);
+        }
         ///  PUBLIC API                ///
         public void StartWatering()
         {
@@ -36,17 +41,20 @@ namespace Gameplay
             DOTween.Sequence()
             .Append(_wateringCan.transform.DOLocalRotate(new Vector3(_wateringCan.transform.localEulerAngles.x, _wateringCan.transform.localEulerAngles.y, 45), 0.25f, RotateMode.Fast).SetEase(Ease.Linear))
             .AppendInterval(.2f)
-            .AppendCallback(() => { PlayParticle(); })
+            .AppendCallback(PlayParticle)
             .AppendInterval(1.5f)
-            .AppendCallback(() => { _waterParticles.Stop();_wateringCan.SetActive(false); })
-             .SetId(_tweenKey);
+            .AppendCallback(KillWater)
+            .OnKill(KillWater ) 
+            .SetId(_tweenKey);
         }
 
-        public string TweenKey
-        { 
-        get { return _tweenKey; }
+       
+        public void  StopWatering()
+        {
+            DOTween.Kill(_tweenKey);
         }
-        ///  IMPLEMENTATION            ///
+
+        
 
     }
 }

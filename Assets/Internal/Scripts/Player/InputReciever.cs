@@ -44,6 +44,11 @@ namespace Player
             return _playerControls.Player.Jump.triggered;
         }
 
+        public bool PlayerCrouch()
+        { 
+            return _playerControls.Player.Crouch.IsPressed();
+        }
+
         public bool PlayerFired()
         {
             return _playerControls.Player.Fire.triggered;

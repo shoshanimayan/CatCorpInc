@@ -3932,6 +3932,7 @@ MonoBehaviour:
   _SprintSpeedBonus: 2
   _jumpHeight: 0.5
   _gravityValue: -9.81
+  _head: {fileID: 6528743849977624142}
 --- !u!114 &6528743850352729312
 MonoBehaviour:
   m_ObjectHideFlags: 0
