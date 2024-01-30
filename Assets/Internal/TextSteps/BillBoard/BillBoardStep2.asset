@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
+  m_Name: BillBoardStep2
+  m_EditorClassIdentifier: 
+  _json: {fileID: 4900000, guid: 4c3ea6b19ff2c44408d6d4f470259313, type: 3}
+  _startNextEntryOnCompletion: 0
+  _completeGoalOnCompletion: 0
+  _addGoal: 0
+  _needsCollectable: 0
+  _waitingForAnotherConversation: 0
+  _unblocksConversation: 0
+  _multipleChoice: 0
+  Objective: {fileID: 0}
+  ObjectiveToAdd: {fileID: 0}
+  UnblockStep: {fileID: 0}
+  CollectableKey: 0
