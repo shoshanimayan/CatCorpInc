@@ -5,10 +5,12 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Signals.Core;
 using ScriptableObjects;
-using NPC;
 using Signals.Game;
+using Signals.Core;
+using Managers;
+using DG.Tweening;
+
 
 namespace Gameplay
 {
@@ -31,11 +33,13 @@ namespace Gameplay
         }
 
 
-        public void SetString(string text)
-        { 
-            _view.SetText(text);
+        private void OnRecievedTypedMessage(string message)
+        {
+            _view.SetText(message);
             _view.EnableBillBoard(true);
         }
+
+       
 
         ///  PUBLIC API                ///
         public void SendStep(TextStep step, Interactable view, Transform transform = null)
@@ -58,14 +62,15 @@ namespace Gameplay
 		public void Initialize()
 		{
             _view.Init(this);
-		}
-
-		public void Dispose()
-		{
             _signalBus.GetStream<UnblockedConversationSignal>()
             .Subscribe(x => UnblockStep(x.Unblock)).AddTo(_disposables);
             _signalBus.GetStream<SendTypedMessageSignal>()
-             .Subscribe(x=>SetString(x.Message)).AddTo(_disposables);
+                       .Subscribe(x => OnRecievedTypedMessage(x.Message)).AddTo(_disposables);
+        }
+
+		public void Dispose()
+		{
+          
             _disposables.Dispose();
 
 		}

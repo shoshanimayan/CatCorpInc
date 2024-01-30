@@ -62,8 +62,8 @@ namespace Gameplay
 		}
 
 		private void OnRecievedTypedMessage(string message)
-		{
-			OnFinishStep();
+        {
+            OnFinishStep();
 		}
 
         private void OnFinishedDrag()
