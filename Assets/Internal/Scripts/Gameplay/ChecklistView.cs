@@ -34,7 +34,6 @@ namespace Gameplay
 
 		public int AddObjective(Objective objective)
 		{
-			bool has = false;
 
 			if (_objectives.Contains(objective))
 			{

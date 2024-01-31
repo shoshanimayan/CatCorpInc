@@ -89,9 +89,19 @@ namespace Player
                 {
 
                     _mediator.SetHovering(!_interactingWith.Interacted? _interactingWith.gameObject.name:"");
+                    if (_interactingWith!=null && !_interactingWith.Interacted)
+                    {
+                        _interactingWith.HoverOn();
+                            
+                       
+                    }
                 }
                 else
                 {
+                    if (_interactingWith != null)
+                    {
+                        _interactingWith.HoverOff();
+                    }
                     _mediator.SetHovering("");
 
                 }

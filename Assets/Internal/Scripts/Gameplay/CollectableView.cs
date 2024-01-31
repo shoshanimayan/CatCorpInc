@@ -8,7 +8,7 @@ using Cinemachine;
 
 namespace Gameplay
 {
-    public class CollectableView : MonoBehaviour, IView, Interactable
+    public class CollectableView : OutlineHandler, IView, Interactable
     {
 
         ///  INSPECTOR VARIABLES       ///
@@ -41,6 +41,7 @@ namespace Gameplay
 
         public void HoverOn()
         {
+            OutlineEnable();
         }
 
         public void IncrementStep()
@@ -66,5 +67,9 @@ namespace Gameplay
             _mediator = mediator;
         }
 
+        public void HoverOff()
+        {
+            OutlineDisable();
+        }
     }
 }

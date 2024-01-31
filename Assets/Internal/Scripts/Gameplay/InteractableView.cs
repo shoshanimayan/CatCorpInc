@@ -7,7 +7,7 @@ using DG.Tweening;
 
 namespace Gameplay
 {
-    public class InteractableView : MonoBehaviour, IView, Interactable
+    public class InteractableView : OutlineHandler, IView, Interactable
     {
 
         ///  INSPECTOR VARIABLES       ///
@@ -66,7 +66,7 @@ namespace Gameplay
 
         public void HoverOn()
         {
-            
+            OutlineEnable();
         }
 
         public void IncrementStep()
@@ -80,6 +80,11 @@ namespace Gameplay
         public void Initializer(InteractableMediator mediator)
         { 
             _mediator= mediator;
+        }
+
+        public void HoverOff()
+        {
+            OutlineDisable();
         }
     }
 }

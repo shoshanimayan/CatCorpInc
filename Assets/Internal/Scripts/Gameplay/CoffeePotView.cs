@@ -8,7 +8,7 @@ using Cinemachine;
 
 namespace Gameplay
 {
-    public class CoffeePotView : MonoBehaviour, IView, Interactable
+    public class CoffeePotView : OutlineHandler, IView, Interactable
     {
 
         ///  INSPECTOR VARIABLES       ///
@@ -37,6 +37,7 @@ namespace Gameplay
 
         public void HoverOn()
         {
+            OutlineEnable();
         }
 
         public void IncrementStep()
@@ -54,6 +55,11 @@ namespace Gameplay
         {
             get { return _interacted; }
             private set { }
+        }
+
+        public void HoverOff()
+        {
+            OutlineDisable();
         }
     }
 }

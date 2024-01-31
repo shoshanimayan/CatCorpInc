@@ -9,7 +9,7 @@ using NPC;
 
 namespace Gameplay
 {
-	public class BillBoardView: MonoBehaviour,IView,Interactable
+	public class BillBoardView: OutlineHandler,IView,Interactable
 	{
 
         ///  INSPECTOR VARIABLES       ///
@@ -48,6 +48,7 @@ namespace Gameplay
                     }
                 }
             }
+            _mode = Outline.Mode.OutlineVisible;
         }
 
         ///  PUBLIC API                ///
@@ -87,6 +88,7 @@ namespace Gameplay
 
         public void HoverOn()
         {
+            OutlineEnable();
         }
 
         public void ForceIncrementStep()
@@ -121,7 +123,10 @@ namespace Gameplay
             return _steps[_currentStep].WaitingForAnotherConversation;
         }
 
-
+        public void HoverOff()
+        {
+            OutlineDisable();
+        }
 
     }
 }

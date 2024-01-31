@@ -21,7 +21,10 @@ namespace Gameplay
 
 		public void HoverOn();
 
-		public void IncrementStepByValue(int increment);
+        public void HoverOff();
+
+
+        public void IncrementStepByValue(int increment);
 
         bool Interacted
         {

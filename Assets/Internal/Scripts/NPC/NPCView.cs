@@ -244,5 +244,8 @@ namespace NPC
             }
         }
 
+        public void HoverOff()
+        {
+        }
     }
 }
