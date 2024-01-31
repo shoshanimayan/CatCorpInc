@@ -14,13 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _json: {fileID: 4900000, guid: c79f39d9d715982459704bac10061ecf, type: 3}
   _startNextEntryOnCompletion: 0
-  _completeGoalOnCompletion: 0
+  _completeGoalOnCompletion: 1
   _addGoal: 1
   _needsCollectable: 0
   _waitingForAnotherConversation: 0
   _unblocksConversation: 0
   _multipleChoice: 0
-  Objective: {fileID: 0}
-  ObjectiveToAdd: {fileID: 11400000, guid: 259ef82f062f0f54f8d6d1cd8fa31659, type: 2}
+  Objective: {fileID: 11400000, guid: 69e84cb67975bb142a18ac0b808aac57, type: 2}
+  ObjectiveToAdd:
+  - {fileID: 11400000, guid: 025d21fe96e3b8042b62caae523686be, type: 2}
+  - {fileID: 11400000, guid: c36a7d92e49f5f14e9e7b762130abe8f, type: 2}
+  - {fileID: 11400000, guid: 46dc9d0782d0be34a92d534a636e2957, type: 2}
+  - {fileID: 11400000, guid: 784fb1b68a2604a498fb6eeccf6f412e, type: 2}
   UnblockStep: {fileID: 0}
   CollectableKey: 0

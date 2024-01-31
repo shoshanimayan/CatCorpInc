@@ -30441,25 +30441,37 @@ PrefabInstance:
     - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
       propertyPath: _objectives.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
-      propertyPath: _objectives.Array.data[1]
+      propertyPath: _objectives.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 025d21fe96e3b8042b62caae523686be,
+      objectReference: {fileID: 11400000, guid: 69e84cb67975bb142a18ac0b808aac57,
         type: 2}
     - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
-      propertyPath: _objectives.Array.data[2]
+      propertyPath: _objectives.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 46dc9d0782d0be34a92d534a636e2957,
         type: 2}
     - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
-      propertyPath: _objectives.Array.data[3]
+      propertyPath: _objectives.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: c36a7d92e49f5f14e9e7b762130abe8f,
+        type: 2}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _objectives.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 784fb1b68a2604a498fb6eeccf6f412e,
+        type: 2}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _objectives.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 784fb1b68a2604a498fb6eeccf6f412e,
         type: 2}
     - target: {fileID: 3518149244432395051, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
@@ -55763,7 +55775,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _steps.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 255bf3d8dddb04b40819f9bca7df473a,
+      objectReference: {fileID: 11400000, guid: 9223319aab31751418c5139a476f7a4f,
         type: 2}
     - target: {fileID: 6894943709437270514, guid: e65de1f127a86964097dc82d63e3b67e,
         type: 3}

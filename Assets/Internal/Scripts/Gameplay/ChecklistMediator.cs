@@ -23,20 +23,23 @@ namespace Gameplay
 		///  LISTNER METHODS           ///
 		private void OnObjectiveCompleted( Objective obj)
 		{
+            Debug.Log(obj.Name);
 
             if (_view.GetObjectives().Contains(obj))
 			{
 
                 _objectiveCount--;
-				_view.RemoveObjective(obj);
+
+                _view.RemoveObjective(obj);
 				_signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
 			}
 		
 		}
 
 		private void CheckForCompletion()
-		{
-			if (_objectiveCount==0)
+        {
+
+            if (_objectiveCount==0)
 			{
 				Debug.Log("win");
 			}
@@ -44,7 +47,7 @@ namespace Gameplay
 
 		private void AddObjective(Objective obj)
 		{ 
-		
+			_objectiveCount+= _view.AddObjective(obj);
 		}
 		///  PUBLIC API                ///
 		public void InitializeObjectiveMenu(Objective[] objectives)
@@ -65,10 +68,11 @@ namespace Gameplay
 			_objectiveCount=_view.GetObjectives().Length;
             _signalBus.GetStream<ObjectiveCompleteSignal>()
              .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
+            _signalBus.GetStream<AddObjectiveSignal>()
+                .Subscribe(x => AddObjective(x.Objective)).AddTo(_disposables);
             _signalBus.GetStream<ChecklistCompletionCheckSignal>()
              .Subscribe(x => CheckForCompletion()).AddTo(_disposables);
-			_signalBus.GetStream<AddObjectiveSignal>()
-				.Subscribe(x=>AddObjective(x.Objective)).AddTo(_disposables);
+			
 			
         }
 

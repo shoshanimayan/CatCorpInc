@@ -82,8 +82,11 @@ namespace Gameplay
                 }
 
 				if (_step.AddGoal)
-				{ 
-					_signalBus.Fire(new AddObjectiveSignal() { Objective=_step.ObjectiveToAdd});
+				{
+					foreach (Objective obj in _step.ObjectiveToAdd)
+					{
+						_signalBus.Fire(new AddObjectiveSignal() { Objective = obj });
+					}
 				}
 
                 if (_step.StartNextEntryOnCompletion)

@@ -55,7 +55,7 @@ namespace ScriptableObjects
 
 
         public Objective Objective;
-        public Objective ObjectiveToAdd;
+        public Objective[] ObjectiveToAdd;
         public TextStep UnblockStep;
         public int CollectableKey;
 

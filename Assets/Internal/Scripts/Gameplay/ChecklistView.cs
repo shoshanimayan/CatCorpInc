@@ -32,11 +32,20 @@ namespace Gameplay
 			_mediator = mediator;
 		}
 
-		public void AddObjective(Objective objective)
+		public int AddObjective(Objective objective)
 		{
-			List<Objective> objectiveList = _objectives.ToList();
+			bool has = false;
+
+			if (_objectives.Contains(objective))
+			{
+				return 0;
+			}
+
+
+            List<Objective> objectiveList = _objectives.ToList();
 			objectiveList.Add(objective);
 			_objectives=objectiveList.ToArray();
+			return 1;
          //   _mediator.InitializeObjectiveMenu(_objectives);
 
 

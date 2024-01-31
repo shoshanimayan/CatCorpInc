@@ -15,5 +15,5 @@ MonoBehaviour:
   _name: Give Everyone Coffee
   _description: throw coffee at everyone in the office.
   _hasCount: 1
-  Total: 8
+  Total: 2
   CurrentCount: 0

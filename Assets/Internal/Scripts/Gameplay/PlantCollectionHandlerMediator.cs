@@ -20,7 +20,8 @@ namespace Gameplay
         ///  PRIVATE METHODS           ///
         private void CompleteCollection()
         {
-            _signalBus.Fire(new ObjectiveCompletedSignal { Objective = _view.GetObjective() });
+            _signalBus.Fire(new ObjectiveCompleteSignal { Objective = _view.GetObjective() });
+
         }
         ///  LISTNER METHODS           ///
         private void GotCollectable(int key)
