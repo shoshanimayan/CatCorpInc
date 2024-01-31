@@ -7,6 +7,7 @@ using System;
 using Managers;
 using Signals.Core;
 using Audio;
+using Signals.Game;
 
 namespace Ui
 {
@@ -22,6 +23,7 @@ namespace Ui
         ///  LISTNER METHODS           ///
         private void OnStateChanged(State state)
         {
+            if (!_gameSettings.GetTimerEnabled()) { return; }
             switch (state)
             {
                 case State.Play:
@@ -54,8 +56,28 @@ namespace Ui
             }
 
         }
+
+        private void EnabledTimer()
+        {
+            if (!_gameSettings.GetTimerEnabled())
+            { 
+                _gameSettings.SetTimerEnabled(true);
+                TimerEnabled = true;
+            }
+        }
+
+        private void DisableTimer()
+        {
+            if (_gameSettings.GetTimerEnabled())
+            {
+                _gameSettings.SetTimerEnabled(false);
+                TimerEnabled = false;
+            }
+        }
         ///  PUBLIC API                ///
         public bool TimerEnabled;
+
+        
 
         public void TransitionToLateMusic()
         {
@@ -65,7 +87,14 @@ namespace Ui
 
         public void EndTimer()
         {
-            _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Menu });
+            // _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Menu });
+
+            if (!_gameSettings.GetEnded())
+            {
+                _gameSettings.SetEnded(true);
+                _signalBus.Fire(new EndingGameSignal() {  });
+
+            }
 
         }
         ///  IMPLEMENTATION            ///
@@ -83,6 +112,10 @@ namespace Ui
             _view.Init(this);
             _signalBus.GetStream<StateChangedSignal>()
                      .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+            _signalBus.GetStream<EnableTimerSignal>()
+            .Subscribe(x => EnabledTimer()).AddTo(_disposables);
+            _signalBus.GetStream<DisableTimerSignal>()
+         .Subscribe(x => DisableTimer()).AddTo(_disposables);
         }
 
 		public void Dispose()

@@ -20,7 +20,7 @@ namespace ScriptableObjects
         [SerializeField] private bool _waitingForAnotherConversation;
         [SerializeField] private bool _unblocksConversation;
         [SerializeField] private bool _multipleChoice;
-
+        [SerializeField] private bool _startsEvent;
 
 
         ///  PRIVATE VARIABLES         ///
@@ -58,12 +58,18 @@ namespace ScriptableObjects
         public Objective[] ObjectiveToAdd;
         public TextStep UnblockStep;
         public int CollectableKey;
+        public int EventKey;
+        public bool ActivateTimer;
+        public bool DeactivateTimer;
+        public bool EndsGame;
+
 
         public TextAsset Json { get { return _json; } }
         public bool StartNextEntryOnCompletion { get { return _startNextEntryOnCompletion; }  
             set { _startNextEntryOnCompletion = value; } }
         public bool CompleteGoalOnCompletion { get { return _completeGoalOnCompletion; } }
         public bool AddGoal { get { return _addGoal; } }
+        public bool HasEvent { get { return _startsEvent; } }
 
 
         public TextStep(TextAsset json, bool startNextEntryOnCompletion, bool completeGoalOnCompletion, Objective objective)
@@ -106,6 +112,10 @@ namespace ScriptableObjects
                 {
                     exclude.Add("CollectableKey");
 
+                }
+                if (!self.HasEvent)
+                {
+                    exclude.Add("EventKey");
                 }
                 DrawPropertiesExcluding(serializedObject, exclude.ToArray());
 

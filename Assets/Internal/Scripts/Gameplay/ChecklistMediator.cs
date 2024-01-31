@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Signals.Game;
 using Signals.Core;
 using System.Linq;
+using Managers;
 
 namespace Gameplay
 {
@@ -18,12 +19,12 @@ namespace Gameplay
 
 		///  PRIVATE VARIABLES         ///
 		private int _objectiveCount = 0;
+		
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
 		private void OnObjectiveCompleted( Objective obj)
 		{
-            Debug.Log(obj.Name);
 
             if (_view.GetObjectives().Contains(obj))
 			{
@@ -39,11 +40,14 @@ namespace Gameplay
 		private void CheckForCompletion()
         {
 
-            if (_objectiveCount==0)
+            if (_objectiveCount==0 && !_gameSettings.GetEnded())
 			{
 				Debug.Log("win");
-			}
-		}
+				_gameSettings.SetEnded(true);
+                _signalBus.Fire(new EndingGameSignal() { });
+
+            }
+        }
 
 		private void AddObjective(Objective obj)
 		{ 
@@ -59,8 +63,10 @@ namespace Gameplay
 		[Inject]
 
 		private SignalBus _signalBus;
+        [Inject]
+        GameSettings _gameSettings;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{

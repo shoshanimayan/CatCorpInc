@@ -58,6 +58,9 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<FinishDragSignal>();
         Container.DeclareSignal<SendCoffeePositionSignal>();
         Container.DeclareSignal<AddObjectiveSignal>();
+        Container.DeclareSignal<EnableTimerSignal>();
+        Container.DeclareSignal<DisableTimerSignal>();
+        Container.DeclareSignal<SendEventSignal>();
 
 
 

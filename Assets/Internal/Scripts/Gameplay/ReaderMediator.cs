@@ -89,6 +89,30 @@ namespace Gameplay
 					}
 				}
 
+				if (_step.HasEvent)
+				{
+                    _signalBus.Fire(new SendEventSignal() {EventKey=_step.EventKey  });
+
+                }
+
+				if (_step.ActivateTimer)
+				{
+                    _signalBus.Fire(new EnableTimerSignal() { });
+
+                }
+
+				if (_step.DeactivateTimer)
+				{
+                    _signalBus.Fire(new DisableTimerSignal() { });
+
+                }
+
+				if (_step.EndsGame)
+				{
+                    _signalBus.Fire(new EndedGameSignal() { });
+
+                }
+
                 if (_step.StartNextEntryOnCompletion)
 				{
                     if (_origin != null)

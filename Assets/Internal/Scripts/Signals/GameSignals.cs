@@ -109,6 +109,20 @@ namespace Signals.Game
         public string Message;
     }
 
+    public class  EnableTimerSignal
+    {
+        
+    }
+
+    public class  DisableTimerSignal
+    {
+        
+    }
+
+    public class SendEventSignal
+    {
+        public int EventKey;
+    }
 
 
 
