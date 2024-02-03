@@ -27,21 +27,30 @@ namespace Player
 
         }
         ///  PUBLIC API                ///
-        public void SetHovering(string hovering) {
-			_signalBus.Fire(new HoveringSignal() { Hovering = hovering });
+        public void SetHovering(string hovering,bool dontShowInteract) {
+			_signalBus.Fire(new HoveringSignal() { Hovering = hovering, DontShowInteract=dontShowInteract });
 		}
 
 		public bool CanInteract()
 		{
 			return _currentState == State.Play;
 		}
-		///  IMPLEMENTATION            ///
 
-		[Inject]
+        public bool GameStarted()
+        {
+            return _gameSettings.GetTimerEnabled();
+        }
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
 
 		private SignalBus _signalBus;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        [Inject]
+
+        private GameSettings _gameSettings;
+
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{

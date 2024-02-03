@@ -20,7 +20,7 @@ MonoBehaviour:
   _waitingForAnotherConversation: 0
   _unblocksConversation: 0
   _multipleChoice: 0
-  _startsEvent: 0
+  _startsEvent: 1
   Objective: {fileID: 11400000, guid: 69e84cb67975bb142a18ac0b808aac57, type: 2}
   ObjectiveToAdd:
   - {fileID: 11400000, guid: 025d21fe96e3b8042b62caae523686be, type: 2}

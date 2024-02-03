@@ -3,6 +3,7 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using Gameplay;
+using NPC;
 
 namespace Player
 {
@@ -18,7 +19,7 @@ namespace Player
         private InteractorMediator _mediator;
         private InputReciever _inputReciever;
         private Interactable _interactingWith;
-
+        private bool _dontShowInteract;
         ///  PRIVATE METHODS           /// 
         private void Start()
         {
@@ -42,7 +43,17 @@ namespace Player
                     {
                         _interactingWith = hit.collider.gameObject.GetComponent<Interactable>();
 
+                        if (!_mediator.GameStarted())
+                        {
+                            _dontShowInteract = (hit.collider.gameObject.GetComponent<NPCView>() == null);
+                        }
+                        else { 
+                            _dontShowInteract=false;
+                        }
+
                         Hovering = true;
+
+                        
                     }
                     else
                     {
@@ -87,8 +98,7 @@ namespace Player
                 _hovering = value;
                 if (_hovering)
                 {
-
-                    _mediator.SetHovering(!_interactingWith.Interacted? _interactingWith.gameObject.name:"");
+                    _mediator.SetHovering(!_interactingWith.Interacted? _interactingWith.gameObject.name:"",_dontShowInteract);
                     if (_interactingWith!=null && !_interactingWith.Interacted)
                     {
                         _interactingWith.HoverOn();
@@ -102,7 +112,7 @@ namespace Player
                     {
                         _interactingWith.HoverOff();
                     }
-                    _mediator.SetHovering("");
+                    _mediator.SetHovering("",false);
 
                 }
 

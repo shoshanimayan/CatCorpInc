@@ -13,6 +13,7 @@ namespace Signals.Game
     public class HoveringSignal
     {
         public string Hovering;
+        public bool DontShowInteract;
     }
 
 
@@ -119,10 +120,7 @@ namespace Signals.Game
         
     }
 
-    public class SendEventSignal
-    {
-        public int EventKey;
-    }
+    
 
 
 

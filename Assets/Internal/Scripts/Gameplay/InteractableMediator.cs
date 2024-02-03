@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
+using Managers;
 
 namespace Gameplay
 {
@@ -35,13 +36,22 @@ namespace Gameplay
 			_signalBus.Fire(new PlayOneShotSignal() { ClipName="interacted", WorldPos=	worldPos  });
 		}
 
+		public bool GameStarted()
+		{ 
+			return _gameSettings.GetTimerEnabled();	
+		}
+
 		///  IMPLEMENTATION            ///
 
 		[Inject]
 
 		private SignalBus _signalBus;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        [Inject] 
+		
+		private GameSettings _gameSettings;
+
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{

@@ -18,8 +18,9 @@ namespace Gameplay
         [SerializeField] private int _collectableKey;
         ///  PRIVATE VARIABLES         ///
         private bool _interacted;
-        ///  PRIVATE METHODS           ///
         private InteractableMediator _mediator;
+
+        ///  PRIVATE METHODS           ///
         ///  PUBLIC API                /// <summary>
 
         public bool Interacted {
@@ -29,6 +30,8 @@ namespace Gameplay
 
         public void DoInteraction()
         {
+            if (!_mediator.GameStarted()) { return; }
+
             if (!_interacted)
             {
                 _interacted = true;
@@ -66,6 +69,7 @@ namespace Gameplay
 
         public void HoverOn()
         {
+            if (!_mediator.GameStarted()) { return; }
             OutlineEnable();
         }
 

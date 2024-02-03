@@ -104,4 +104,9 @@ namespace Signals.Core
     {
         public MusicState musicState;
     }
+
+    public class SendEventSignal
+    {
+        public int EventKey;
+    }
 }

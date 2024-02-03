@@ -60,7 +60,6 @@ public class PlayInstaller : MonoInstaller
         Container.DeclareSignal<AddObjectiveSignal>();
         Container.DeclareSignal<EnableTimerSignal>();
         Container.DeclareSignal<DisableTimerSignal>();
-        Container.DeclareSignal<SendEventSignal>();
 
 
 

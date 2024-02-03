@@ -6,11 +6,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
-using Signals.Game;
 
 namespace Gameplay
 {
-	public class CrosshairMediator: MediatorBase<CrosshairView>, IInitializable, IDisposable
+	public class DoorMediator: MediatorBase<DoorView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -18,21 +17,15 @@ namespace Gameplay
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
-		
-		///  LISTNER METHODS           ///
-		private void OnHovering(string name,bool dontShowInteract)
-		{
-			if (name == "")
-			{
-				_view.SetLabelText("");
-				_view.Hovering(false);
-			}
-			else {
-				_view.Hovering(true);
-                _view.SetLabelText("[ "+name+" ]"+(!dontShowInteract?"\n Press E to interact":""));
 
-            }
-        }
+		///  LISTNER METHODS           ///
+		private void OnEventRecieved(int key)
+		{
+			if (_view.CheckEvent(key))
+			{
+				_view.DoorState = true;
+			}
+		}
 		///  PUBLIC API                ///
 
 		///  IMPLEMENTATION            ///
@@ -45,9 +38,8 @@ namespace Gameplay
 
 		public void Initialize()
 		{
-
-            _signalBus.GetStream<HoveringSignal>()
-                          .Subscribe(x => OnHovering(x.Hovering,x.DontShowInteract)).AddTo(_disposables);
+            _signalBus.GetStream<SendEventSignal>()
+                   .Subscribe(x => OnEventRecieved(x.EventKey)).AddTo(_disposables);
         }
 
 		public void Dispose()
