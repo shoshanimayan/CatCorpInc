@@ -19,9 +19,9 @@ namespace Gameplay
 
 		///  PRIVATE VARIABLES         ///
 		private int _objectiveCount = 0;
-		
-		///  PRIVATE METHODS           ///
 
+		///  PRIVATE METHODS           ///
+		
 		///  LISTNER METHODS           ///
 		private void OnObjectiveCompleted( Objective obj)
 		{
@@ -53,8 +53,14 @@ namespace Gameplay
 		{ 
 			_objectiveCount+= _view.AddObjective(obj);
 		}
-		///  PUBLIC API                ///
-		public void InitializeObjectiveMenu(Objective[] objectives)
+
+        private void EndingGame()
+        {
+			float percent = (_objectiveCount/_view.TotalObjectives);
+			_signalBus.Fire(new CompletionPercentageSignal() { CompletionPercent=percent});
+        }
+        ///  PUBLIC API                ///
+        public void InitializeObjectiveMenu(Objective[] objectives)
 		{
             _signalBus.Fire(new ObjectiveListSignal() { Objectives = objectives });
         }
@@ -78,8 +84,10 @@ namespace Gameplay
                 .Subscribe(x => AddObjective(x.Objective)).AddTo(_disposables);
             _signalBus.GetStream<ChecklistCompletionCheckSignal>()
              .Subscribe(x => CheckForCompletion()).AddTo(_disposables);
-			
-			
+            _signalBus.GetStream<EndingGameSignal>()
+			 .Subscribe(x => EndingGame()).AddTo(_disposables);
+
+
         }
 
 		public void Dispose()

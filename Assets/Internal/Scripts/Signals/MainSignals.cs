@@ -109,4 +109,9 @@ namespace Signals.Core
     {
         public int EventKey;
     }
+
+    public class CompletionPercentageSignal
+    {
+        public float CompletionPercent;
+    }
 }

@@ -61,6 +61,26 @@ namespace NPC
             }
         }
 
+        private void OnRecievedProgressCompletion(float percent)
+        {
+            if (_view.IsBoss)
+            {
+                int index = 0;
+                if (percent > .5f)
+                {
+                    if (percent == 1)
+                    {
+                        index = 2;
+                    }
+                    else
+                    {
+                        index = 1;
+                    }
+                }
+                _view.SetStepIndex(index);
+            }
+        }
+
         ///  PUBLIC API                ///
         public void GotCoffee()
         {
@@ -117,6 +137,8 @@ namespace NPC
             _signalBus.GetStream<ObjectiveCompleteSignal>().Subscribe(x => OnObjectiveCompleted(x.Objective));
             _signalBus.GetStream<StateChangedSignal>()
               .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+            _signalBus.GetStream<CompletionPercentageSignal>()
+            .Subscribe(x => OnRecievedProgressCompletion(x.CompletionPercent)).AddTo(_disposables);
             _view.ShowQuestSymbol();
         }
 

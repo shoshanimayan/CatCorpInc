@@ -20,6 +20,7 @@ namespace NPC
         [SerializeField] private CinemachineVirtualCamera _cam;
         [SerializeField] private Canvas _symbolCanvas;
         [SerializeField] private Texture2D[] _symbolTextures;
+        [SerializeField] private bool _isBoss;
 
         ///  PRIVATE VARIABLES         ///
         private NPCMediator _mediator;
@@ -78,7 +79,13 @@ namespace NPC
             originalRotation =  _symbolCanvas.transform.rotation;
 
         }
-        ///  PUBLIC API                ///
+        ///  PUBLIC API                /// <summary>
+       
+        public bool IsBoss
+        { 
+         get { return _isBoss; }
+          private  set { _isBoss = value; }
+        }
 
         public bool Interacted
         {
@@ -220,9 +227,7 @@ namespace NPC
             }
         }
 
-        public void HoverOn()
-        {
-        }
+        
 
         public void DeactivateQuest()
         { 
@@ -242,6 +247,15 @@ namespace NPC
 
                 return false;
             }
+        }
+
+        public void  SetStepIndex(int newIndex)
+        { 
+            _currentStep = newIndex;
+        }
+
+        public void HoverOn()
+        {
         }
 
         public void HoverOff()

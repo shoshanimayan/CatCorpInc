@@ -21,7 +21,10 @@ namespace Managers
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
-
+		private void EndingGame()
+		{ 
+		
+		}
 		///  PUBLIC API                ///
 		public void StartIntro( TextStep intro) 
 		{
@@ -39,7 +42,9 @@ namespace Managers
 		public void Initialize()
 		{
 			_view.Init(this);
-		}
+            _signalBus.GetStream<EndingGameSignal>()
+         .Subscribe(x => EndingGame()).AddTo(_disposables);
+        }
 
 		public void Dispose()
 		{

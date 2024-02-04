@@ -3764,7 +3764,7 @@ Transform:
   - {fileID: 1667217708}
   - {fileID: 1246599726}
   m_Father: {fileID: 1449428164}
-  m_RootOrder: 37
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &332410236
 PrefabInstance:
@@ -30446,6 +30446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
+      propertyPath: _totalObjectives
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
       propertyPath: _objectives.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -30478,6 +30483,17 @@ PrefabInstance:
       propertyPath: _objectives.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: 784fb1b68a2604a498fb6eeccf6f412e,
+        type: 2}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _startingObjectives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518149244432395050, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _startingObjectives.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 69e84cb67975bb142a18ac0b808aac57,
         type: 2}
     - target: {fileID: 3518149244432395051, guid: c26b1b7d8e2122e49bd13b85be0acd40,
         type: 3}
@@ -30534,6 +30550,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3518149244432395060, guid: c26b1b7d8e2122e49bd13b85be0acd40,
+        type: 3}
+      propertyPath: _outro
+      value: 
+      objectReference: {fileID: 11400000, guid: 651e8be21c0f99e4d924a25e5f4c3b5d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c26b1b7d8e2122e49bd13b85be0acd40, type: 3}
 --- !u!1001 &1175198461
@@ -33357,8 +33379,8 @@ Transform:
   - {fileID: 1022718649}
   - {fileID: 1759732841}
   - {fileID: 1750442425}
-  - {fileID: 1975088131}
   - {fileID: 562511943}
+  - {fileID: 1975088131}
   - {fileID: 83384877}
   - {fileID: 1296847961}
   - {fileID: 1832501528}
@@ -33376,11 +33398,11 @@ Transform:
   - {fileID: 1844213081}
   - {fileID: 102545667}
   - {fileID: 794631465}
+  - {fileID: 332266286}
   - {fileID: 49758376}
   - {fileID: 554756138}
   - {fileID: 322577167}
   - {fileID: 1988160648}
-  - {fileID: 332266286}
   - {fileID: 155329172}
   - {fileID: 1572862431}
   - {fileID: 1347026112}

@@ -97,6 +97,11 @@ namespace Ui
             }
 
         }
+
+        private void EndingGame()
+        {
+            DisableTimer();
+        }
         ///  IMPLEMENTATION            ///
 
         [Inject]
@@ -116,6 +121,8 @@ namespace Ui
             .Subscribe(x => EnabledTimer()).AddTo(_disposables);
             _signalBus.GetStream<DisableTimerSignal>()
          .Subscribe(x => DisableTimer()).AddTo(_disposables);
+            _signalBus.GetStream<EndingGameSignal>()
+         .Subscribe(x => EndingGame()).AddTo(_disposables);
         }
 
 		public void Dispose()

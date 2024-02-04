@@ -10,7 +10,8 @@ namespace Managers
 	{
 
 		///  INSPECTOR VARIABLES       ///
-		[SerializeField] private TextStep _intro; 
+		[SerializeField] private TextStep _intro;
+		[SerializeField] private TextStep _outro;
 		///  PRIVATE VARIABLES         ///
 		private GameManagerMediator _mediator;
         ///  PRIVATE METHODS           ///
