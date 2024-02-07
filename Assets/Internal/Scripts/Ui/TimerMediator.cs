@@ -102,7 +102,6 @@ namespace Ui
 
         private void EndingGame()
         {
-            Debug.Log("timer");
 
             DisableTimer();
         }

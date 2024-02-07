@@ -42,7 +42,6 @@ namespace Gameplay
 
             if (_objectiveCount==0 && !_gameSettings.GetEnded())
 			{
-				Debug.Log("win");
 				_gameSettings.SetEnded(true);
                 _signalBus.Fire(new EndingGameSignal() { });
 
@@ -56,10 +55,8 @@ namespace Gameplay
 
         private void EndingGame()
         {
-            Debug.Log("checklist");
 
             float percent = 1f- (_objectiveCount/_view.TotalObjectives);
-            Debug.Log(percent);
 
             _signalBus.Fire(new CompletionPercentageSignal() { CompletionPercent=percent});
         }
