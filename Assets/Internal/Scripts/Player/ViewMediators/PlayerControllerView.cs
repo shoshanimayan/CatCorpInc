@@ -59,6 +59,7 @@ namespace Player
 
         private void HandleCrouch(bool enable)
         {
+            Debug.Log(enable);
             if (enable )
             {
                 _crouching = true;
@@ -96,14 +97,19 @@ namespace Player
                 {
                     _playerVelocity.y = 0f;
                 }
-                if (_inputReciever.PlayerCrouch() && _groundedPlayer && !_crouching)
+                if (_inputReciever.PlayerCrouch() && _groundedPlayer )
                 {
-
-                    HandleCrouch(true);
+                    if (!_crouching)
+                    {
+                        HandleCrouch(true);
+                    }
                 }
                 else
                 {
-                    HandleCrouch(false);
+                    if (_crouching)
+                    {
+                        HandleCrouch(false);
+                    }
                 }
                 Vector2 movement = _inputReciever.GetPlayerMovement();
                 Vector3 move = new Vector3(movement.x, 0f, movement.y);
