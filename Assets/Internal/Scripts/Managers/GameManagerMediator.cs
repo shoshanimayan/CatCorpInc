@@ -22,11 +22,12 @@ namespace Managers
 
 		///  LISTNER METHODS           ///
 		private void EndingGame()
-		{ 
-		
-		}
-		///  PUBLIC API                ///
-		public void StartIntro( TextStep intro) 
+		{
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro });
+
+        }
+        ///  PUBLIC API                ///
+        public void StartIntro( TextStep intro) 
 		{
 			_signalBus.Fire(new SendTextStepSignal() { TextStep=intro });
 

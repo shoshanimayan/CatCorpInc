@@ -65,6 +65,7 @@ namespace NPC
         {
             if (_view.IsBoss)
             {
+                Debug.Log(percent);
                 int index = 0;
                 if (percent > .5f)
                 {
@@ -77,6 +78,7 @@ namespace NPC
                         index = 1;
                     }
                 }
+                Debug.Log(index);
                 _view.SetStepIndex(index);
             }
         }
@@ -84,7 +86,7 @@ namespace NPC
         ///  PUBLIC API                ///
         public void GotCoffee()
         {
-            if (!_gotCoffee) {
+            if (!_gotCoffee && !_view.IsBoss) {
                 _view.ShowHeartSymbol();
                 _gotCoffee = true;
                 _signalBus.Fire(new GotCoffeeSignal());
@@ -93,8 +95,10 @@ namespace NPC
 
         public void SetCoffee()
         {
-            _signalBus.Fire(new SetCoffeeSignal());
-
+            if (!_view.IsBoss)
+            {
+                _signalBus.Fire(new SetCoffeeSignal());
+            }
         }
 
         public void SendStep(TextStep step, NPCView view, Transform transform = null)

@@ -30,11 +30,11 @@ namespace Gameplay
                 _openDoor = value;
                 if (_openDoor)
                 {
-                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, _openY, transform.eulerAngles.z);
+                    transform.localEulerAngles = new Vector3(transform.eulerAngles.x, _openY, transform.eulerAngles.z);
                 }
                 else
                 {
-                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, _closedY, transform.eulerAngles.z);
+                    transform.localPosition = new Vector3(transform.eulerAngles.x, _closedY, transform.eulerAngles.z);
 
                 }
 

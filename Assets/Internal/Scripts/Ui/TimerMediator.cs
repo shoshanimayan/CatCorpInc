@@ -8,6 +8,7 @@ using Managers;
 using Signals.Core;
 using Audio;
 using Signals.Game;
+using UnityEngine;
 
 namespace Ui
 {
@@ -63,6 +64,8 @@ namespace Ui
             { 
                 _gameSettings.SetTimerEnabled(true);
                 TimerEnabled = true;
+                _view.ShowTimerText(true);
+
             }
         }
 
@@ -72,6 +75,7 @@ namespace Ui
             {
                 _gameSettings.SetTimerEnabled(false);
                 TimerEnabled = false;
+                _view.ShowTimerText(false);
             }
         }
         ///  PUBLIC API                ///
@@ -87,8 +91,6 @@ namespace Ui
 
         public void EndTimer()
         {
-            // _signalBus.Fire(new LoadSceneSignal() { SceneToLoad = SceneState.Menu });
-
             if (!_gameSettings.GetEnded())
             {
                 _gameSettings.SetEnded(true);
@@ -100,6 +102,8 @@ namespace Ui
 
         private void EndingGame()
         {
+            Debug.Log("timer");
+
             DisableTimer();
         }
         ///  IMPLEMENTATION            ///

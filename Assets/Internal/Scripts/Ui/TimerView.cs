@@ -73,5 +73,10 @@ namespace Ui
         {
         _timerCanvas.enabled = enabled;
         }
+
+        public void ShowTimerText(bool enable)
+        {
+            _timerText.enabled = enable;
+        }
     }
 }

@@ -25,5 +25,7 @@ namespace Managers
 		{ 
 			_mediator = mediator;
 		}
+
+		public TextStep Outro { get { return _outro; } }
 	}
 }

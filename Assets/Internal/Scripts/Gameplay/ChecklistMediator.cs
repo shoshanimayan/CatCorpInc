@@ -56,8 +56,12 @@ namespace Gameplay
 
         private void EndingGame()
         {
-			float percent = (_objectiveCount/_view.TotalObjectives);
-			_signalBus.Fire(new CompletionPercentageSignal() { CompletionPercent=percent});
+            Debug.Log("checklist");
+
+            float percent = 1f- (_objectiveCount/_view.TotalObjectives);
+            Debug.Log(percent);
+
+            _signalBus.Fire(new CompletionPercentageSignal() { CompletionPercent=percent});
         }
         ///  PUBLIC API                ///
         public void InitializeObjectiveMenu(Objective[] objectives)
