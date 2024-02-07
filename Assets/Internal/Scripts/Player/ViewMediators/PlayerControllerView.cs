@@ -59,7 +59,6 @@ namespace Player
 
         private void HandleCrouch(bool enable)
         {
-            Debug.Log(enable);
             if (enable )
             {
                 _crouching = true;
