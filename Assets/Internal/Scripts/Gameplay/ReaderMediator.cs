@@ -47,8 +47,6 @@ namespace Gameplay
 		///  PRIVATE METHODS           ///
 
 
-		
-		
 
 		///  LISTNER METHODS           ///
 		private void OnReadStateChanged(ReadState readstate)
