@@ -90,7 +90,6 @@ namespace Gameplay
             _signalBus.GetStream<EndingGameSignal>()
 			 .Subscribe(x => EndingGame()).AddTo(_disposables);
 
-
         }
 
 		public void Dispose()
