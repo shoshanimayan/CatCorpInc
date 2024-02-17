@@ -43,7 +43,8 @@ namespace Menu
 
 		public void Initialize()
 		{
-			_view.Init(this);
+            Cursor.lockState = CursorLockMode.Confined;
+            _view.Init(this);
 		}
 
 		public void Dispose()
