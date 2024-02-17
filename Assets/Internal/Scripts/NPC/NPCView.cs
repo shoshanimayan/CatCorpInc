@@ -1,13 +1,12 @@
 using UnityEngine;
 using Core;
-using System.Collections;
-using System.Collections.Generic;
 using ScriptableObjects;
 using Gameplay;
 using Cinemachine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Managers;
+using System;
 
 namespace NPC
 {
@@ -21,7 +20,7 @@ namespace NPC
         [SerializeField] private Canvas _symbolCanvas;
         [SerializeField] private Texture2D[] _symbolTextures;
         [SerializeField] private bool _isBoss;
-
+        [SerializeField] private Character _character;
         ///  PRIVATE VARIABLES         ///
         private NPCMediator _mediator;
         private int _currentStep = 0;
@@ -34,6 +33,16 @@ namespace NPC
         ///  PRIVATE METHODS           ///
         private void Awake()
         {
+            if (_character)
+            {
+                _steps = _character.Steps;
+                _isBoss = _character.IsBoss;
+                gameObject.name = _character.Name;
+            }
+            else
+            {
+                throw new Exception("missing Character Serialized Object");
+            }
             HideSymbol();
             _cam.enabled = false;
             for (int i = 0; i < _steps.Length; i++)

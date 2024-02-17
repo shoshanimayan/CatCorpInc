@@ -1,21 +1,25 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
 
 	[CreateAssetMenu]
 	public class Character: ScriptableObject
 	{
 
 	///  INSPECTOR VARIABLES       ///
-	[SerializeField] private string _name;
-		///  PRIVATE VARIABLES         ///
+	public string Name;
+    public bool IsBoss;
+    public TextStep[] Steps;
 
-		///  PRIVATE METHODS           ///
 
-		///  LISTNER METHODS           ///
+    ///  PRIVATE VARIABLES         ///
 
-		///  PUBLIC API                ///
-		public string Name{ get{return _name;} }
+    ///  PRIVATE METHODS           ///
+
+    ///  LISTNER METHODS           ///
+
+    ///  PUBLIC API                ///
 		///  IMPLEMENTATION            ///
 
 	}

@@ -29,8 +29,8 @@ namespace Gameplay
             if (_view.GetObjectives().Contains(obj))
 			{
 
-                _objectiveCount--;
-
+                _objectiveCount++;
+				Debug.Log(_objectiveCount);
                 _view.RemoveObjective(obj);
 				_signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
 			}
@@ -40,7 +40,7 @@ namespace Gameplay
 		private void CheckForCompletion()
         {
 
-            if (_objectiveCount==0 && !_gameSettings.GetEnded())
+            if (_objectiveCount==_view.TotalObjectives && !_gameSettings.GetEnded())
 			{
 				_gameSettings.SetEnded(true);
                 _signalBus.Fire(new EndingGameSignal() { });
@@ -50,13 +50,16 @@ namespace Gameplay
 
 		private void AddObjective(Objective obj)
 		{ 
-			_objectiveCount+= _view.AddObjective(obj);
+			_view.AddObjective(obj);
 		}
 
         private void EndingGame()
         {
+			Debug.Log(_objectiveCount);
+			Debug.Log(_view.TotalObjectives);
+			Debug.Log(_objectiveCount / _view.TotalObjectives);
 
-            float percent = 1f- (_objectiveCount/_view.TotalObjectives);
+            float percent = (_objectiveCount/_view.TotalObjectives);
 
             _signalBus.Fire(new CompletionPercentageSignal() { CompletionPercent=percent});
         }
@@ -78,7 +81,6 @@ namespace Gameplay
 		public void Initialize()
 		{
 			_view.Initilize(this);
-			_objectiveCount=_view.GetObjectives().Length;
             _signalBus.GetStream<ObjectiveCompleteSignal>()
              .Subscribe(x => OnObjectiveCompleted(x.Objective)).AddTo(_disposables);
             _signalBus.GetStream<AddObjectiveSignal>()

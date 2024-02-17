@@ -18506,6 +18506,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 11400000, guid: 7482027e5ced6114297ea580fbc2a174,
+        type: 2}
+    - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
       propertyPath: _steps.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -33031,6 +33037,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 11400000, guid: 4087f21a6da0c114a80ee74cafbe6484,
+        type: 2}
+    - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
       propertyPath: _steps.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -36234,6 +36246,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC2
       objectReference: {fileID: 0}
+    - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 11400000, guid: 662df9d298a6c34479f729e21eb78b49,
+        type: 2}
     - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
       propertyPath: _steps.Array.size

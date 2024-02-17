@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201df26aeea96ee45a4ad0c29c8430ad, type: 3}
+  m_Name: Slogan Guy
+  m_EditorClassIdentifier: 
+  Name: Slogan Guy
+  IsBoss: 0
+  Steps:
+  - {fileID: 11400000, guid: d8cb737e544605e4682254d7acfba761, type: 2}
+  - {fileID: 11400000, guid: d028765220771cf40b8014957cddfd5b, type: 2}
+  - {fileID: 11400000, guid: 16ffe99da7198b141be5d2d3d0d209f8, type: 2}
