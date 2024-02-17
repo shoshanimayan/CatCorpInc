@@ -6,6 +6,7 @@ using Player;
 using Signals.Game;
 using Gameplay;
 using Ui;
+using Environment;
 
 public class PlayInstaller : MonoInstaller
 {
@@ -37,6 +38,7 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<MouseCollectionHandlerMediator, MouseCollectionHandlerView>();
         Container.BindMediatorView<PlantCollectionHandlerMediator, PlantCollectionHandlerView>();
         Container.BindMediatorView<BillBoardMediator, BillBoardView>();
+        Container.BindMediatorView<SkyBoxManagerMediator, SkyBoxManagerView>();
 
 
         //signals
