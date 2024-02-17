@@ -55,9 +55,7 @@ namespace Gameplay
 
         private void EndingGame()
         {
-			Debug.Log(_objectiveCount);
-			Debug.Log(_view.TotalObjectives);
-			Debug.Log(_objectiveCount / _view.TotalObjectives);
+			
 
             float percent = (_objectiveCount/_view.TotalObjectives);
 

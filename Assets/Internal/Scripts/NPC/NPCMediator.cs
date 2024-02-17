@@ -65,7 +65,6 @@ namespace NPC
         {
             if (_view.IsBoss)
             {
-                Debug.Log(percent);
                 int index = 0;
                 if (percent > .5f)
                 {
@@ -78,7 +77,6 @@ namespace NPC
                         index = 1;
                     }
                 }
-                Debug.Log(index);
                 _view.SetStepIndex(index);
             }
         }
