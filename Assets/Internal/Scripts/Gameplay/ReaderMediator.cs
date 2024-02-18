@@ -72,12 +72,7 @@ namespace Gameplay
 		{
 			if (_step)
 			{
-                if (_step.CompleteGoalOnCompletion)
-                {
-
-                    _signalBus.Fire(new ObjectiveCompleteSignal() { Objective = _step.Objective });
-
-                }
+               
 
 				if (_step.AddGoal)
 				{
@@ -111,23 +106,39 @@ namespace Gameplay
 
                 }
 
+
+             
+
                 if (_step.StartNextEntryOnCompletion)
 				{
                     if (_origin != null)
                     {
                         _origin.IncrementStep();
                     }
+
                     _signalBus.Fire(new SendTextStepSignal() { TextStep=_step.GetNextStep(), Origin=_origin});
-				}
-				else
+
+                }
+                else
 				{
 					if (_origin!=null)
 					{
 						_origin.IncrementStep();
 					}
-					_signalBus.Fire(new StateChangeSignal() { ToState=State.Play});
-					_origin = null;
+
+                    _signalBus.Fire(new StateChangeSignal() { ToState = State.Play });
+                    _origin = null;
+                    if (_step.CompleteGoalOnCompletion)
+                    {
+                     
+
+                        _signalBus.Fire(new ObjectiveCompleteSignal() { Objective = _step.Objective });
+
+                    }
+
 				}
+
+               
 			
 			}
 			
