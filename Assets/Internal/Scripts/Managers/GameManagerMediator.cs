@@ -37,12 +37,15 @@ namespace Managers
 		[Inject]
 
 		private SignalBus _signalBus;
+        [Inject] private GameSettings _gameSettings;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
-			_view.Init(this);
+            _gameSettings.SetEnded(false);
+            _gameSettings.SetCanShoot(false);
+            _view.Init(this);
             _signalBus.GetStream<EndingGameSignal>()
          .Subscribe(x => EndingGame()).AddTo(_disposables);
         }

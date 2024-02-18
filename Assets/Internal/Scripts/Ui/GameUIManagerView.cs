@@ -14,12 +14,35 @@ namespace Ui
 		[SerializeField] Canvas _pauseCanvas;
 		[SerializeField] Canvas _objectiveCanvas;
 		[SerializeField] Canvas _readerCanvas;
+        [SerializeField] Canvas _endingCanvas;
+
 		///  PRIVATE VARIABLES         ///
-
-		///  PRIVATE METHODS           ///
-
+		private GameUIManagerMediator _mediator;
+        ///  PRIVATE METHODS           ///
+		private void Awake()
+        {
+            _endingCanvas.enabled = false;
+        }
 		///  PUBLIC API                ///
-		public void SetCanvas(State state)
+
+		public void OnEnd()
+		{
+            _playCanvas.enabled = false;
+            _pauseCanvas.enabled = false;
+            _objectiveCanvas.enabled = false;
+            _readerCanvas.enabled = false;
+            _endingCanvas.enabled = true;
+
+        }
+
+		
+
+		public void Init(GameUIManagerMediator mediator)
+		{ 
+			_mediator = mediator;
+		}
+
+        public void SetCanvas(State state)
 		{
 			_playCanvas.enabled = false;
 			_pauseCanvas.enabled = false;

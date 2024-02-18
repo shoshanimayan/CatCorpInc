@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
 using Managers;
+using Signals.Game;
 
 namespace Ui
 {
@@ -25,23 +26,32 @@ namespace Ui
 
             _view.SetCanvas(state);
         }
-        ///  PUBLIC API                ///
 
+        private void OnEndedGame()
+        {
+            _view.OnEnd();
+        }
+        ///  PUBLIC API                ///
+       
         ///  IMPLEMENTATION            ///
 
         [Inject]
 
 		private SignalBus _signalBus;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
+            _view.Init(this);
+        
             _signalBus.GetStream<StateChangeSignal>()
                        .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+              _signalBus.GetStream<EndedGameSignal>()
+                      .Subscribe(x => OnEndedGame()).AddTo(_disposables);
         }
 
-		public void Dispose()
+        public void Dispose()
 		{
 
 			_disposables.Dispose();

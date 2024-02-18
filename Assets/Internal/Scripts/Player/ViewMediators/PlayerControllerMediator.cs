@@ -19,6 +19,8 @@ namespace Player
 
 		///  PRIVATE VARIABLES         ///
 		private bool _canInput;
+        private bool _ended;
+        public bool _transitionSignalSent;
 		private State _currentState;
 		private ReadState _readState= ReadState.Null;
         ///  PRIVATE METHODS           ///
@@ -104,7 +106,10 @@ namespace Player
 			_signalBus.Fire(new WalkStateChangedSignal() { ToState = state });
 		}
 
-		
+		public bool IsEnd
+        {
+            get { return _ended; }
+        }
 
 		public bool CanReadInput()
 		{
@@ -136,7 +141,16 @@ namespace Player
             }
         }
 
-		public void ToggleObjectiveMode()
+        public void EndTransition()
+        {
+            if (!_transitionSignalSent)
+            {
+                _transitionSignalSent = true;
+                _signalBus.Fire(new EndTransitionSignal());
+            }
+        }
+
+        public void ToggleObjectiveMode()
 		{
             if (_currentState == State.Objective)
             {
@@ -167,6 +181,11 @@ namespace Player
                            .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
             _signalBus.GetStream<ChangeReadStateSignal>()
                          .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
+            _signalBus.GetStream<EndedGameSignal>()
+               .Subscribe(x => { 
+                   _ended = true;
+                   Cursor.lockState = CursorLockMode.Confined;
+               }).AddTo(_disposables);
             _gameSettings.SetCanShoot(false) ;
         }
 

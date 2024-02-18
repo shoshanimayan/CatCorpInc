@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Signals.Core;
 using Signals.Game;
+using UnityEngine.Analytics;
 
 namespace Gameplay
 {
@@ -48,6 +49,10 @@ namespace Gameplay
 
             _signalBus.GetStream<HoveringSignal>()
                           .Subscribe(x => OnHovering(x.Hovering,x.DontShowInteract)).AddTo(_disposables);
+            _signalBus.GetStream<EndedGameSignal>()
+            .Subscribe(x => {
+                  _view.DisableCrosshair();
+              }).AddTo(_disposables);
         }
 
 		public void Dispose()

@@ -48,5 +48,14 @@ namespace Gameplay
 			_label.text = text;
 		}
 
+		public void DisableCrosshair()
+		{
+            foreach (Image img in _crosshairComponents)
+            {
+                img.enabled = false;
+            }
+			_label.enabled = false;
+        }
+
     }
 }

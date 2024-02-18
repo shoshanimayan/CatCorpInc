@@ -126,7 +126,7 @@ namespace Managers
             {
                 _signalBus.GetStream<LoadSceneSignal>()
                            .Subscribe(x => OnLoadSceneChanged(x)).AddTo(_disposables);
-                _signalBus.GetStream<EndedGameSignal>()
+                _signalBus.GetStream<EndTransitionSignal>()
                          .Subscribe(x => OnEndedGame()).AddTo(_disposables);
                 _view.Init(this);
                 if (SceneManager.sceneCount == 1)

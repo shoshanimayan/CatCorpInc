@@ -1,9 +1,9 @@
 using UnityEngine;
 using Core;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using DG.Tweening;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
+using System.Runtime.CompilerServices;
 
 namespace Player
 {
@@ -74,75 +74,86 @@ namespace Player
 
         private void Update()
         {
-            if(_inputReciever.PlayerToggledObjective() && (_mediator.GetCurrentState() == Managers.State.Play || _mediator.GetCurrentState() == Managers.State.Objective))
+            if (!_mediator.IsEnd)
             {
+                if (_inputReciever.PlayerToggledObjective() && (_mediator.GetCurrentState() == Managers.State.Play || _mediator.GetCurrentState() == Managers.State.Objective))
+                {
 
-                _mediator.ToggleObjectiveMode();
-            }
-            if (_inputReciever.PlayerPause() )
-            {
-                
-                _mediator.TogglePauseMenu();
-            }
-            if (_inputReciever.PlayerProgressingReader() && _mediator.GetCurrentState() == Managers.State.Text && _mediator.IsReadStateClickable())
-            { 
-                _mediator.ProgressReader();
-            }
-            if (_mediator.CanReadInput() && _mediator.GetCurrentState() == Managers.State.Play)
-            {
-                _sprinting = _inputReciever.PlayerSprinting()&&!_inputReciever.PlayerCrouch();
-                _groundedPlayer = _controller.isGrounded;
-                if (_groundedPlayer && _playerVelocity.y < 0)
-                {
-                    _playerVelocity.y = 0f;
+                    _mediator.ToggleObjectiveMode();
                 }
-                if (_inputReciever.PlayerCrouch() && _groundedPlayer )
+                if (_inputReciever.PlayerPause())
                 {
-                    if (!_crouching)
+
+                    _mediator.TogglePauseMenu();
+                }
+                if (_inputReciever.PlayerProgressingReader() && _mediator.GetCurrentState() == Managers.State.Text && _mediator.IsReadStateClickable())
+                {
+                    _mediator.ProgressReader();
+                }
+                if (_mediator.CanReadInput() && _mediator.GetCurrentState() == Managers.State.Play)
+                {
+                    _sprinting = _inputReciever.PlayerSprinting() && !_inputReciever.PlayerCrouch();
+                    _groundedPlayer = _controller.isGrounded;
+                    if (_groundedPlayer && _playerVelocity.y < 0)
                     {
-                        HandleCrouch(true);
+                        _playerVelocity.y = 0f;
                     }
-                }
-                else
-                {
-                    if (_crouching)
+                    if (_inputReciever.PlayerCrouch() && _groundedPlayer)
                     {
-                        HandleCrouch(false);
-                    }
-                }
-                Vector2 movement = _inputReciever.GetPlayerMovement();
-                Vector3 move = new Vector3(movement.x, 0f, movement.y);
-                move = _cameraTransform.forward * move.z + _cameraTransform.right * movement.x;
-                move.y = 0f;
-                _controller.Move(move * Time.deltaTime * (_playerSpeed * (_sprinting? _SprintSpeedBonus : 1)));
-
-
-
-                // Changes the height position of the player..
-                if (_inputReciever.PlayerJumped() && _groundedPlayer)
-                {
-                    _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -3.0f * _gravityValue);
-                }
-
-              
-
-                _playerVelocity.y += _gravityValue * Time.deltaTime;
-                _controller.Move(_playerVelocity * Time.deltaTime);
-                var state = WalkState.None;
-                if (move.magnitude > 0 && _groundedPlayer)
-                {
-                    if (_sprinting)
-                    {
-                        state = WalkState.Run;
+                        if (!_crouching)
+                        {
+                            HandleCrouch(true);
+                        }
                     }
                     else
                     {
-                        state = WalkState.Walk;
+                        if (_crouching)
+                        {
+                            HandleCrouch(false);
+                        }
                     }
+                    Vector2 movement = _inputReciever.GetPlayerMovement();
+                    Vector3 move = new Vector3(movement.x, 0f, movement.y);
+                    move = _cameraTransform.forward * move.z + _cameraTransform.right * movement.x;
+                    move.y = 0f;
+                    _controller.Move(move * Time.deltaTime * (_playerSpeed * (_sprinting ? _SprintSpeedBonus : 1)));
+
+
+
+                    // Changes the height position of the player..
+                    if (_inputReciever.PlayerJumped() && _groundedPlayer)
+                    {
+                        _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -3.0f * _gravityValue);
+                    }
+
+
+
+                    _playerVelocity.y += _gravityValue * Time.deltaTime;
+                    _controller.Move(_playerVelocity * Time.deltaTime);
+                    var state = WalkState.None;
+                    if (move.magnitude > 0 && _groundedPlayer)
+                    {
+                        if (_sprinting)
+                        {
+                            state = WalkState.Run;
+                        }
+                        else
+                        {
+                            state = WalkState.Walk;
+                        }
+                    }
+                    UpdateWalkState(state);
                 }
-                UpdateWalkState(state);
             }
-  
+            else
+            {
+                InputSystem.onAnyButtonPress.CallOnce(ctrl => { EndGamePress(); }) ;
+            }
+        }
+
+        private void EndGamePress()
+        {
+            _mediator.EndTransition();
         }
 
         public void StopWalkState() 

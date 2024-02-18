@@ -21,6 +21,7 @@ public class GlobalInstaller : MonoInstaller
         Container.DeclareSignal<StartGameSignal>();
         Container.DeclareSignal<EndingGameSignal>();
         Container.DeclareSignal<EndedGameSignal>();
+        Container.DeclareSignal<EndTransitionSignal>();
         Container.DeclareSignal<GotCollectableSignal>();
         Container.DeclareSignal<ObjectiveCompleteSignal>();
         Container.DeclareSignal<ObjectiveCompletedSignal>();

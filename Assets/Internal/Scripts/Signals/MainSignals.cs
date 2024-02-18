@@ -36,6 +36,11 @@ namespace Signals.Core
 
     }
 
+    public class EndTransitionSignal
+    { 
+    
+    }
+
     public class EndedGameSignal
     {
 
