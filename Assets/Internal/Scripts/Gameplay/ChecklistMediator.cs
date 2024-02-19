@@ -31,16 +31,7 @@ namespace Gameplay
 
                 _objectiveCount++;
                 _view.RemoveObjective(obj);
-				if (_objectiveCount < _view.TotalObjectives)
-				{
-					_signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
-				}
-				else
-				{
-                    _signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
-
-                    CheckForCompletion();
-				}
+				_signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
 			}
 		
 		}
