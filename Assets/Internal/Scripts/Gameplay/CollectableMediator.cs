@@ -9,6 +9,7 @@ using Signals.Core;
 using NPC;
 using ScriptableObjects;
 using Signals.Game;
+using Managers;
 
 namespace Gameplay
 {
@@ -37,13 +38,21 @@ namespace Gameplay
             }
 
         }
+
+        public bool GameStarted()
+        {
+            return _gameSettings.GetTimerEnabled();
+        }
         ///  IMPLEMENTATION            ///
 
         [Inject]
 
 		private SignalBus _signalBus;
+        [Inject]
+        private GameSettings _gameSettings;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{

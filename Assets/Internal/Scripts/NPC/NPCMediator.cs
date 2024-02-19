@@ -81,6 +81,14 @@ namespace NPC
             }
         }
 
+
+        private void OnGameEnding()
+        {
+            if (!_view.IsBoss)
+            {
+                _view.DisableNPC();
+            }
+        }
         ///  PUBLIC API                ///
         public void GotCoffee()
         {
@@ -141,6 +149,8 @@ namespace NPC
               .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
             _signalBus.GetStream<CompletionPercentageSignal>()
             .Subscribe(x => OnRecievedProgressCompletion(x.CompletionPercent)).AddTo(_disposables);
+            _signalBus.GetStream<EndingGameSignal>()
+           .Subscribe(x => OnGameEnding()).AddTo(_disposables);
             _view.ShowQuestSymbol();
         }
 

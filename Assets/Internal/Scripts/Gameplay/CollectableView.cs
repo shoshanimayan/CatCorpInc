@@ -31,6 +31,8 @@ namespace Gameplay
         }
         public void DoInteraction()
         {
+            if (!_mediator.GameStarted()) { return; }
+
             _cam.enabled = true;
 
             _mediator.SendStep(_steps[_currentStep], this,transform);
@@ -41,6 +43,8 @@ namespace Gameplay
 
         public void HoverOn()
         {
+            if (!_mediator.GameStarted()) { return; }
+
             OutlineEnable();
         }
 

@@ -263,6 +263,10 @@ namespace NPC
             _currentStep = newIndex;
         }
 
+        public void DisableNPC()
+        { 
+            gameObject.SetActive(false);
+        }
         public void HoverOn()
         {
         }
