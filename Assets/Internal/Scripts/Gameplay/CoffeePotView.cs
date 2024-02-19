@@ -22,6 +22,8 @@ namespace Gameplay
         ///  PRIVATE METHODS           ///
         private CoffeePotMediator _mediator;
         ///  PUBLIC API                ///
+        public CinemachineVirtualCamera Camera { get { return _cam; } }
+
         public void Init(CoffeePotMediator mediator)
         { 
         _mediator = mediator;

@@ -31,7 +31,7 @@ namespace Gameplay
         ///  PUBLIC API                ///
 		public void SendStep(TextStep step, CollectableView view, Transform transform = null)
         {
-            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin = view });
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin = view ,CameraFocus=_view.Camera});
             if (transform != null)
             {
                 _signalBus.Fire(new CameraFocusSignal() { Focus = transform });

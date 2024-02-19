@@ -109,7 +109,7 @@ namespace NPC
 
         public void SendStep(TextStep step, NPCView view, Transform transform = null)
         {
-            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin=view });
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = step, Origin=view, CameraFocus = _view.Cam });
             if (transform != null)
             {
                 _signalBus.Fire(new CameraFocusSignal() { Focus= transform });

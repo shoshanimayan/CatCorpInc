@@ -1,3 +1,4 @@
+using Cinemachine;
 using Gameplay;
 using Player;
 using ScriptableObjects;
@@ -83,6 +84,7 @@ namespace Signals.Game
     public class SendTextStepSignal {
         public TextStep TextStep;
         public Interactable Origin = null;
+        public CinemachineVirtualCamera CameraFocus = null; 
         public bool Storage=false;
     }
 

@@ -23,19 +23,19 @@ namespace Managers
 		///  LISTNER METHODS           ///
 		private void EndingGame()
 		{
-            _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro });
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro, CameraFocus = _view.Camera });
 
         }
         private void SendStorage()
         {
-            _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro,Storage=true });
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro,Storage=true, CameraFocus = _view.Camera });
 
         }
 
         ///  PUBLIC API                ///
         public void StartIntro( TextStep intro) 
 		{
-			_signalBus.Fire(new SendTextStepSignal() { TextStep=intro });
+			_signalBus.Fire(new SendTextStepSignal() { TextStep=intro});
 
 		}
 		///  IMPLEMENTATION            ///

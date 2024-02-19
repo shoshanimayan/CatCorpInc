@@ -31,5 +31,7 @@ namespace Managers
 
 		public TextStep Outro { get { return _outro; } }
 
+        public CinemachineVirtualCamera Camera { get { return _cam; } }
+
 	}
 }

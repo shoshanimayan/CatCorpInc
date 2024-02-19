@@ -24,6 +24,9 @@ namespace Gameplay
         ///  PRIVATE METHODS           ///
 
         ///  PUBLIC API                ///
+        public CinemachineVirtualCamera Camera { get { return _cam; } }
+
+
         public bool Interacted
         {
             get { return _interacted; }
@@ -33,7 +36,7 @@ namespace Gameplay
         {
             if (!_mediator.GameStarted()) { return; }
 
-            _cam.enabled = true;
+        //    _cam.enabled = true;
 
             _mediator.SendStep(_steps[_currentStep], this,transform);
 
@@ -50,7 +53,7 @@ namespace Gameplay
 
         public void IncrementStep()
         {
-            _cam.enabled = false;
+           // _cam.enabled = false;
             if (_deactivateOnInteract)
             {
                 gameObject.SetActive(false);
@@ -60,7 +63,7 @@ namespace Gameplay
 
         public void IncrementStepByValue(int increment)
         {
-            _cam.enabled = false;
+           // _cam.enabled = false;
 
             gameObject.SetActive(false);
 

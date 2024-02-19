@@ -89,7 +89,9 @@ namespace NPC
 
         }
         ///  PUBLIC API                /// <summary>
-       
+
+        public CinemachineVirtualCamera Cam { get { return _cam; } }
+
         public bool IsBoss
         { 
          get { return _isBoss; }
@@ -113,7 +115,7 @@ namespace NPC
 
         public void DoInteraction()
         {
-            _cam.enabled = true;
+           // _cam.enabled = true;
             _mediator.SendStep(_steps[_currentStep], this, _face);
 
         }
@@ -125,7 +127,7 @@ namespace NPC
 
         public void IncrementStep()
         {
-            _cam.enabled = false;
+         //   _cam.enabled = false;
 
             if (_steps[_currentStep].UnblocksConversation)
             {
@@ -142,7 +144,7 @@ namespace NPC
 
         public void IncrementStepByValue(int increment)
         {
-            _cam.enabled = false;
+         //   _cam.enabled = false;
             if (_steps[_currentStep].UnblocksConversation)
             {
                 _mediator.SendUnblock(_steps[_currentStep].UnblockStep);

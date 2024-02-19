@@ -10,6 +10,8 @@ using Signals.Core;
 using System.Xml;
 using ScriptableObjects;
 using Managers;
+using Cinemachine;
+
 namespace Gameplay
 {
     [System.Serializable]
@@ -45,6 +47,7 @@ namespace Gameplay
 		private TextStep _step;
 		private Interactable _origin = null;
 		private bool _endingStored;
+		private CinemachineVirtualCamera _cam;
 		///  PRIVATE METHODS           ///
 
 
@@ -73,9 +76,12 @@ namespace Gameplay
 		{
 			if (_step)
 			{
-               
+				if (_cam)
+				{
+					_cam.enabled = false;
+				}
 
-				if (_step.AddGoal)
+                if (_step.AddGoal)
 				{
 					foreach (Objective obj in _step.ObjectiveToAdd)
 					{
@@ -117,7 +123,7 @@ namespace Gameplay
                         _origin.IncrementStep();
                     }
 
-                    _signalBus.Fire(new SendTextStepSignal() { TextStep=_step.GetNextStep(), Origin=_origin});
+                    _signalBus.Fire(new SendTextStepSignal() { TextStep=_step.GetNextStep(), Origin=_origin,CameraFocus=_cam});
 
                 }
                 else
@@ -145,23 +151,28 @@ namespace Gameplay
 			
 		}
 
-		private void OnReceiveStepAsset(TextStep textStep,Interactable origin,bool Storage =false)
+		private void OnReceiveStepAsset(TextStep textStep,Interactable origin,bool Storage =false, CinemachineVirtualCamera cam=null)
 		{
 			if (!_endingStored)
 			{
 				_origin = origin;
 				_step = textStep;
+				_cam = cam;
 			}
 			if (Storage)
 			{
 				_endingStored = true;
 				return;
 			}
-
+			_endingStored = false;
             _signalBus.Fire(new StateChangeSignal() { ToState= State.Text});
             TextEntry entry = JsonUtility.FromJson<TextEntry>(_step.Json.text);
 
             entry.Content=entry.Content.Replace("\n","<page>");
+			if (_cam)
+			{
+				_cam.enabled = true;
+			}
             switch (entry.Type)
             {
                 case "Read":
@@ -224,7 +235,7 @@ namespace Gameplay
             _signalBus.GetStream<ChangeReadStateSignal>()
                          .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
             _signalBus.GetStream<SendTextStepSignal>()
-                         .Subscribe(x => OnReceiveStepAsset(x.TextStep,x.Origin,x.Storage)).AddTo(_disposables);
+                         .Subscribe(x => OnReceiveStepAsset(x.TextStep,x.Origin,x.Storage,x.CameraFocus)).AddTo(_disposables);
             _signalBus.GetStream<FinishStepSignal>()
                          .Subscribe(x => OnFinishStep()).AddTo(_disposables);
             _signalBus.GetStream<ChoiceSendSignal>()
