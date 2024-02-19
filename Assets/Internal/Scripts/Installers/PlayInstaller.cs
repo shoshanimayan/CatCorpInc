@@ -39,9 +39,11 @@ public class PlayInstaller : MonoInstaller
         Container.BindMediatorView<PlantCollectionHandlerMediator, PlantCollectionHandlerView>();
         Container.BindMediatorView<BillBoardMediator, BillBoardView>();
         Container.BindMediatorView<SkyBoxManagerMediator, SkyBoxManagerView>();
+        Container.BindMediatorView<LightSwingMediator, LightSwingView>();
 
 
         //signals
+        Container.DeclareSignal<SendStorageSignal>();
         Container.DeclareSignal<WalkStateChangedSignal>();
         Container.DeclareSignal<HoveringSignal>();
         Container.DeclareSignal<ChecklistCompletionCheckSignal>();

@@ -26,6 +26,12 @@ namespace Managers
             _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro });
 
         }
+        private void SendStorage()
+        {
+            _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro,Storage=true });
+
+        }
+
         ///  PUBLIC API                ///
         public void StartIntro( TextStep intro) 
 		{
@@ -48,6 +54,9 @@ namespace Managers
             _view.Init(this);
             _signalBus.GetStream<EndingGameSignal>()
          .Subscribe(x => EndingGame()).AddTo(_disposables);
+
+            _signalBus.GetStream<SendStorageSignal>()
+       .Subscribe(x =>SendStorage()).AddTo(_disposables);
         }
 
 		public void Dispose()

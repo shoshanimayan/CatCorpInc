@@ -44,6 +44,7 @@ namespace Gameplay
 		private ReadState _readState = ReadState.Null;
 		private TextStep _step;
 		private Interactable _origin = null;
+		private bool _endingStored;
 		///  PRIVATE METHODS           ///
 
 
@@ -144,13 +145,21 @@ namespace Gameplay
 			
 		}
 
-		private void OnReceiveStepAsset(TextStep textStep,Interactable origin)
+		private void OnReceiveStepAsset(TextStep textStep,Interactable origin,bool Storage =false)
 		{
-			_origin = origin;
-			_step = textStep;
+			if (!_endingStored)
+			{
+				_origin = origin;
+				_step = textStep;
+			}
+			if (Storage)
+			{
+				_endingStored = true;
+				return;
+			}
 
             _signalBus.Fire(new StateChangeSignal() { ToState= State.Text});
-            TextEntry entry = JsonUtility.FromJson<TextEntry>(textStep.Json.text);
+            TextEntry entry = JsonUtility.FromJson<TextEntry>(_step.Json.text);
 
             entry.Content=entry.Content.Replace("\n","<page>");
             switch (entry.Type)
@@ -204,7 +213,10 @@ namespace Gameplay
 
 		private SignalBus _signalBus;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        [Inject] private GameSettings _gameSettings;
+
+
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
@@ -212,7 +224,7 @@ namespace Gameplay
             _signalBus.GetStream<ChangeReadStateSignal>()
                          .Subscribe(x => OnReadStateChanged(x.ReadState)).AddTo(_disposables);
             _signalBus.GetStream<SendTextStepSignal>()
-                         .Subscribe(x => OnReceiveStepAsset(x.TextStep,x.Origin)).AddTo(_disposables);
+                         .Subscribe(x => OnReceiveStepAsset(x.TextStep,x.Origin,x.Storage)).AddTo(_disposables);
             _signalBus.GetStream<FinishStepSignal>()
                          .Subscribe(x => OnFinishStep()).AddTo(_disposables);
             _signalBus.GetStream<ChoiceSendSignal>()

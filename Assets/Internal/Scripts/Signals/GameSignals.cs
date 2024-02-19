@@ -10,6 +10,8 @@ namespace Signals.Game
         public WalkState ToState;
     }
 
+    
+
     public class HoveringSignal
     {
         public string Hovering;
@@ -73,9 +75,15 @@ namespace Signals.Game
        public  ReadState ReadState;
     }
 
+    public class SendStorageSignal
+    { 
+    
+    }
+
     public class SendTextStepSignal {
         public TextStep TextStep;
         public Interactable Origin = null;
+        public bool Storage=false;
     }
 
 

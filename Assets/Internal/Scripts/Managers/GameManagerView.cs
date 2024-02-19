@@ -3,6 +3,7 @@ using Core;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
+using Cinemachine;
 
 namespace Managers
 {
@@ -12,8 +13,10 @@ namespace Managers
 		///  INSPECTOR VARIABLES       ///
 		[SerializeField] private TextStep _intro;
 		[SerializeField] private TextStep _outro;
-		///  PRIVATE VARIABLES         ///
-		private GameManagerMediator _mediator;
+        [SerializeField] private CinemachineVirtualCamera _cam;
+
+        ///  PRIVATE VARIABLES         ///
+        private GameManagerMediator _mediator;
         ///  PRIVATE METHODS           ///
         private void Start()
         {
@@ -27,5 +30,6 @@ namespace Managers
 		}
 
 		public TextStep Outro { get { return _outro; } }
+
 	}
 }
