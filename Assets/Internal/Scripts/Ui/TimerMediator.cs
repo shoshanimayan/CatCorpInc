@@ -45,8 +45,8 @@ namespace Ui
                 case State.Text:
                     if (TimerEnabled)
                     {
-                        _view.CountDownActive = true;
-                        _view.TimerCanvasEnabled(true);
+                        _view.TimerCanvasEnabled(false);
+                        _view.CountDownActive = false;
 
                     }
                     break;
