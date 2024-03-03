@@ -12,11 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
   m_Name: TestFetchTargetPre2
   m_EditorClassIdentifier: 
-  _json: {fileID: 4900000, guid: aaaaac9bc60485d4fbe1da26a3de4e42, type: 3}
+  _json: {fileID: 4900000, guid: 8ee14d76217024447b9ab248d866fb4d, type: 3}
   _startNextEntryOnCompletion: 0
   _completeGoalOnCompletion: 0
+  _addGoal: 0
   _needsCollectable: 0
   _waitingForAnotherConversation: 1
   _unblocksConversation: 0
+  _multipleChoice: 0
+  _startsEvent: 0
   Objective: {fileID: 0}
+  ObjectiveToAdd: []
   UnblockStep: {fileID: 0}
+  CollectableKey: 0
+  EventKey: 0
+  ActivateTimer: 0
+  DeactivateTimer: 0
+  EndsGame: 0

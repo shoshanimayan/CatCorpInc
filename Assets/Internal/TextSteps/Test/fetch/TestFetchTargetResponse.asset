@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
   m_Name: TestFetchTargetResponse
   m_EditorClassIdentifier: 
-  _json: {fileID: 4900000, guid: 49c5f1b14f10cdb42aa8ec0faf623da1, type: 3}
+  _json: {fileID: 4900000, guid: 99ae68e4994e12445ae8b2fbe8ce2d71, type: 3}
   _startNextEntryOnCompletion: 0
   _completeGoalOnCompletion: 0
   _addGoal: 0
