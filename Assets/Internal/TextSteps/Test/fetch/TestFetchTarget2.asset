@@ -23,7 +23,7 @@ MonoBehaviour:
   _startsEvent: 0
   Objective: {fileID: 0}
   ObjectiveToAdd: []
-  UnblockStep: {fileID: 11400000, guid: af8d9b7ada04f6c4fb32959cd59f36c7, type: 2}
+  UnblockStep: {fileID: 11400000, guid: 5908467be06fcae4c9c84328709f2d2f, type: 2}
   CollectableKey: 0
   EventKey: 0
   ActivateTimer: 0

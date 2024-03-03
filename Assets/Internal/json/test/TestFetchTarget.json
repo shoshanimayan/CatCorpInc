@@ -1,7 +1,7 @@
 {
   "Type": "Read",
-  "Name": "Blue Guy",
-  "Content":  "Go give this to the Red Guy"
+  "Name": "fetch target 1",
+  "Content":  "go get the other thing from fetch target 2"
   
  
 }

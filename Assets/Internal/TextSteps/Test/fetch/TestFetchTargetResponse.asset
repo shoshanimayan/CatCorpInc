@@ -17,7 +17,7 @@ MonoBehaviour:
   _completeGoalOnCompletion: 0
   _addGoal: 0
   _needsCollectable: 0
-  _waitingForAnotherConversation: 1
+  _waitingForAnotherConversation: 0
   _unblocksConversation: 1
   _multipleChoice: 0
   _startsEvent: 0

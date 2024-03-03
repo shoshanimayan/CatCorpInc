@@ -23,10 +23,14 @@ MonoBehaviour:
   _startsEvent: 1
   Objective: {fileID: 11400000, guid: 69e84cb67975bb142a18ac0b808aac57, type: 2}
   ObjectiveToAdd:
+  - {fileID: 11400000, guid: 082333615950ba34baf181f3f086fbd1, type: 2}
   - {fileID: 11400000, guid: 025d21fe96e3b8042b62caae523686be, type: 2}
   - {fileID: 11400000, guid: c36a7d92e49f5f14e9e7b762130abe8f, type: 2}
   - {fileID: 11400000, guid: 46dc9d0782d0be34a92d534a636e2957, type: 2}
   - {fileID: 11400000, guid: 784fb1b68a2604a498fb6eeccf6f412e, type: 2}
+  - {fileID: 11400000, guid: bc3c5d12108fc9143967b941e01398bd, type: 2}
+  - {fileID: 11400000, guid: 7d977b4dd10aa1f428e6fab1a1d8bbce, type: 2}
+  - {fileID: 11400000, guid: 2827e0b09074a8f498d925066148b993, type: 2}
   UnblockStep: {fileID: 0}
   CollectableKey: 0
   EventKey: 0

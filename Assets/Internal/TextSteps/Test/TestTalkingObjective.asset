@@ -14,13 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _json: {fileID: 4900000, guid: c79f39d9d715982459704bac10061ecf, type: 3}
   _startNextEntryOnCompletion: 0
-  _completeGoalOnCompletion: 0
+  _completeGoalOnCompletion: 1
   _addGoal: 0
   _needsCollectable: 0
   _waitingForAnotherConversation: 0
   _unblocksConversation: 0
   _multipleChoice: 0
-  Objective: {fileID: 0}
+  _startsEvent: 0
+  Objective: {fileID: 11400000, guid: 082333615950ba34baf181f3f086fbd1, type: 2}
   ObjectiveToAdd: []
   UnblockStep: {fileID: 0}
   CollectableKey: 0
+  EventKey: 0
+  ActivateTimer: 0
+  DeactivateTimer: 0
+  EndsGame: 0
