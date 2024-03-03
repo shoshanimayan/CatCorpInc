@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201df26aeea96ee45a4ad0c29c8430ad, type: 3}
-  m_Name: FetchRequest
+  m_Name: FetchTarget2
   m_EditorClassIdentifier: 
-  Name: fetchreq
+  Name: FetchTarget2
   IsBoss: 0
   Steps:
-  - {fileID: 11400000, guid: c657034c4ac05ab43ae76ac749388215, type: 2}
-  - {fileID: 11400000, guid: 5ef8e1aeb030f9046b219be3a05c8622, type: 2}
+  - {fileID: 11400000, guid: 1757153dd776eaa48bf24474fad9b76d, type: 2}
+  - {fileID: 11400000, guid: f3489026044627946b1f5f9a514039e5, type: 2}
