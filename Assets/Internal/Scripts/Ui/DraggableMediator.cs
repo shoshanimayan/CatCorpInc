@@ -22,6 +22,7 @@ namespace Ui
         ///  PRIVATE VARIABLES         ///
         private ReadState _currentState;
         private bool _completed;
+        private bool _playingAudio;
         ///  PRIVATE METHODS           ///
 
         ///  LISTNER METHODS           ///
@@ -37,10 +38,27 @@ namespace Ui
             if (!_completed)
             { 
                 _completed = true;
+                StopShredAudio();
                 _signalBus.Fire(new FinishDragSignal());
                 _signalBus.Fire(new WalkStateChangedSignal() { ToState = WalkState.None });
 
             }
+        }
+
+        public void PlayShredAudio()
+        {
+            if (!_playingAudio)
+            {
+                _playingAudio = true;
+                _signalBus.Fire(new PlaySoundSignal() { ClipName = "shred" });
+            }
+        }
+
+        public void StopShredAudio() 
+        {
+            _signalBus.Fire(new StopSoundSignal() { ClipName = "shred" });
+            _playingAudio = false;
+
         }
 
         public void ShakeScreen(bool shake)

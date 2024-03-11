@@ -27,7 +27,8 @@ namespace Ui
             _textField.maxVisibleCharacters = 0;
             var TotalVisibleCharacters = _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex - _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex;
             int counter = _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].firstCharacterIndex;
-           
+            _mediator.PlayTextAudio();
+
             while (counter <= _textField.textInfo.pageInfo[_textField.pageToDisplay - 1].lastCharacterIndex+1)
             {
                 if (t.IsCancellationRequested)

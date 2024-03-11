@@ -37,9 +37,11 @@ namespace Gameplay
 
                 }
                 _signalBus.Fire(new ObjectiveCompletedSignal() { Objective = obj });
-			}
-		
-		}
+                _signalBus.Fire(new PlayOneShotSignal() { ClipName = "notification"});
+
+            }
+
+        }
 
 		private void CheckForCompletion()
         {

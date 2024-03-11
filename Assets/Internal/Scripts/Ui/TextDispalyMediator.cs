@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Signals.Game;
 using Gameplay;
+using Signals.Core;
 
 namespace Ui
 {
@@ -26,6 +27,8 @@ namespace Ui
 			_view.SetText(text.BodyText);
 		}
 
+
+
         private void HandlePageTransition()
         {
 
@@ -41,6 +44,12 @@ namespace Ui
 
         }
         ///  PUBLIC API                ///
+        public void PlayTextAudio()
+        {
+            _signalBus.Fire(new PlayOneShotSignal() { ClipName = "talk" });
+
+        }
+
         public void ForceEnd()
         {
             _view.ClearToken();

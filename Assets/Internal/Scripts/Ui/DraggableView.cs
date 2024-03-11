@@ -38,6 +38,7 @@ namespace Ui
 
             if (eventData.position.y < _lastPos.y && _mediator.CanDrag)
             {
+                _mediator.PlayShredAudio();
                 _mediator.ShakeScreen(true);
 
                 float reduction = _lastPos.y - eventData.position.y;
@@ -59,6 +60,7 @@ namespace Ui
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            _mediator.StopShredAudio();
             _mediator.ShakeScreen(false);
         }
     }

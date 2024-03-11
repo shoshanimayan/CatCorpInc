@@ -20,7 +20,7 @@ MonoBehaviour:
         Data2: 1233940004
         Data3: -231245400
         Data4: 1003292824
-      Path: event:/Interacted
+      Path: event:/SFX/Interacted
   - key: walk
     value:
       Guid:
@@ -28,7 +28,7 @@ MonoBehaviour:
         Data2: 1182537315
         Data3: -699244153
         Data4: 2084784266
-      Path: event:/playerFootSteps
+      Path: event:/SFX/playerFootSteps
   - key: run
     value:
       Guid:
@@ -45,3 +45,27 @@ MonoBehaviour:
         Data3: -46723397
         Data4: 2115092500
       Path: event:/SFX/Coffee
+  - key: talk
+    value:
+      Guid:
+        Data1: 931825967
+        Data2: 1254612096
+        Data3: -260296559
+        Data4: 1971324929
+      Path: event:/SFX/Talk
+  - key: notification
+    value:
+      Guid:
+        Data1: 238193059
+        Data2: 1180740811
+        Data3: -437389653
+        Data4: -754381675
+      Path: event:/SFX/Notification
+  - key: shred
+    value:
+      Guid:
+        Data1: 170150370
+        Data2: 1298000210
+        Data3: 1730574744
+        Data4: 1506924399
+      Path: event:/SFX/shred

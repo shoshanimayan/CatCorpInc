@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638381681782700003
+  lastModified: 638457088885056866
   FileSizes:
   - Name: Desktop
-    Value: 2314176
+    Value: 4046624
   Exists: 1
 --- !u!114 &-7724066230335818584
 MonoBehaviour:
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638381681782560189
+  lastModified: 638457111708218323
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -67,6 +67,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1000
+--- !u!114 &-6980526952906056857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Talk
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Talk
+  Guid:
+    Data1: 931825967
+    Data2: 1254612096
+    Data3: -260296559
+    Data4: 1971324929
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3848024545537200289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/shred
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/shred
+  Guid:
+    Data1: 170150370
+    Data2: 1298000210
+    Data3: 1730574744
+    Data4: 1506924399
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 762
 --- !u!114 &-3764545492877846952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +163,7 @@ MonoBehaviour:
   Name: MusicState
   StudioPath: 
   Min: 0
-  Max: 1
+  Max: 3
   Default: 0
   ID:
     data1: 2471235594
@@ -119,6 +173,8 @@ MonoBehaviour:
   Labels:
   - song1
   - song2
+  - menu
+  - victory
   Exists: 1
 --- !u!114 &-2348822087898069626
 MonoBehaviour:
@@ -135,10 +191,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638381681782560189
+  lastModified: 638457111708228298
   FileSizes:
   - Name: Desktop
-    Value: 1156
+    Value: 1270
   Exists: 1
 --- !u!114 &-287451829036286413
 MonoBehaviour:
@@ -191,12 +247,15 @@ MonoBehaviour:
   - {fileID: 6012614018620739337}
   - {fileID: 2766754984481112754}
   - {fileID: -287451829036286413}
+  - {fileID: -6980526952906056857}
+  - {fileID: 6643152769629939042}
+  - {fileID: -3848024545537200289}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7724066230335818584}
   StringsBanks:
   - {fileID: -2348822087898069626}
-  cacheTime: 638381681782709990
+  cacheTime: 638457111708716994
   cacheVersion: 131609
 --- !u!114 &2766754984481112754
 MonoBehaviour:
@@ -241,10 +300,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638381681782709990
+  lastModified: 638457111708716994
   FileSizes:
   - Name: Desktop
-    Value: 29824
+    Value: 46784
   Exists: 1
 --- !u!114 &5803748426873731050
 MonoBehaviour:
@@ -261,7 +320,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 638381681782560189
+  lastModified: 638457088862577281
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -288,6 +347,33 @@ MonoBehaviour:
   - {fileID: 5497173414093313933}
   IsStream: 0
   Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6643152769629939042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Notification
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Notification
+  Guid:
+    Data1: 238193059
+    Data2: 1180740811
+    Data3: -437389653
+    Data4: -754381675
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

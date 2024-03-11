@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Audio
 {
-    public enum MusicState {song1,song2 }
+    public enum MusicState {song1,song2,menu, victory }
     public class AudioManagerView : MonoBehaviour, IView
     {
 
@@ -37,9 +37,15 @@ namespace Audio
                 //RuntimeManager.PlayOneShot(_eventReference, worldPos);
                 var instance = RuntimeManager.CreateInstance(_eventReference);
                 _instancesClips.Add(sound, instance);
-                if (worldPos != null)
+                if (worldPos != Vector3.zero)
                 {
                     instance.set3DAttributes(RuntimeUtils.To3DAttributes(worldPos));
+                }
+                else
+                {
+
+                    instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+
                 }
                 instance.start();
                 instance.release();
@@ -62,9 +68,15 @@ namespace Audio
                 //RuntimeManager.PlayOneShot(_eventReference, worldPos);
                 var instance = RuntimeManager.CreateInstance(_eventReference);
                 _instancesClips.Add(sound, instance);
-                if (worldPos != null)
+                if (worldPos != Vector3.zero)
                 {
                     instance.set3DAttributes(RuntimeUtils.To3DAttributes(worldPos));
+                }
+                else
+                {
+
+                    instance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+
                 }
                 instance.start();
 

@@ -10,6 +10,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Signals.Core;
+using Audio;
 
 namespace Managers
 {
@@ -50,10 +51,13 @@ namespace Managers
                     switch (_stateLoading)
                     {
                         case SceneState.Game:
+                        _signalBus.Fire(new TransitionMusicSignal() { musicState = MusicState.song1 });
                         _signalBus.Fire(new StateChangeSignal() { ToState = State.Text });
 
                         break;
                         case SceneState.Menu:
+                        _signalBus.Fire(new TransitionMusicSignal() { musicState = MusicState.menu });
+
                         _signalBus.Fire(new StateChangeSignal() { ToState = State.Menu });
                         break;
                     case SceneState.Test:

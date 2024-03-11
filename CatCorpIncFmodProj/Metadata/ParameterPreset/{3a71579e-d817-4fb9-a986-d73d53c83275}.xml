@@ -16,11 +16,13 @@
 			<value>2</value>
 		</property>
 		<property name="maximum">
-			<value>2</value>
+			<value>4</value>
 		</property>
 		<property name="enumerationLabels">
 			<value>song1</value>
 			<value>song2</value>
+			<value>menu</value>
+			<value>victory</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>

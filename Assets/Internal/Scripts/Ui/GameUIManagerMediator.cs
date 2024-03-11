@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using Signals.Core;
 using Managers;
 using Signals.Game;
+using Audio;
 
 namespace Ui
 {
@@ -29,6 +30,9 @@ namespace Ui
 
         private void OnEndedGame()
         {
+            _signalBus.Fire(new PlayMusicSignal() { });
+            _signalBus.Fire(new TransitionMusicSignal() { musicState = MusicState.victory });
+
             _view.OnEnd();
         }
         ///  PUBLIC API                ///

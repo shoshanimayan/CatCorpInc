@@ -15,7 +15,7 @@ namespace Audio
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-
+		
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
@@ -40,12 +40,12 @@ namespace Audio
 		}
 
 
-		private void OnPlayMusic(string song)
+		private void OnPlayMusic(string song=null)
 		{ 
 			_view.PlayMusic(song);
 		}
 
-        private void OnPauseMusic(string song)
+        private void OnPauseMusic(string song=null)
         {
             _view.PauseMusic(song);
         }
@@ -63,7 +63,10 @@ namespace Audio
 					_view.PauseMusic();
 					break;
 				default:
-					_view.PlayMusic();
+					if (!_gameSettings.GetEnded())
+					{
+						_view.PlayMusic();
+					}
 					break;
 			
 			}
@@ -77,7 +80,10 @@ namespace Audio
 
 		private SignalBus _signalBus;
 
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+        [Inject] private GameSettings _gameSettings;
+
+
+        readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
@@ -100,6 +106,8 @@ namespace Audio
 
             _signalBus.GetStream<TransitionMusicSignal>()
                             .Subscribe(x => OnTransitionMusic(x.musicState)).AddTo(_disposables);
+            _signalBus.GetStream<EndingGameSignal>()
+        .Subscribe(x => OnPauseMusic()).AddTo(_disposables);
         }
 
 		public void Dispose()
