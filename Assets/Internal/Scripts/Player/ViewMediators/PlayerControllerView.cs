@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 
 namespace Player
 {
@@ -29,6 +30,7 @@ namespace Player
         private Transform _cameraTransform;
         private PlayerControllerMediator _mediator;
         private bool _sprinting;
+        private bool _colliding;
 
         private float _originalHeadHeight;
         private bool _crouching;
@@ -71,6 +73,52 @@ namespace Player
 
             }
         }
+
+        /*
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (hit.collider.gameObject.tag != "floor")
+            {
+                _colliding = true;
+            }
+        }
+
+
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log(collision.gameObject.name);
+            if (collision.collider.gameObject.tag != "floor")
+            {
+                _colliding = true;
+            }
+        }
+
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.collider.gameObject.tag != "floor")
+            { 
+                _colliding = false;
+            }
+        }
+        */
+
+        private void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            CollisionFlags collFlags = _controller.collisionFlags;
+            if (collFlags.HasFlag(CollisionFlags.Sides))
+            {
+                //Debug.Log("OnCollisionEnter(): WE GOT SIDES COLLISION FLAGS!");
+                _colliding = true;
+            }
+
+            else
+            { _colliding = false; }
+
+
+        }
+    
 
         private void Update()
         {
@@ -131,7 +179,13 @@ namespace Player
                     _playerVelocity.y += _gravityValue * Time.deltaTime;
                     _controller.Move(_playerVelocity * Time.deltaTime);
                     var state = WalkState.None;
-                    if (move.magnitude > 0 && _groundedPlayer)
+                    if (_controller.collisionFlags == CollisionFlags.None)
+                    {
+                        _colliding = true;
+                    }
+                    
+
+                    if (move.magnitude > 0 && _groundedPlayer &&!_colliding)
                     {
                         if (_sprinting)
                         {

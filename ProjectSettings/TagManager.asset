@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coffee
   - interactable
+  - floor
   layers:
   - Default
   - TransparentFX
