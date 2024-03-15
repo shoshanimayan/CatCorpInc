@@ -1,5 +1,5 @@
 {
   "Type": "Read",
   "Name": "",
-  "Content": "This is the test scene, and this is the test intro text. click the mouse to continue text \nWASD to move, move the mouse to look around, left click to shoot, press E when the crosshair is green to interact with objects or NPCS, press Q to open the objectives menu."
+  "Content": "Welcome to your first day of being an intern at Cat Corp Inc, the world famous cat conglomerate. click the mouse to proceed through text \npress WASD to move, and shift to run.\nmove the mouse to look around, press E when the crosshair is green to interact with objects or people.\npress Q to open the objectives menu and press ESC to pause."
 }
