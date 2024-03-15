@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9198098536986962769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Speaker
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Speaker
+  Guid:
+    Data1: 543774813
+    Data2: 1120781849
+    Data3: 1441659297
+    Data4: 1964681044
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-9103239461713834411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +62,7 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638457111708218323
+  lastModified: 638459742028339545
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -94,33 +121,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3848024545537200289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/shred
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/shred
-  Guid:
-    Data1: 170150370
-    Data2: 1298000210
-    Data3: 1730574744
-    Data4: 1506924399
-  Banks:
-  - {fileID: 5497173414093313933}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 762
 --- !u!114 &-3764545492877846952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,10 +191,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638457111708228298
+  lastModified: 638459742028349521
   FileSizes:
   - Name: Desktop
-    Value: 1270
+    Value: 1320
   Exists: 1
 --- !u!114 &-287451829036286413
 MonoBehaviour:
@@ -249,13 +249,14 @@ MonoBehaviour:
   - {fileID: -287451829036286413}
   - {fileID: -6980526952906056857}
   - {fileID: 6643152769629939042}
-  - {fileID: -3848024545537200289}
+  - {fileID: -9198098536986962769}
+  - {fileID: 5425646607355550038}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7724066230335818584}
   StringsBanks:
   - {fileID: -2348822087898069626}
-  cacheTime: 638457111708716994
+  cacheTime: 638459742030896728
   cacheVersion: 131609
 --- !u!114 &2766754984481112754
 MonoBehaviour:
@@ -285,6 +286,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5425646607355550038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Shred
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Shred
+  Guid:
+    Data1: 170150370
+    Data2: 1298000210
+    Data3: 1730574744
+    Data4: 1506924399
+  Banks:
+  - {fileID: 5497173414093313933}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 762
 --- !u!114 &5497173414093313933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,10 +328,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638457111708716994
+  lastModified: 638459742030896728
   FileSizes:
   - Name: Desktop
-    Value: 46784
+    Value: 49824
   Exists: 1
 --- !u!114 &5803748426873731050
 MonoBehaviour:

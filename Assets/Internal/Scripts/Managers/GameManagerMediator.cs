@@ -24,6 +24,8 @@ namespace Managers
 		private void EndingGame()
 		{
             _signalBus.Fire(new SendTextStepSignal() { TextStep = _view.Outro, CameraFocus = _view.Camera });
+            _signalBus.Fire(new PlayOneShotSignal() { ClipName = "speaker" });
+
 
         }
         private void SendStorage()

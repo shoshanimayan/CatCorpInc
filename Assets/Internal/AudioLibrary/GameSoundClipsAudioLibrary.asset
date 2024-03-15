@@ -69,3 +69,11 @@ MonoBehaviour:
         Data3: 1730574744
         Data4: 1506924399
       Path: event:/SFX/shred
+  - key: speaker
+    value:
+      Guid:
+        Data1: 543774813
+        Data2: 1120781849
+        Data3: 1441659297
+        Data4: 1964681044
+      Path: event:/SFX/Speaker
