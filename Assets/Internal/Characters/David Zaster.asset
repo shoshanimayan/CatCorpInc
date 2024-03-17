@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201df26aeea96ee45a4ad0c29c8430ad, type: 3}
+  m_Name: David Zaster
+  m_EditorClassIdentifier: 
+  Name: David Zaster
+  IsBoss: 0
+  Steps:
+  - {fileID: 11400000, guid: 5ebfd1a230b9f9c4cb4882a5ca2804ac, type: 2}
+  - {fileID: 11400000, guid: c51a01f1592f28a4298ba772d1d81691, type: 2}
+  - {fileID: 11400000, guid: 681e05a5a9f3c0c4c930405fa37e8df2, type: 2}

@@ -33,7 +33,9 @@ namespace Ui
 
         private void OnObjectiveCountUpdated(Objective objective, int total, int current)
         {
-			_view.UpdateObjectiveCountUI(objective, total, current);
+			
+
+            _view.UpdateObjectiveCountUI(objective, total, current);
 
         }
 

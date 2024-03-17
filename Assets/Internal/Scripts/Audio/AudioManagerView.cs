@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Audio
 {
-    public enum MusicState {song1,song2,menu, victory }
+    public enum MusicState {song1,song2,menu, victory,Null }
     public class AudioManagerView : MonoBehaviour, IView
     {
 
@@ -25,7 +25,7 @@ namespace Audio
         ///  PRIVATE METHODS           ///
         private void Start()
         {
-            PlayMusic(_audioLibraryMusic.GetAtIndex(0).key);
+            PlayMusic(_audioLibraryMusic.GetAtIndex(0).key,MusicState.menu);
         }
         ///  PUBLIC API                ///
         public void PlayOneShot(string sound, Vector3 worldPos)
@@ -108,7 +108,7 @@ namespace Audio
 
         }
 
-        public void PlayMusic(string sound=null)
+        public void PlayMusic(string sound=null, MusicState state=MusicState.Null)
         {
             if (sound == null)
             {
@@ -122,9 +122,12 @@ namespace Audio
                     //RuntimeManager.PlayOneShot(_eventReference, worldPos);
                     var instance = RuntimeManager.CreateInstance(_eventReference);
                     _instancesMusic.Add(sound, instance);
-                  //  instance.set3DAttributes(RuntimeUtils.To3DAttributes());
+                    //  instance.set3DAttributes(RuntimeUtils.To3DAttributes());
+                    if (state != MusicState.Null)
+                    { 
+                        instance.setParameterByName(_musicTransitionParameter, (float)state);
+                    }
                     instance.start();
-
 
                 }
                 else
@@ -135,7 +138,6 @@ namespace Audio
             else
             {
                 _instancesMusic[sound].setPaused(false);
-
             }
         }
 
@@ -147,9 +149,7 @@ namespace Audio
             }
             if (_instancesMusic.ContainsKey(sound))
             {
-
                 _instancesMusic[sound].setPaused(true);
-
 
             }
         }
@@ -158,8 +158,6 @@ namespace Audio
         {
             string key = _instancesMusic.Keys.ElementAt(0);
             _instancesMusic[key].setParameterByName(_musicTransitionParameter, (float)musicState);
-
-
 
         }
 

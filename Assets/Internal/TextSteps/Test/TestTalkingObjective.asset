@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
   m_Name: TestTalkingObjective
   m_EditorClassIdentifier: 
-  _json: {fileID: 4900000, guid: c79f39d9d715982459704bac10061ecf, type: 3}
+  _json: {fileID: 4900000, guid: 7ec1be52f2a2c1a479093978dca5c691, type: 3}
   _startNextEntryOnCompletion: 0
   _completeGoalOnCompletion: 1
   _addGoal: 0

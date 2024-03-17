@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201df26aeea96ee45a4ad0c29c8430ad, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  Name: Boss
+  Name: Big Boss Cat
   IsBoss: 1
   Steps:
   - {fileID: 11400000, guid: b5be57ff4c16a674991fdf1ad6567230, type: 2}

@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: CatCorpIncFmodProj/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638457088885056866
+  lastModified: 638462295782584295
   FileSizes:
   - Name: Desktop
-    Value: 4046624
+    Value: 3095424
   Exists: 1
 --- !u!114 &-7724066230335818584
 MonoBehaviour:
@@ -256,7 +256,7 @@ MonoBehaviour:
   - {fileID: -7724066230335818584}
   StringsBanks:
   - {fileID: -2348822087898069626}
-  cacheTime: 638459742030896728
+  cacheTime: 638462295782584295
   cacheVersion: 131609
 --- !u!114 &2766754984481112754
 MonoBehaviour:

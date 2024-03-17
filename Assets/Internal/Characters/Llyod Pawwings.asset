@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 201df26aeea96ee45a4ad0c29c8430ad, type: 3}
+  m_Name: Llyod Pawwings
+  m_EditorClassIdentifier: 
+  Name: Llyod Pawwings
+  IsBoss: 0
+  Steps:
+  - {fileID: 11400000, guid: 20dbdb4bda4c22d40bcbaa55da21c91e, type: 2}
+  - {fileID: 11400000, guid: 5908467be06fcae4c9c84328709f2d2f, type: 2}
+  - {fileID: 11400000, guid: af8d9b7ada04f6c4fb32959cd59f36c7, type: 2}
