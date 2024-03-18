@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a51b739177f6904a85d487dd87feff8, type: 3}
-  m_Name: TestChoiceResponse1
+  m_Name: DavidPost
   m_EditorClassIdentifier: 
-  _json: {fileID: 4900000, guid: c6e4edc9b0c3bee4cbf68f1de5fa3d29, type: 3}
+  _json: {fileID: 4900000, guid: 954ed7745d7e96543bb834b404f79d4e, type: 3}
   _startNextEntryOnCompletion: 0
-  _completeGoalOnCompletion: 1
+  _completeGoalOnCompletion: 0
   _addGoal: 0
   _needsCollectable: 0
   _waitingForAnotherConversation: 0
   _unblocksConversation: 0
   _multipleChoice: 0
   _startsEvent: 0
-  Objective: {fileID: 11400000, guid: bc3c5d12108fc9143967b941e01398bd, type: 2}
+  Objective: {fileID: 0}
   ObjectiveToAdd: []
   UnblockStep: {fileID: 0}
   CollectableKey: 0
@@ -29,4 +29,3 @@ MonoBehaviour:
   ActivateTimer: 0
   DeactivateTimer: 0
   EndsGame: 0
-  GoToLastStep: 1

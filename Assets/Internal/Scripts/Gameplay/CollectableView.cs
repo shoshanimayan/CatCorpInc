@@ -61,6 +61,11 @@ namespace Gameplay
 
         }
 
+        public void JumpToLastStep()
+        {
+            _currentStep = _steps.Length - 1;
+        }
+
         public void IncrementStepByValue(int increment)
         {
            // _cam.enabled = false;

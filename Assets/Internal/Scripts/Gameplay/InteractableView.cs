@@ -81,6 +81,10 @@ namespace Gameplay
         {
         }
 
+        public void JumpToLastStep()
+        {
+        }
+
         public void Initializer(InteractableMediator mediator)
         { 
             _mediator= mediator;

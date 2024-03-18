@@ -113,6 +113,14 @@ namespace Gameplay
 
                 }
 
+				if (_step.GoToLastStep)
+				{
+					if (_origin != null)
+					{
+						_origin.JumpToLastStep();
+					}
+				}
+
 
              
 

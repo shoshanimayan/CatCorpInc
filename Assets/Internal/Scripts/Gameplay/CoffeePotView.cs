@@ -42,6 +42,11 @@ namespace Gameplay
             OutlineEnable();
         }
 
+        public void JumpToLastStep()
+        {
+            _currentStep = _steps.Length - 1;
+        }
+
         public void IncrementStep()
         {
             _mediator.ActivateCoffee();

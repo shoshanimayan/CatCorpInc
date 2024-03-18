@@ -10,6 +10,7 @@ using Signals.Game;
 using Signals.Core;
 using Managers;
 using DG.Tweening;
+using Gameplay;
 
 namespace NPC
 {
@@ -44,6 +45,8 @@ namespace NPC
                 _view.ForceIncrementStep();
             }
         }
+
+        
 
         private void UnblockStep(TextStep step)
         {

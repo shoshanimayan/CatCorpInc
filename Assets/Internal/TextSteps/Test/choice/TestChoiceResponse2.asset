@@ -15,9 +15,18 @@ MonoBehaviour:
   _json: {fileID: 4900000, guid: 8ede9367b6234074eb164a10ee178f4c, type: 3}
   _startNextEntryOnCompletion: 0
   _completeGoalOnCompletion: 1
+  _addGoal: 0
   _needsCollectable: 0
-  _waitingForAnotherConversation: 1
+  _waitingForAnotherConversation: 0
   _unblocksConversation: 0
   _multipleChoice: 0
+  _startsEvent: 0
   Objective: {fileID: 11400000, guid: bc3c5d12108fc9143967b941e01398bd, type: 2}
+  ObjectiveToAdd: []
   UnblockStep: {fileID: 0}
+  CollectableKey: 0
+  EventKey: 0
+  ActivateTimer: 0
+  DeactivateTimer: 0
+  EndsGame: 0
+  GoToLastStep: 1

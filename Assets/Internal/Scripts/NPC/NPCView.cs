@@ -194,6 +194,11 @@ namespace NPC
             }
         }
 
+        public void JumpToLastStep()
+        { 
+            _currentStep= _steps.Length - 1;
+        }
+
         public void HideSymbol()
         {
             _symbolCanvas.enabled = false;

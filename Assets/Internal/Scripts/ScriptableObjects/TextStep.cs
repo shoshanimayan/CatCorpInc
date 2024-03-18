@@ -22,7 +22,6 @@ namespace ScriptableObjects
         [SerializeField] private bool _multipleChoice;
         [SerializeField] private bool _startsEvent;
 
-
         ///  PRIVATE VARIABLES         ///
         private TextStep _nextStep;
         ///  PRIVATE METHODS           ///
@@ -62,6 +61,7 @@ namespace ScriptableObjects
         public bool ActivateTimer;
         public bool DeactivateTimer;
         public bool EndsGame;
+        public bool GoToLastStep;
 
 
         public TextAsset Json { get { return _json; } }

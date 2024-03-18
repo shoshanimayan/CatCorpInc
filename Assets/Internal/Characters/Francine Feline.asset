@@ -16,3 +16,4 @@ MonoBehaviour:
   IsBoss: 0
   Steps:
   - {fileID: 11400000, guid: 255bf3d8dddb04b40819f9bca7df473a, type: 2}
+  - {fileID: 11400000, guid: f9ee2f44a83160740b0e63426d159cef, type: 2}

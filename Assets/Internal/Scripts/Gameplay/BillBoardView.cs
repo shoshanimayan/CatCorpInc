@@ -52,6 +52,10 @@ namespace Gameplay
         }
 
         ///  PUBLIC API                ///
+        public void JumpToLastStep()
+        {
+            _currentStep = _steps.Length - 1;
+        }
 
         public bool Interacted
         {

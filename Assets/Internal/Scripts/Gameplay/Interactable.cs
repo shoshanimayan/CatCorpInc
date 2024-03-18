@@ -26,6 +26,9 @@ namespace Gameplay
 
         public void IncrementStepByValue(int increment);
 
+        public void JumpToLastStep();
+        
+
         bool Interacted
         {
             get;
