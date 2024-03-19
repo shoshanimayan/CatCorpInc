@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fcb9c2f6-459d-4b1f-9fc2-a5d50dc2bfc9}">
+		<property name="assetPath">
+			<value>Music/Cat_Corp._-_Gameplay_Music_2.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>62.301749999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a4b62c8c-42a5-4c93-9392-2b0284c3aed8}</destination>
+		</relationship>
+	</object>
+</objects>
