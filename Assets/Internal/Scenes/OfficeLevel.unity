@@ -18293,7 +18293,7 @@ PrefabInstance:
     - target: {fileID: 945914334707263376, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
       propertyPath: m_Name
-      value: NPC6 (1)
+      value: NPC7
       objectReference: {fileID: 0}
     - target: {fileID: 945914334707263379, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
@@ -38190,6 +38190,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 16ffe99da7198b141be5d2d3d0d209f8,
         type: 2}
+    - target: {fileID: 945914334707263389, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 945914334707263391, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
       propertyPath: m_RootOrder
