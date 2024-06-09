@@ -19846,7 +19846,7 @@ PrefabInstance:
     - target: {fileID: 2867753974214142576, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.372
+      value: 0.577
       objectReference: {fileID: 0}
     - target: {fileID: 6328725781025465607, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
@@ -19855,8 +19855,18 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 90540c5418ab0f549ae6c57f01de6442, type: 3}
     - target: {fileID: 8455901306164386077, guid: d3b1b49c0250e6d479994c5dcaaab427,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455901306164386077, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8455901306164386077, guid: d3b1b49c0250e6d479994c5dcaaab427,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.361
+      value: -0.248
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3b1b49c0250e6d479994c5dcaaab427, type: 3}
@@ -59596,7 +59606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _closedY: 0
-  _openY: 90
+  _openY: 0
   _openDoor: 0
   _eventKey: 1
 --- !u!114 &6015639816528761847
