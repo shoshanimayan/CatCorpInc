@@ -175,8 +175,9 @@ namespace Gameplay
 			_endingStored = false;
             _signalBus.Fire(new StateChangeSignal() { ToState= State.Text});
             TextEntry entry = JsonUtility.FromJson<TextEntry>(_step.Json.text);
-
-            entry.Content=entry.Content.Replace("\n","<page>");
+			if (entry.Type != "Dragging") {
+				entry.Content = entry.Content.Replace("\n", "<page>");
+			}
 			if (_cam)
 			{
 				_cam.enabled = true;
