@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c7938270066246b9e7a544f191a6b, type: 3}
   m_Name: testTalk
   m_EditorClassIdentifier: 
-  _name: Talk To Yellow
-  _description: talk to the Yellow NPC
+  _name: Talk To Francine Feline
+  _description: talk to the Francine Feline
+  _hasCount: 0
+  Total: 0
+  CurrentCount: 0

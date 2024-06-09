@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c7938270066246b9e7a544f191a6b, type: 3}
   m_Name: testDrag
   m_EditorClassIdentifier: 
-  _name: Help Orange
-  _description: help the Orange NPC destroy evidence
+  _name: Help David Zaster
+  _description: help the David Zaster destroy evidence
   _hasCount: 0
   Total: 0
   CurrentCount: 0

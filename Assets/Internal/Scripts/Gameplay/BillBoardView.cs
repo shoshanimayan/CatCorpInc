@@ -75,7 +75,7 @@ namespace Gameplay
 
         public void EnableBillBoard(bool enable)
         { 
-        _billBoardCanvas.enabled |= enable;
+        _billBoardCanvas.enabled = enable;
         }
 
         public void DoInteraction()

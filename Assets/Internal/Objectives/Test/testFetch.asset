@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c7938270066246b9e7a544f191a6b, type: 3}
   m_Name: testFetch
   m_EditorClassIdentifier: 
-  _name: Help Red NPC
-  _description: talk to the the Red NPC to see how to help them
+  _name: Help Tabitha Mittens
+  _description: talk to Tabitha Mittens to see how to help her
+  _hasCount: 0
+  Total: 0
+  CurrentCount: 0

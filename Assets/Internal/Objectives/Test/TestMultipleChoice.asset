@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c7938270066246b9e7a544f191a6b, type: 3}
   m_Name: TestMultipleChoice
   m_EditorClassIdentifier: 
-  _name: Do a multiple choice question
-  _description: talk to the purple npc and answer their question
+  _name: Help Nigel Catsburg
+  _description: talk to the Nigel Catsburg
+  _hasCount: 0
+  Total: 0
+  CurrentCount: 0

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f8c7938270066246b9e7a544f191a6b, type: 3}
   m_Name: testType
   m_EditorClassIdentifier: 
-  _name: Write something for the pink npc
-  _description: The pink npc needs you to write some text for him
+  _name: ' Help Mark Kitten'
+  _description: Talk to Mark Kitten
   _hasCount: 0
   Total: 0
   CurrentCount: 0
