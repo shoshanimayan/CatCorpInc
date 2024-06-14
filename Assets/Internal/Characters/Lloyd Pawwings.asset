@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201df26aeea96ee45a4ad0c29c8430ad, type: 3}
-  m_Name: Llyod Pawwings
+  m_Name: Lloyd Pawwings
   m_EditorClassIdentifier: 
-  Name: Llyod Pawwings
+  Name: Lloyd Pawwings
   IsBoss: 0
   Steps:
   - {fileID: 11400000, guid: 20dbdb4bda4c22d40bcbaa55da21c91e, type: 2}
